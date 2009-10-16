@@ -513,6 +513,9 @@ int dt_imageio_open_raw(dt_image_t *img, const char *filename)
   raw->params.user_flip = -1;
   raw->params.gamm[0] = 1.0;
   raw->params.gamm[1] = 1.0;
+  raw->params.document_mode = 1; // -d, scaling, but no debayer.
+
+#if 0
   // TODO: make this user choosable.
   if(img->shrink) raw->params.user_qual = 0; // linear
   else            raw->params.user_qual = 3; // AHD
@@ -521,6 +524,7 @@ int dt_imageio_open_raw(dt_image_t *img, const char *filename)
   // TODO: let this unclipped for develop, clip for preview.
   raw->params.highlight = 0; //0 clip, 1 unclip, 2 blend, 3+ rebuild
   // img->raw->params.user_flip = img->raw->sizes.flip;
+#endif
   ret = libraw_open_file(raw, filename);
   HANDLE_ERRORS(ret, 0);
   if(raw->idata.dng_version || (raw->sizes.width <= 1200 && raw->sizes.height <= 800))
@@ -562,8 +566,17 @@ int dt_imageio_open_raw(dt_image_t *img, const char *filename)
   }
   dt_image_check_buffer(img, DT_IMAGE_FULL, 3*(img->width>>img->shrink)*(img->height>>img->shrink)*sizeof(float));
   const float m = 1./0xffff;
+  // TODO: use FC to access color channel and demosaic it..?
+  //       int FC(int row,int col) { return (imgdata.idata.filters >> ((((row) << 1 & 14) + ((col) & 1)) << 1) & 3);}
+  // TODO: demosaic iop_module (for region-only processing) 
+  // TODO: special behaviour for preview pipeline (create mipf with full buffer 4-col interpolated here)
+  // TODO: dt_image_t special tag: filters/needs interpolation at all etc.
+  // TODO: test with XYZ dng (no debayer necessary)
+  // TODO: input color processing module (=> temperature -> input wb/color preprocess?)
+  //       subtract raw black level, process dead pixels, process black frame, apply camera matrix?
+  //       or move camera matrix to colorin?
 // #pragma omp parallel for schedule(static) shared(img, image)
-  for(int k=0;k<3*(img->width>>img->shrink)*(img->height>>img->shrink);k++) img->pixels[k] = ((uint16_t *)(image->data))[k]*m;
+  for(int k=0;k<3*(img->width>>img->shrink)*(img->height>>img->shrink);k++) img->pixels[k] = ((uint16_t *)(image->data))[k/3]*m;
   // clean up raw stuff.
   libraw_recycle(raw);
   libraw_close(raw);

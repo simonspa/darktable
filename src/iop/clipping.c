@@ -373,3 +373,10 @@ void gui_post_expose(struct dt_iop_module_t *self, cairo_t *cr, int32_t width, i
 // - set clip to zoom_x ..
 // - drag rotation angle
 // synch with gui
+#if 0
+void mouse_moved(dt_view_t *self, double x, double y, int which)
+{
+  dt_develop_t *dev = (dt_develop_t *)self->data;
+  if(darktable.control->button_down && darktable.control->button_down_which == 2);
+}
+#endif
