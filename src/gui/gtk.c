@@ -572,6 +572,12 @@ history_button_clicked (GtkWidget *widget, gpointer user_data)
 }
 
 void
+capture_button_clicked (GtkWidget *widget, gpointer user_data)
+{
+	dt_ctl_switch_mode_to(DT_CAPTURE);
+}
+
+void
 import_button_clicked (GtkWidget *widget, gpointer user_data)
 {
   GtkWidget *win = glade_xml_get_widget (darktable.gui->main_window, "main_window");
@@ -853,7 +859,12 @@ dt_gui_gtk_init(dt_gui_gtk_t *gui, int argc, char *argv[])
     }
   }
 
+  
   /* connect the signals in the interface */
+  widget = glade_xml_get_widget (darktable.gui->main_window, "capture_import");
+  g_signal_connect (G_OBJECT (capture), "clicked",
+                    G_CALLBACK (capture_button_clicked),
+                    NULL);
 
   widget = glade_xml_get_widget (darktable.gui->main_window, "button_import");
   g_signal_connect (G_OBJECT (widget), "clicked",
