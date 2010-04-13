@@ -70,6 +70,17 @@ const char *name(dt_view_t *self)
   return _("capture");
 }
 
+static void capture_view_switch_callback(void *p)
+{
+  //dt_view_t *self=(dt_view_t*)p;
+ // dt_capture_t *lib=(dt_capture_t*)self->data;
+  dt_ctl_gui_mode_t oldmode = dt_conf_get_int("ui_last/view");
+  if(oldmode==DT_CAPTURE)
+    dt_ctl_switch_mode_to( DT_LIBRARY );
+  else
+    dt_ctl_switch_mode_to( DT_CAPTURE );
+}
+
 void init(dt_view_t *self)
 {
   self->data = malloc(sizeof(dt_capture_t));
@@ -77,6 +88,9 @@ void init(dt_view_t *self)
   // initialize capture data struct
   const int i = dt_conf_get_int("plugins/capture/mode");
   lib->mode = i;
+  
+  
+  
 }
 
 void cleanup(dt_view_t *self)
@@ -109,6 +123,9 @@ void enter(dt_view_t *self)
 {
   // add expanders
   GtkBox *box = GTK_BOX(glade_xml_get_widget (darktable.gui->main_window, "plugins_vbox"));
+  
+  dt_gui_key_accel_register(0,GDK_c,capture_view_switch_callback,(void *)self);
+  
   /*GList *modules = g_list_last(darktable.lib->plugins);
   while(modules)
   {
@@ -154,6 +171,7 @@ void enter(dt_view_t *self)
 void leave(dt_view_t *self)
 {
  // dt_gui_key_accel_unregister(star_key_accel_callback);
+  dt_gui_key_accel_unregister(capture_view_switch_callback);
   /*GList *it = darktable.lib->plugins;
   while(it)
   {
