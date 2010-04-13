@@ -31,12 +31,28 @@ void dt_view_manager_init(dt_view_manager_t *vm)
 {
   vm->num_views = 0;
   // TODO: load all in directory?
-  int k = -1;
+  int res=0,midx=0;
+  char *modules[]={"darkroom","lighttable","capture",NULL};
+  char *module=modules[midx];
+  do 
+  {
+    if((res=dt_view_manager_load_module(vm, module))<0) fprintf(stderr,"Failed to load view module '%s'\n",module);
+    else
+    { // Module loaded lets handle specific cases
+      if(strcmp(module,"darkroom")==0) 
+        darktable.develop = (dt_develop_t *)vm->view[res].data;
+      /*else if(strcmp(module,"lighttable")==0) 
+        vm->current_view=res;*/
+    }
+  } while((module=(modules[++midx]))!=NULL);
+  vm->current_view=-1;
+  
+  /*int k = -1;
   k = dt_view_manager_load_module(vm, "darkroom");
   // FIXME: this is global for plugins etc.
   if(k >= 0) darktable.develop = (dt_develop_t *)vm->view[k].data;
   vm->current_view = dt_view_manager_load_module(vm, "lighttable");
-  vm->current_view = -1;
+  vm->current_view = -1;*/
 }
 
 void dt_view_manager_cleanup(dt_view_manager_t *vm)
