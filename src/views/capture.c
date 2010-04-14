@@ -81,13 +81,6 @@ typedef struct dt_capture_t
 }
 dt_capture_t;
 
-void dt_capture_do_capture(dt_capture_t *c) {
-  // capture from current source
-  char *filename="";
-  // signal callback to load image into capture view.
-  id = dt_film_import(filename);
-      
-}
 
 const char *name(dt_view_t *self)
 {
