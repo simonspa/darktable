@@ -58,12 +58,36 @@ typedef enum dt_capture_mode_t
 }
 dt_capture_mode_t;
 
+typedef struct dt_capture_gui_t
+{
+  GtkWidget *thumbnails;
+}
+dt_capture_gui_t;
+
+/** Identifies a session that equals a directory named
+ after session creation time used as a filmroll. */
+typedef struct dt_capture_session_t
+{
+  dt_film_t *film;
+}
+dt_capture_session_t;
+
 /** data for the capture view */
 typedef struct dt_capture_t
 {
   dt_capture_mode_t mode;
+  dt_capture_gui_t gui;
+  dt_capture_session_t *session;
 }
 dt_capture_t;
+
+void dt_capture_do_capture(dt_capture_t *c) {
+  // capture from current source
+  char *filename="";
+  // signal callback to load image into capture view.
+  id = dt_film_import(filename);
+      
+}
 
 const char *name(dt_view_t *self)
 {
@@ -88,9 +112,7 @@ void init(dt_view_t *self)
   // initialize capture data struct
   const int i = dt_conf_get_int("plugins/capture/mode");
   lib->mode = i;
-  
-  
-  
+  lib->gui.thumbnails=NULL;
 }
 
 void cleanup(dt_view_t *self)
@@ -121,22 +143,27 @@ void expose(dt_view_t *self, cairo_t *cr, int32_t width, int32_t height, int32_t
 
 void enter(dt_view_t *self)
 {
+  dt_capture_t *lib = (dt_capture_t *)self->data;
+
   // add expanders
   GtkBox *box = GTK_BOX(glade_xml_get_widget (darktable.gui->main_window, "plugins_vbox"));
+   
+  // adjust gui:
+  GtkWidget *widget;
+  //gtk_widget_set_visible(widget, TRUE);
+  widget = glade_xml_get_widget (darktable.gui->main_window, "histogram_expander");
+  gtk_widget_set_visible(widget, TRUE);
+  widget = glade_xml_get_widget (darktable.gui->main_window, "tophbox");
+  gtk_widget_set_visible(widget, FALSE);
+  widget = glade_xml_get_widget (darktable.gui->main_window, "bottom_darkroom_box");
+  gtk_widget_set_visible(widget, FALSE);
+  widget = glade_xml_get_widget (darktable.gui->main_window, "bottom_lighttable_box");
+  gtk_widget_set_visible(widget, FALSE);
+  widget = glade_xml_get_widget (darktable.gui->main_window, "library_eventbox");
+  gtk_widget_set_visible(widget, FALSE);
+  widget = glade_xml_get_widget (darktable.gui->main_window, "module_list_eventbox");
+  gtk_widget_set_visible(widget, FALSE);
   
-  dt_gui_key_accel_register(0,GDK_c,capture_view_switch_callback,(void *)self);
-  
-  /*GList *modules = g_list_last(darktable.lib->plugins);
-  while(modules)
-  {
-    dt_lib_module_t *module = (dt_lib_module_t *)(modules->data);
-    module->gui_init(module);
-    // add the widget created by gui_init to an expander and both to list.
-    GtkWidget *expander = dt_lib_gui_get_expander(module);
-    gtk_box_pack_start(box, expander, FALSE, FALSE, 0);
-    modules = g_list_previous(modules);
-  }*/
-
   // end marker widget:
   GtkWidget *endmarker = gtk_drawing_area_new();
   gtk_widget_set_size_request(GTK_WIDGET(endmarker), 250, 50);
@@ -144,44 +171,27 @@ void enter(dt_view_t *self)
   g_signal_connect (G_OBJECT (endmarker), "expose-event",
                     G_CALLBACK (dt_control_expose_endmarker), 0);
 
+
+  // Inject thumbnail preview
+  if( lib->gui.thumbnails == NULL ) {
+    lib->gui.thumbnails=gtk_hbox_new(TRUE,5);
+    gtk_widget_set_size_request(GTK_WIDGET(lib->gui.thumbnails),-0,120);
+    widget = glade_xml_get_widget (darktable.gui->main_window, "vbox2");
+    gtk_box_pack_start(GTK_BOX(widget),lib->gui.thumbnails,TRUE,TRUE,0);
+  }
+  gtk_widget_show_all( GTK_WIDGET( lib->gui.thumbnails ) );
+  
   gtk_widget_show_all(GTK_WIDGET(box));
 
-  // close expanders
-  /*modules = darktable.lib->plugins;
-  while(modules)
-  {
-    dt_lib_module_t *module = (dt_lib_module_t *)(modules->data);
-    char var[1024];
-    snprintf(var, 1024, "plugins/lighttable/%s/expanded", module->plugin_name);
-    gboolean expanded = dt_conf_get_bool(var);
-    gtk_expander_set_expanded (module->expander, expanded);
-    if(expanded) gtk_widget_show_all(module->widget);
-    else         gtk_widget_hide_all(module->widget);
-    modules = g_list_next(modules);
-  }
-  dt_gui_key_accel_register(GDK_MOD1_MASK, GDK_1, star_key_accel_callback, (void *)DT_LIB_STAR_1);
-  dt_gui_key_accel_register(GDK_MOD1_MASK, GDK_2, star_key_accel_callback, (void *)DT_LIB_STAR_2);
-  dt_gui_key_accel_register(GDK_MOD1_MASK, GDK_3, star_key_accel_callback, (void *)DT_LIB_STAR_3);
-  dt_gui_key_accel_register(GDK_MOD1_MASK, GDK_4, star_key_accel_callback, (void *)DT_LIB_STAR_4);
-  dt_gui_key_accel_register(GDK_CONTROL_MASK, GDK_BackSpace, star_key_accel_callback, (void *)666);*/
-  
+  dt_gui_key_accel_register(0,GDK_c,capture_view_switch_callback,(void *)self);
 }
 
 
 void leave(dt_view_t *self)
 {
- // dt_gui_key_accel_unregister(star_key_accel_callback);
+  dt_capture_t *lib = (dt_capture_t *)self->data;
+  gtk_widget_show_all( GTK_WIDGET( lib->gui.thumbnails ) );
   dt_gui_key_accel_unregister(capture_view_switch_callback);
-  /*GList *it = darktable.lib->plugins;
-  while(it)
-  {
-    dt_lib_module_t *module = (dt_lib_module_t *)(it->data);
-    module->gui_cleanup(module);
-    it = g_list_next(it);
-  }
-  GtkBox *box = GTK_BOX(glade_xml_get_widget (darktable.gui->main_window, "plugins_vbox"));
-  gtk_container_foreach(GTK_CONTAINER(box), (GtkCallback)dt_lib_remove_child, (gpointer)box);*/
-  
 }
 
 void reset(dt_view_t *self)
