@@ -1480,6 +1480,7 @@ int LibRaw::dcraw_process(void)
 
         if ( O.document_mode < 2)
             {
+                pre_interpolate_pca_denoise();
                 scale_colors();
                 SET_PROC_FLAG(LIBRAW_PROGRESS_SCALE_COLORS);
             }

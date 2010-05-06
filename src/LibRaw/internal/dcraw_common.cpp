@@ -3359,6 +3359,8 @@ void CLASS wavelet_denoise()
 
 #endif
 
+#include "pca_denoise.c"
+
 void CLASS pre_interpolate_median_filter()
 {
   if(half_size) return;

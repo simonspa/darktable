@@ -193,6 +193,7 @@ class DllDef LibRaw
     void        subtract(const char*);
     void        hat_transform (float *temp, float *base, int st, int size, int sc);
     void        wavelet_denoise();
+    void        pre_interpolate_pca_denoise();
     void        scale_colors();
     void        median_filter ();
     void        blend_highlights();
