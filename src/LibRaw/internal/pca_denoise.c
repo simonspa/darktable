@@ -12,7 +12,7 @@ void CLASS pre_interpolate_pca_denoise()
   const int pca_k = 34; // size of the training block
   const int pca_s = 6;  // size of the denoise block
   // const int pca_k2 = pca_k/2;
-  const int N = (pca_k-pca_s)/2+1;
+  const int N = (pca_k-pca_s)/2+1; // 15
   const int D = pca_s*pca_s; // dimension of one vector
   const int L = N*N;  // number of training basis functions, 225 for the settings above
   int row, col, k, i, j, ii, jj, ind, ch;
@@ -30,6 +30,7 @@ void CLASS pre_interpolate_pca_denoise()
   {
     for (col=0;col<width-pca_k;col+=2)
     {
+      // 1. get training data
       // get pca_k by pca_k block starting at (col,row), we store the swizzled stuff in X
       float X[L][D];
       float varnx[D];
@@ -41,7 +42,7 @@ void CLASS pre_interpolate_pca_denoise()
         k = 0; // < L
         ch = FC(row+j,col+i);
         // TODO: debug: see only one channel
-        if(ch == 1)
+        if(ch == 1 || ch == 3)
           for(jj=0;jj<N;jj++) for(ii=0;ii<N;ii++) X[k++][ind] = img[width * (row+j+2*jj) + col + i+2*ii][ch];
         else
           for(jj=0;jj<N;jj++) for(ii=0;ii<N;ii++) X[k++][ind] = 0.0f;
@@ -49,18 +50,20 @@ void CLASS pre_interpolate_pca_denoise()
         ind++;
       }
 
-      // TODO: compare this to matlab input data:
-      // for(k=0;k<D;k++) printf("X %d = %f\n", k, X[0][k]);
+      // compare this to matlab input data:
+      // for(k=0;k<L;k++) printf("X %d = %f\n", k, X[k][0]);
 
+      // 2. grouping:
       // FIXME: is this needed at all?
       // TODO: find num most significant elements in X by simple heuristic on deviation from some center element
       const int num = L;
 
-      // make X zero mean (subtract mean over first dimension X[.,L])
-      float Xmean[D] = {0.0};
-      for (k=0;k<D;k++) for(j=0;j<num;j++) Xmean[k] += X[j][k];
-      for (k=0;k<D;k++) Xmean[k] *= (1.0/L);
-      for (k=0;k<D;k++) for(j=0;j<num;j++) X[j][k]  -= Xmean[k];
+      // 3. pca transformation:
+      // make X[num][D] zero mean
+      float Xmean[num] = {0.0};
+      for (k=0;k<num;k++) for(j=0;j<D;j++) Xmean[k] += X[k][j];
+      for (k=0;k<num;k++) Xmean[k] *= (1.0/D);
+      for (k=0;k<num;k++) for(j=0;j<D;j++) X[k][j]  -= Xmean[k];
 
       // for(k=0;k<D;k++) printf("X mean %d = %f\n", k, Xmean[k]);
 
@@ -91,11 +94,12 @@ void CLASS pre_interpolate_pca_denoise()
       {
         for(i=0;i<D;i++)
         {
-          Y[k][j] = 0.0f;
-          for(j=0;j<D;j++) Y[k][i] += v[D*i+j]*X[k][j];
+          Y[k][i] = 0.0f;
+          for(j=0;j<D;j++) Y[k][i] += vt[D*j+i]*X[k][j];
         }
       }
-      // apply bayesian smoothing ( *= c with c = (vy - vn)/vy )
+
+      // TODO: apply bayesian smoothing ( *= c with c = (vy - vn)/vy )
       for(k=0;k<D;k++)
       { // for all dimensions of a basis vector
         // get variance of y: E(Y^2) (zero mean)
@@ -103,21 +107,23 @@ void CLASS pre_interpolate_pca_denoise()
         vary *= 1.0/num;
         varn = 0.0f;
         // TODO: transform var[j] to pca space (including swizzling from L->num decimation)
-        for(j=0;j<D;j++) varn += v[D*j+k] * varnx[j];
+        for(j=0;j<D;j++) varn += vt[D*j+k] * varnx[j];
         c = fmaxf(0.0, vary - varn)/(vary + 0.0001f);
         for(j=0;j<num;j++) Y[j][k] *= c;
       }
 
+      // 4. inverse pca transform
       // TODO: backtransform B = P^t * Y + previously subtracted mean.
       for(k=0;k<L;k++)
       {
         for(i=0;i<D;i++)
         {
-          X[k][j] = 0.0f;
+          X[k][i] = Xmean[i];
           for(j=0;j<D;j++) X[k][i] += vt[D*j+i]*Y[k][j];
         }
       }
 
+      // 5. reshape
       // TODO: copy back the very center 2x2 values (1x all colors) of B
       // image[width*(j-1+pca_k2) + i-1+pca_k2][FC(j-1+pca_k2, i-1+pca_k2)] = 
     }
