@@ -344,12 +344,6 @@ void enter(dt_view_t *self)
 	gtk_widget_set_visible(widget, FALSE);
 	widget = glade_xml_get_widget (darktable.gui->main_window, "devices_expander");
 	gtk_widget_set_visible(widget, FALSE);
-	widget = glade_xml_get_widget (darktable.gui->main_window, "top");
-	gtk_widget_set_visible(widget, TRUE);
-	widget = glade_xml_get_widget (darktable.gui->main_window, "bottom_darkroom_box");
-	gtk_widget_set_visible(widget, FALSE);
-	widget = glade_xml_get_widget (darktable.gui->main_window, "bottom_lighttable_box");
-	gtk_widget_set_visible(widget, FALSE);
 	widget = glade_xml_get_widget (darktable.gui->main_window, "library_eventbox");
 	gtk_widget_set_visible(widget, FALSE);
 	widget = glade_xml_get_widget (darktable.gui->main_window, "module_list_eventbox");
@@ -447,10 +441,6 @@ void leave(dt_view_t *self)
 	gtk_widget_set_visible(widget, FALSE);
 	widget = glade_xml_get_widget (darktable.gui->main_window, "history_eventbox");
 	gtk_widget_set_visible(widget, FALSE);
-	widget = glade_xml_get_widget (darktable.gui->main_window, "bottom_darkroom_box");
-	gtk_widget_set_visible(widget, FALSE);
-	widget = glade_xml_get_widget (darktable.gui->main_window, "bottom_lighttable_box");
-	gtk_widget_set_visible(widget, TRUE);
 	widget = glade_xml_get_widget (darktable.gui->main_window, "library_eventbox");
 	gtk_widget_set_visible(widget, TRUE);
 	widget = glade_xml_get_widget (darktable.gui->main_window, "module_list_eventbox");
@@ -507,130 +497,31 @@ int button_released(dt_view_t *self, double x, double y, int which, uint32_t sta
 
 int button_pressed(dt_view_t *self, double x, double y, int which, int type, uint32_t state)
 {
-	/*dt_library_t *lib = (dt_library_t *)self->data;
-	lib->modifiers = state;
-	lib->button = which;
-	lib->select_offset_x = lib->zoom_x;
-	lib->select_offset_y = lib->zoom_y;
-	lib->select_offset_x += x;
-	lib->select_offset_y += y;
-	lib->pan = 1;
-	if(which == 1) dt_control_change_cursor(GDK_HAND1);
-	if(which == 1 && type == GDK_2BUTTON_PRESS) return 0;
-	// image button pressed?
-	switch(lib->image_over)
-	{
-		case DT_LIB_DESERT: break;
-		case DT_LIB_STAR_1: case DT_LIB_STAR_2: case DT_LIB_STAR_3: case DT_LIB_STAR_4:
-		{ 
-			int32_t mouse_over_id;
-			DT_CTL_GET_GLOBAL(mouse_over_id, lib_image_mouse_over_id);
-			dt_image_t *image = dt_image_cache_get(mouse_over_id, 'r');
-			if(lib->image_over == DT_LIB_STAR_1 && ((image->flags & 0x7) == 1)) image->flags &= ~0x7;
-			else
-			{
-				image->flags &= ~0x7;
-				image->flags |= lib->image_over;
-			}
-			dt_image_cache_flush(image);
-			dt_image_cache_release(image, 'r');
-			break;
-		}
-		default:
-			return 0;
-	}*/
+	
 	return 1;
 }
 
 
 int key_pressed(dt_view_t *self, uint16_t which)
 {
-	/*dt_library_t *lib = (dt_library_t *)self->data;
-	GtkWidget *widget = glade_xml_get_widget (darktable.gui->main_window, "lighttable_zoom_spinbutton");
-	int zoom = dt_conf_get_int("plugins/lighttable/images_in_row");
-	const int layout = dt_conf_get_int("plugins/lighttable/layout");
-	switch (which)
-	{
-		case KEYCODE_Left: case KEYCODE_a:
-			if(layout == 1 && zoom == 1) lib->track = -DT_LIBRARY_MAX_ZOOM;
-			else lib->track = -1;
-			break;
-		case KEYCODE_Right: case KEYCODE_e:
-			if(layout == 1 && zoom == 1) lib->track = DT_LIBRARY_MAX_ZOOM;
-			else lib->track = 1;
-			break;
-		case KEYCODE_Up: case KEYCODE_comma:
-			lib->track = -DT_LIBRARY_MAX_ZOOM;
-			break;
-		case KEYCODE_Down: case KEYCODE_o:
-			lib->track = DT_LIBRARY_MAX_ZOOM;
-			break;
-		case KEYCODE_1:
-			zoom = 1;
-			break;
-		case KEYCODE_2:
-			if(zoom <= 1) zoom = 1;
-			else zoom --;
-			if(layout == 0) lib->center = 1;
-			break;
-		case KEYCODE_3:
-			if(zoom >= 2*DT_LIBRARY_MAX_ZOOM) zoom = 2*DT_LIBRARY_MAX_ZOOM;
-			else zoom ++;
-			if(layout == 0) lib->center = 1;
-			break;
-		case KEYCODE_4:
-			zoom = DT_LIBRARY_MAX_ZOOM;
-			break;
-		case KEYCODE_apostrophe:
-			lib->center = 1;
-			break;
-		default:
-			return 0;
-	}
-	gtk_spin_button_set_value(GTK_SPIN_BUTTON(widget), zoom);*/
+
 	return 1;
 }
 
 void border_scrolled(dt_view_t *view, double x, double y, int which, int up)
 {
 	/*dt_library_t *lib = (dt_library_t *)view->data;
-	if(which == 0 || which == 1)
-	{
-		if(up) lib->track = -DT_LIBRARY_MAX_ZOOM;
-		else   lib->track =  DT_LIBRARY_MAX_ZOOM;
-	}
-	else if(which == 2 || which == 3)
-	{
 		if(up) lib->track = -1;
 		else   lib->track =  1;
-	}*/
+	*/
 	dt_control_queue_draw_all();
 }
 
 void scrolled(dt_view_t *view, double x, double y, int up)
 {
-	/*dt_library_t *lib = (dt_library_t *)view->data;
-	GtkWidget *widget = glade_xml_get_widget (darktable.gui->main_window, "lighttable_zoom_spinbutton");
-	const int layout = dt_conf_get_int("plugins/lighttable/layout");
-	if(layout == 1)
-	{
-		if(up) lib->track = -DT_LIBRARY_MAX_ZOOM;
-		else   lib->track =  DT_LIBRARY_MAX_ZOOM;
-	}
-	else
-	{ // zoom
-		int zoom = dt_conf_get_int("plugins/lighttable/images_in_row");
-		if(up)
-		{
-			zoom--;
-			if(zoom < 1) zoom = 1;
-		}
-		else
-		{
-			zoom++;
-			if(zoom > 2*DT_LIBRARY_MAX_ZOOM) zoom = 2*DT_LIBRARY_MAX_ZOOM;
-		}
-		gtk_spin_button_set_value(GTK_SPIN_BUTTON(widget), zoom);
-	}*/
+	/*
+	if(up) lib->track = -DT_LIBRARY_MAX_ZOOM;
+	else   lib->track =  DT_LIBRARY_MAX_ZOOM;
+	*/
 }
 

@@ -43,12 +43,17 @@
 #include "gui/iop_modulegroups.h"
 #include "gui/devices.h"
 #include "gui/presets.h"
+#include "gui/toolbars.h"
+#include "gui/tools/collection.h"
+#include "gui/tools/lighttable_layout.h"
+#include "gui/tools/colorlabels.h"
+
 #include "control/control.h"
 #include "control/jobs.h"
 #include "control/conf.h"
 #include "views/view.h"
 #include "views/capture.h"
-#include "tool_colorlabels.h"
+
 
 static gboolean
 borders_button_pressed (GtkWidget *w, GdkEventButton *event, gpointer user_data)
@@ -69,11 +74,11 @@ borders_button_pressed (GtkWidget *w, GdkEventButton *event, gpointer user_data)
       break;
     case 2:
       bit = dt_conf_get_int("ui_last/panel_top");
-      widget = glade_xml_get_widget (darktable.gui->main_window, "top");
+      widget = glade_xml_get_widget (darktable.gui->main_window, "topbar");
       break;
     default:
       bit = dt_conf_get_int("ui_last/panel_bottom");
-      widget = glade_xml_get_widget (darktable.gui->main_window, "bottom");
+      widget = glade_xml_get_widget (darktable.gui->main_window, "bottombar");
       break;
   }
 
@@ -400,6 +405,7 @@ darktable_label_clicked (GtkWidget *widget, GdkEventButton *event, gpointer user
   return TRUE;
 }
 
+/*
 static void
 colorpicker_mean_changed (GtkComboBox *widget, gpointer p)
 {
@@ -423,73 +429,7 @@ colorpicker_toggled (GtkToggleButton *button, gpointer p)
   }
   dt_control_gui_queue_draw();
 }
-
-static void
-lighttable_zoom_changed (GtkSpinButton *widget, gpointer user_data)
-{
-  const int i = gtk_spin_button_get_value(widget);
-  dt_conf_set_int("plugins/lighttable/images_in_row", i);
-  dt_control_gui_queue_draw();
-}
-
-static void
-lighttable_layout_changed (GtkComboBox *widget, gpointer user_data)
-{
-  const int i = gtk_combo_box_get_active(widget);
-  dt_conf_set_int("plugins/lighttable/layout", i);
-  dt_control_gui_queue_draw();
-}
-
-static void
-update_query()
-{
-  /* updates query */
-  dt_collection_update (darktable.collection);
-  
-  /* updates visual */
-  GtkWidget *win = glade_xml_get_widget (darktable.gui->main_window, "center");
-  gtk_widget_queue_draw (win);
-}
-
-static void
-image_filter_changed (GtkComboBox *widget, gpointer user_data)
-{
-  // image_filter
-  int i = gtk_combo_box_get_active(widget);
-  if     (i == 0)  dt_conf_set_int("ui_last/combo_filter",     DT_LIB_FILTER_ALL);
-  else if(i == 1)  dt_conf_set_int("ui_last/combo_filter",     DT_LIB_FILTER_STAR_NO);
-  else if(i == 2)  dt_conf_set_int("ui_last/combo_filter",     DT_LIB_FILTER_STAR_1);
-  else if(i == 3)  dt_conf_set_int("ui_last/combo_filter",     DT_LIB_FILTER_STAR_2);
-  else if(i == 4)  dt_conf_set_int("ui_last/combo_filter",     DT_LIB_FILTER_STAR_3);
-  else if(i == 5)  dt_conf_set_int("ui_last/combo_filter",     DT_LIB_FILTER_STAR_4);
-
-  
-  /* update collection star filter flags */
-  if         (i == 0) dt_collection_set_filter_flags (darktable.collection, dt_collection_get_filter_flags (darktable.collection) & ~(COLLECTION_FILTER_ATLEAST_RATING|COLLECTION_FILTER_EQUAL_RATING));
-  else if (i == 1) dt_collection_set_filter_flags (darktable.collection, (dt_collection_get_filter_flags (darktable.collection) | COLLECTION_FILTER_EQUAL_RATING) & ~COLLECTION_FILTER_ATLEAST_RATING);
-  else dt_collection_set_filter_flags (darktable.collection, dt_collection_get_filter_flags (darktable.collection) | COLLECTION_FILTER_ATLEAST_RATING );
-  
-  /* set the star filter in collection */
-  dt_collection_set_rating(darktable.collection, i-1);		
-  
-  update_query();
-}
-
-
-static void
-image_sort_changed (GtkComboBox *widget, gpointer user_data)
-{
-  // image_sort
-  int i = gtk_combo_box_get_active(widget);
-  if     (i == 0)  dt_conf_set_int("ui_last/combo_sort",     DT_LIB_SORT_FILENAME);
-  else if(i == 1)  dt_conf_set_int("ui_last/combo_sort",     DT_LIB_SORT_DATETIME);
-  else if(i == 2)  dt_conf_set_int("ui_last/combo_sort",     DT_LIB_SORT_RATING);
-  else if(i == 3)  dt_conf_set_int("ui_last/combo_sort",     DT_LIB_SORT_ID);
-  else if(i == 4)  dt_conf_set_int("ui_last/combo_sort",     DT_LIB_SORT_COLOR);
-
-  update_query();
-}
-
+*/
 
 static void
 snapshot_add_button_clicked (GtkWidget *widget, gpointer user_data)
@@ -961,6 +901,13 @@ dt_gui_gtk_init(dt_gui_gtk_t *gui, int argc, char *argv[])
     }
   }
 
+  /* initialize the toolbars */
+  dt_gui_toolbars_init ();
+  
+  /* add global tools to toolbar*/
+  dt_gui_toolbars_set_tool (TopCenterToolbar, dt_gui_tools_collection_get ());
+  dt_gui_toolbars_set_tool (BottomCenterToolbar, dt_gui_tools_lighttable_layout_get ());
+  dt_gui_toolbars_set_tool (BottomLeftToolbar, dt_gui_tools_colorlabels_get ());
   
   /* add signal for size-allocate of right panel */
   widget = glade_xml_get_widget (darktable.gui->main_window, "right");
@@ -1061,28 +1008,6 @@ dt_gui_gtk_init(dt_gui_gtk_t *gui, int argc, char *argv[])
   /* initializes the module groups buttonbar control */
   dt_gui_iop_modulegroups_init ();
  
-  /*for(long int k=0;k<10;k++)
-  {
-    char wdname[20];
-    snprintf(wdname, 20, "history_%02ld", k);
-    GtkWidget *button = dtgtk_togglebutton_new_with_label (wdname,NULL,0);
-    gtk_box_pack_start (GTK_BOX (hvbox),button,FALSE,FALSE,0);
-    g_signal_connect (G_OBJECT (button), "clicked",
-                      G_CALLBACK (history_button_clicked),
-                      (gpointer)k);
-  }*/
-
-
-  // image filtering/sorting
-  widget = glade_xml_get_widget (darktable.gui->main_window, "image_filter");
-  g_signal_connect (G_OBJECT (widget), "changed",
-                    G_CALLBACK (image_filter_changed),
-                    (gpointer)0);
-  widget = glade_xml_get_widget (darktable.gui->main_window, "image_sort");
-  g_signal_connect (G_OBJECT (widget), "changed",
-                    G_CALLBACK (image_sort_changed),
-                    (gpointer)0);
-
   // snapshot management
   GtkWidget *sbody = glade_xml_get_widget (darktable.gui->main_window, "snapshots_body");
   GtkWidget *svbox = gtk_vbox_new (FALSE,0);
@@ -1103,16 +1028,7 @@ dt_gui_gtk_init(dt_gui_gtk_t *gui, int argc, char *argv[])
                       (gpointer)(k-1));
   }
   
- /* 
-  widget = glade_xml_get_widget (darktable.gui->main_window, "snapshot_1_togglebutton");
-  g_signal_connect(G_OBJECT(widget), "toggled", G_CALLBACK(snapshot_toggled), (gpointer)0);
-  widget = glade_xml_get_widget (darktable.gui->main_window, "snapshot_2_togglebutton");
-  g_signal_connect(G_OBJECT(widget), "toggled", G_CALLBACK(snapshot_toggled), (gpointer)1);
-  widget = glade_xml_get_widget (darktable.gui->main_window, "snapshot_3_togglebutton");
-  g_signal_connect(G_OBJECT(widget), "toggled", G_CALLBACK(snapshot_toggled), (gpointer)2);
-  widget = glade_xml_get_widget (darktable.gui->main_window, "snapshot_4_togglebutton");
-  g_signal_connect(G_OBJECT(widget), "toggled", G_CALLBACK(snapshot_toggled), (gpointer)3);*/
-  
+
   /* add recent filmrolls section label */
   widget = glade_xml_get_widget (darktable.gui->main_window, "recent_used_film_rolls_section_box");
   GtkWidget *label = dtgtk_label_new (_("recently used film rolls"), DARKTABLE_LABEL_TAB | DARKTABLE_LABEL_ALIGN_LEFT);
@@ -1143,36 +1059,15 @@ dt_gui_gtk_init(dt_gui_gtk_t *gui, int argc, char *argv[])
 
   /* add content to toolbar */
   /* top left: color labels */
-  dt_create_color_label_buttons(GTK_BOX (glade_xml_get_widget (darktable.gui->main_window, "top_left_toolbox")));
-  /*
-  toolbox = GTK_BOX (glade_xml_get_widget (darktable.gui->main_window, "top_right_toolbox"));
-  gtk_box_pack_end(toolbox,gtk_label_new("right top toolbox"),FALSE,FALSE,0);
-  gtk_widget_show_all (GTK_WIDGET (toolbox));
-  toolbox = GTK_BOX (glade_xml_get_widget (darktable.gui->main_window, "bottom_left_toolbox"));
-  gtk_box_pack_start(toolbox,gtk_label_new("left bottom toolbox"),FALSE,FALSE,0);
-  gtk_widget_show_all (GTK_WIDGET (toolbox));
-   toolbox = GTK_BOX (glade_xml_get_widget (darktable.gui->main_window, "bottom_right_toolbox"));
-  gtk_box_pack_end(toolbox,gtk_label_new("right bottom toolbox"),FALSE,FALSE,0);
-  gtk_widget_show_all (GTK_WIDGET (toolbox));
-  */
+  // dt_create_color_label_buttons(GTK_BOX (glade_xml_get_widget (darktable.gui->main_window, "top_left_toolbox")));
 
   // color picker
+  /*
   widget = glade_xml_get_widget (darktable.gui->main_window, "colorpicker_mean_combobox");
   gtk_combo_box_set_active(GTK_COMBO_BOX(widget), dt_conf_get_int("ui_last/colorpicker_mean"));
   g_signal_connect(G_OBJECT(widget), "changed", G_CALLBACK(colorpicker_mean_changed), NULL);
   widget = glade_xml_get_widget (darktable.gui->main_window, "colorpicker_togglebutton");
-  g_signal_connect(G_OBJECT(widget), "toggled", G_CALLBACK(colorpicker_toggled), NULL);
-
-  // lighttable layout
-  widget = glade_xml_get_widget (darktable.gui->main_window, "lighttable_layout_combobox");
-  g_signal_connect (G_OBJECT (widget), "changed",
-                    G_CALLBACK (lighttable_layout_changed),
-                    (gpointer)0);
-
-  widget = glade_xml_get_widget (darktable.gui->main_window, "lighttable_zoom_spinbutton");
-  g_signal_connect (G_OBJECT (widget), "value-changed",
-                    G_CALLBACK (lighttable_zoom_changed),
-                    (gpointer)0);
+  g_signal_connect(G_OBJECT(widget), "toggled", G_CALLBACK(colorpicker_toggled), NULL);*/
 
   // nice endmarker drawing.
   widget = glade_xml_get_widget (darktable.gui->main_window, "endmarker_left");

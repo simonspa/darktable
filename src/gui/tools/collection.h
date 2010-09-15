@@ -1,6 +1,6 @@
 /*
     This file is part of darktable,
-    copyright (c) 2010 tobias ellinghaus.
+    copyright (c) 2009--2010 Henrik Andersson.
 
     darktable is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -16,10 +16,17 @@
     along with darktable.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef __TOOL_COLORLABELS_H__
-#define __TOOL_COLORLABELS_H__
+#ifndef DT_GUI_TOOLS_COLLECTION_H
+#define DT_GUI_TOOLS_COLLECTION_H
 
-/** create the color label buttons in the top left panel */
-void dt_create_color_label_buttons(GtkBox *toolbox);
+#include <gtk/gtk.h>
 
+/**	The collection tool is used for filtering and sorting the 
+	current collection.
+*/
+
+/** get the widget for the collection tool, works like a singelton */
+GtkWidget* dt_gui_tools_collection_get ();
+
+void dt_gui_tools_collection_restore_settings ();
 #endif

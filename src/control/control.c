@@ -25,6 +25,7 @@
 #include "common/image_cache.h"
 #include "common/imageio.h"
 #include "views/view.h"
+#include "gui/tools/tools.h"
 #include "gui/gtk.h"
 #include "gui/contrast.h"
 #include "gui/filmview.h"
@@ -1097,21 +1098,13 @@ void dt_control_restore_gui_settings(dt_ctl_gui_mode_t mode)
 {
   int8_t bit;
   GtkWidget *widget;
+  
+  /* restore settings for lighttable layout tool */
+  dt_gui_tools_lighttable_layout_restore_settings ();
 
-  widget = glade_xml_get_widget (darktable.gui->main_window, "lighttable_layout_combobox");
-  gtk_combo_box_set_active(GTK_COMBO_BOX(widget), dt_conf_get_int("plugins/lighttable/layout"));
-
-  widget = glade_xml_get_widget (darktable.gui->main_window, "lighttable_zoom_spinbutton");
-  gtk_spin_button_set_value(GTK_SPIN_BUTTON(widget), dt_conf_get_int("plugins/lighttable/images_in_row"));
-
-  widget = glade_xml_get_widget (darktable.gui->main_window, "image_filter");
-  dt_lib_filter_t filter = dt_conf_get_int("ui_last/combo_filter");
-  gtk_combo_box_set_active(GTK_COMBO_BOX(widget), (int)filter);
-
-  widget = glade_xml_get_widget (darktable.gui->main_window, "image_sort");
-  dt_lib_sort_t sort = dt_conf_get_int("ui_last/combo_sort");
-  gtk_combo_box_set_active(GTK_COMBO_BOX(widget), (int)sort);
-
+  /* restore settings for collection tool */
+  dt_gui_tools_collection_restore_settings ();
+  
   bit = dt_conf_get_int("ui_last/panel_left");
   widget = glade_xml_get_widget (darktable.gui->main_window, "left");
   if(bit & (1<<mode)) gtk_widget_show(widget);
@@ -1123,12 +1116,12 @@ void dt_control_restore_gui_settings(dt_ctl_gui_mode_t mode)
   else gtk_widget_hide(widget);
 
   bit = dt_conf_get_int("ui_last/panel_top");
-  widget = glade_xml_get_widget (darktable.gui->main_window, "top");
+  widget = glade_xml_get_widget (darktable.gui->main_window, "topbar");
   if(bit & (1<<mode)) gtk_widget_show(widget);
   else gtk_widget_hide(widget);
 
   bit = dt_conf_get_int("ui_last/panel_bottom");
-  widget = glade_xml_get_widget (darktable.gui->main_window, "bottom");
+  widget = glade_xml_get_widget (darktable.gui->main_window, "bottombar");
   if(bit & (1<<mode)) gtk_widget_show(widget);
   else gtk_widget_hide(widget);
 
@@ -1175,13 +1168,13 @@ void dt_control_save_gui_settings(dt_ctl_gui_mode_t mode)
   dt_conf_set_int("ui_last/panel_right", bit);
 
   bit = dt_conf_get_int("ui_last/panel_bottom");
-  widget = glade_xml_get_widget (darktable.gui->main_window, "bottom");
+  widget = glade_xml_get_widget (darktable.gui->main_window, "bottombar");
   if(GTK_WIDGET_VISIBLE(widget)) bit |=   1<<mode;
   else                           bit &= ~(1<<mode);
   dt_conf_set_int("ui_last/panel_bottom", bit);
 
   bit = dt_conf_get_int("ui_last/panel_top");
-  widget = glade_xml_get_widget (darktable.gui->main_window, "top");
+  widget = glade_xml_get_widget (darktable.gui->main_window, "topbar");
   if(GTK_WIDGET_VISIBLE(widget)) bit |=   1<<mode;
   else                           bit &= ~(1<<mode);
   dt_conf_set_int("ui_last/panel_top", bit);
@@ -1265,13 +1258,6 @@ int dt_control_key_pressed_override(uint16_t which)
       if(visible) gtk_widget_hide(widget);
       else gtk_widget_show(widget);
 
-      /*widget = glade_xml_get_widget (darktable.gui->main_window, "bottom");
-      if(visible) gtk_widget_hide(widget);
-      else gtk_widget_show(widget);
-
-      widget = glade_xml_get_widget (darktable.gui->main_window, "top");
-      if(visible) gtk_widget_hide(widget);
-      else gtk_widget_show(widget);*/
       dt_dev_invalidate(darktable.develop);
       break;
     default:
