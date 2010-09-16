@@ -21,6 +21,8 @@
 #include <gtk/gtk.h>
 #include <cairo.h>
 
+#define CPF_USER_DATA	0x1000	
+
 typedef enum dtgtk_cairo_paint_flags_t {
 	CPF_DIRECTION_UP=1,
 	CPF_DIRECTION_DOWN=2,
@@ -30,7 +32,7 @@ typedef enum dtgtk_cairo_paint_flags_t {
 	CPF_PRELIGHT=32,
 	CPF_IGNORE_FG_STATE=64,	// Ignore state when setting foregroundcolor 
 	CPF_BG_TRANSPARENT=128,	// Transparent background..
-	CPF_SPECIAL_FLAG=65535	// Special flag
+	CPF_SPECIAL_FLAG=2048	// Special flag
 	
 } dtgtk_cairo_paint_flags_t;
 
