@@ -54,7 +54,7 @@ dt_gui_tools_colorlabels_get ()
 	  
     for (int i=0;i<4;i++)
     {
-      widget = dtgtk_button_new(dtgtk_cairo_paint_label, ((CPF_USER_DATA+i)|CPF_SPECIAL_FLAG|CPF_BG_TRANSPARENT));
+      widget = dtgtk_button_new(dtgtk_cairo_paint_label, (i|CPF_SPECIAL_FLAG|CPF_BG_TRANSPARENT));
       gtk_object_set(GTK_OBJECT(widget), "tooltip-text", _gui_tools_colorlabels_tooltips[i], NULL);
       gtk_box_pack_start (GTK_BOX (_gui_tools_colorlabels_tool),widget,FALSE,FALSE,0);
         g_signal_connect(G_OBJECT(widget), "clicked", G_CALLBACK(_gui_tools_colorlabels_button_clicked), (gpointer)i);

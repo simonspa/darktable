@@ -346,7 +346,7 @@ void dtgtk_cairo_paint_label (cairo_t *cr,gint x,gint y,gint w,gint h,gint flags
 	/* fill base color */
 	cairo_arc (cr, 0.5, 0.5, 0.5, 0.0, 2.0*M_PI);
 	float alpha = (flags&CPF_SPECIAL_FLAG)?0.6:1.0;
-	switch((flags>>(CPF_USER_DATA>>8)))
+	switch(flags&7)
 	{
 		case  0: cairo_set_source_rgba (cr,1,0.0,0.0,alpha); break; // red
 		case  1: cairo_set_source_rgba (cr,1,1,0.0,alpha); break; // yellow
