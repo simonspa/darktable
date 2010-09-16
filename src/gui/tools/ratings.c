@@ -21,6 +21,7 @@
 #include "common/darktable.h"
 #include "control/control.h"
 #include "control/conf.h"
+#include "dtgtk/paint.h"
 #include "dtgtk/togglebutton.h"
 #include "gui/gtk.h"
 #include "gui/tools/ratings.h"
@@ -29,9 +30,9 @@ static GtkWidget *_gui_tools_ratings_tool = NULL;
 
 
 static void
-_gui_tools_ratings_button_clicked(GtkWidget *widget, gpointer user_data)
+_gui_tools_ratings_button_clicked(GtkToggleButton *widget, gpointer user_data)
 {
-  
+  gtk_toggle_button_get_active(widget);
   
 }
 
@@ -47,9 +48,9 @@ dt_gui_tools_ratings_get ()
     gtk_container_set_border_width (GTK_CONTAINER (_gui_tools_ratings_tool),2);
     for (int i=0;i<4;i++)
     {
-      widget = dtgtk_togglebutton_new(dtgtk_cairo_paint_star, 0);
+      widget = dtgtk_togglebutton_new(dtgtk_cairo_paint_star, CPF_BG_TRANSPARENT);
       gtk_box_pack_start (GTK_BOX (_gui_tools_ratings_tool),widget,FALSE,FALSE,0);
-      g_signal_connect(G_OBJECT(widget), "clicked", G_CALLBACK(_gui_tools_ratings_button_clicked), (gpointer)i);
+      g_signal_connect(G_OBJECT(widget), "toggled", G_CALLBACK(_gui_tools_ratings_button_clicked), (gpointer)i);
     }
     
     
