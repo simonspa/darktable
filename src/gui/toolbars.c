@@ -24,12 +24,19 @@
 /* get the box for toolbar */
 static GtkBox * _gui_toolbars_get_toolbox (dt_gui_toolbar_t toolbar);
 
+static GtkSizeGroup *_gui_toolbars_sizegroup_top = NULL;
+static GtkSizeGroup *_gui_toolbars_sizegroup_bottom = NULL;
+
 #define TOOLBARS_TOOL_SPACING	16
 
 void 
 dt_gui_toolbars_init ()
 {
   GtkBox *hbox,*hbox2;
+  
+  _gui_toolbars_sizegroup_top = gtk_size_group_new(GTK_SIZE_GROUP_HORIZONTAL);
+  _gui_toolbars_sizegroup_bottom = gtk_size_group_new(GTK_SIZE_GROUP_HORIZONTAL);
+  
   
   /* create the topbar */ 
   hbox = GTK_BOX (glade_xml_get_widget (darktable.gui->main_window, "topbar"));
@@ -38,6 +45,7 @@ dt_gui_toolbars_init ()
   gtk_container_set_border_width (GTK_CONTAINER (hbox2),2);
   gtk_box_set_spacing (hbox2,TOOLBARS_TOOL_SPACING);
   gtk_box_pack_start (hbox2,gtk_label_new (""),FALSE,FALSE,0);
+  gtk_size_group_add_widget (_gui_toolbars_sizegroup_top,GTK_WIDGET (hbox2));
   
   /* add center toolbox */
   gtk_box_pack_start (hbox,GTK_WIDGET ((hbox2=GTK_BOX (gtk_hbox_new(FALSE,0)))),FALSE,FALSE,0);
@@ -49,7 +57,8 @@ dt_gui_toolbars_init ()
   gtk_container_set_border_width (GTK_CONTAINER (hbox2),2);  
   gtk_box_set_spacing (hbox2,TOOLBARS_TOOL_SPACING);
   gtk_box_pack_end (hbox2,gtk_label_new (""),FALSE,FALSE,0);
- 
+  gtk_size_group_add_widget (_gui_toolbars_sizegroup_top,GTK_WIDGET (hbox2));
+  
   /* create the bottombar */ 
   hbox = GTK_BOX (glade_xml_get_widget (darktable.gui->main_window, "bottombar"));
   /* add left toolbox */
@@ -57,6 +66,7 @@ dt_gui_toolbars_init ()
   gtk_container_set_border_width (GTK_CONTAINER (hbox2),2);
   gtk_box_set_spacing (hbox2,TOOLBARS_TOOL_SPACING);
   gtk_box_pack_start (hbox2,gtk_label_new (""),FALSE,FALSE,0);
+  gtk_size_group_add_widget (_gui_toolbars_sizegroup_bottom,GTK_WIDGET (hbox2));
   
   /* add center toolbox */
   gtk_box_pack_start (hbox,GTK_WIDGET ((hbox2=GTK_BOX (gtk_hbox_new(FALSE,0)))),FALSE,FALSE,0);
@@ -68,6 +78,7 @@ dt_gui_toolbars_init ()
   gtk_container_set_border_width (GTK_CONTAINER (hbox2),2);  
   gtk_box_set_spacing (hbox2,TOOLBARS_TOOL_SPACING);
   gtk_box_pack_end (hbox2,gtk_label_new (""),FALSE,FALSE,0);
+  gtk_size_group_add_widget (_gui_toolbars_sizegroup_bottom,GTK_WIDGET (hbox2));
 
 }
 
