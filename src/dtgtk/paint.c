@@ -379,7 +379,7 @@ void dtgtk_cairo_paint_star (cairo_t *cr,gint x,gint y,gint w,gint h,gint flags)
 	const float dy[10] = {cosf(0.0), cosf(d), cosf(2*d), cosf(3*d), cosf(4*d), cosf(5*d), cosf(6*d), cosf(7*d), cosf(8*d), cosf(9*d)};
 	
 	cairo_move_to(cr, xx+r1*dx[0], yy-r1*dy[0]);
-	
+		
 	for(int k=1;k<10;k++)
 		if(k&1) 
 			cairo_line_to(cr, xx+r2*dx[k], yy-r2*dy[k]);
@@ -387,6 +387,15 @@ void dtgtk_cairo_paint_star (cairo_t *cr,gint x,gint y,gint w,gint h,gint flags)
 			cairo_line_to(cr, xx+r1*dx[k], yy-r1*dy[k]);
 	
 	cairo_close_path(cr);
+
 	cairo_set_line_width(cr, 0.15);
-	cairo_stroke(cr);
+	cairo_stroke_preserve(cr);
+	
+	/* if togglebutton is active lets fill star */
+	if( (flags&CPF_ACTIVE) ) 
+	{
+		cairo_set_source_rgba (cr,1,1,1,0.4);
+		cairo_fill(cr);
+	}
+		
 }

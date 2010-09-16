@@ -28,7 +28,9 @@ typedef enum dtgtk_cairo_paint_flags_t {
 	CPF_DIRECTION_RIGHT=8,
 	CPF_ACTIVE=16,
 	CPF_PRELIGHT=32,
-	CPF_IGNORE_FG_STATE=64	// Ignore state when setting foregroundcolor 
+	CPF_IGNORE_FG_STATE=64,	// Ignore state when setting foregroundcolor 
+	CPF_BG_TRANSPARENT=128,	// Transparent background..
+	CPF_SPECIAL_FLAG=65535	// Special flag
 	
 } dtgtk_cairo_paint_flags_t;
 
