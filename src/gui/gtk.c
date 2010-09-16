@@ -636,7 +636,7 @@ import_single_button_clicked (GtkWidget *widget, gpointer user_data)
 static gboolean
 scrolled (GtkWidget *widget, GdkEventScroll *event, gpointer user_data)
 {
-  dt_view_manager_scrolled(darktable.view_manager, event->x, event->y, event->direction == GDK_SCROLL_UP);
+  dt_view_manager_scrolled(darktable.view_manager, event->x, event->y, event->direction == GDK_SCROLL_UP, event->state & 0xf);
   gtk_widget_queue_draw(widget);
   return TRUE;
 }
@@ -771,6 +771,9 @@ key_pressed_override (GtkWidget *w, GdkEventKey *event, gpointer user_data)
   /* check if we should handle key press */
   if (dt_control_is_key_accelerators_on (darktable.control) !=1) 
     return FALSE;
+
+  // we're only interested in ctrl, shift, mod1 (alt)
+  int estate = event->state & 0xf;
   
   while(i)
   {
@@ -778,8 +781,8 @@ key_pressed_override (GtkWidget *w, GdkEventKey *event, gpointer user_data)
     // if a->state == 0, i.e. no modifiers are selected, no modifiers are allowed, in fact.
     if( 
         (
-          (!a->state && (!event->state || (!(event->state&GDK_MOD1_MASK) && !(event->state&GDK_CONTROL_MASK)) ) ) || 
-          (a->state && (a->state == (a->state & event->state)))
+          (!a->state && (!estate || (!(estate&GDK_MOD1_MASK) && !(estate&GDK_CONTROL_MASK)) ) ) || 
+          (a->state && (a->state == (a->state & estate)))
         ) && a->keyval == event->keyval)
     {
       a->callback(a->data);
@@ -804,7 +807,7 @@ key_released (GtkWidget *w, GdkEventKey *event, gpointer user_data) {
 static gboolean
 button_pressed (GtkWidget *w, GdkEventButton *event, gpointer user_data)
 {
-  dt_control_button_pressed(event->x, event->y, event->button, event->type, event->state);
+  dt_control_button_pressed(event->x, event->y, event->button, event->type, event->state & 0xf);
   gtk_widget_grab_focus(w);
   gtk_widget_queue_draw(w);
   return TRUE;
@@ -813,7 +816,7 @@ button_pressed (GtkWidget *w, GdkEventButton *event, gpointer user_data)
 static gboolean
 button_released (GtkWidget *w, GdkEventButton *event, gpointer user_data)
 {
-  dt_control_button_released(event->x, event->y, event->button, event->state);
+  dt_control_button_released(event->x, event->y, event->button, event->state & 0xf);
   gtk_widget_queue_draw(w);
   return TRUE;
 }
@@ -821,7 +824,7 @@ button_released (GtkWidget *w, GdkEventButton *event, gpointer user_data)
 static gboolean
 mouse_moved (GtkWidget *w, GdkEventMotion *event, gpointer user_data)
 {
-  dt_control_mouse_moved(event->x, event->y, event->state);
+  dt_control_mouse_moved(event->x, event->y, event->state & 0xf);
   gint x, y;
   gdk_window_get_pointer(event->window, &x, &y, NULL);
   return TRUE;
