@@ -1,33 +1,5 @@
 /*
     This file is part of darktable,
-    copyright (c) 2010 Henrik Andersson.
-
-    darktable is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
-    darktable is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with darktable.  If not, see <http://www.gnu.org/licenses/>.
-*/
-
-#include <gtk/gtk.h>
-#include <glade/glade.h>
-
-#include "common/darktable.h"
-#include "common/colorlabels.h"
-#include "control/control.h"
-#include "gui/gtk.h"
-#include "dtgtk/button.h"
-
-
-/*
-    This file is part of darktable,
     copyright (c) 2009--2010 Henrik Andersson.
 
     darktable is free software: you can redistribute it and/or modify
@@ -45,17 +17,17 @@
 */
 
 #include <glade/glade.h>
-#include "common/collection.h"
+#include "common/colorlabels.h"
 #include "common/darktable.h"
+#include "control/control.h"
 #include "control/conf.h"
+#include "dtgtk/button.h"
 #include "gui/gtk.h"
-#include "gui/tools/collection.h"
+#include "gui/tools/colorlabels.h"
 
 static GtkWidget *_gui_tools_colorlabels_tool = NULL;
 
 char *_gui_tools_colorlabels_tooltips[4];
-
-
 
 static void
 _gui_tools_colorlabels_button_clicked(GtkWidget *widget, gpointer user_data)
@@ -78,6 +50,8 @@ dt_gui_tools_colorlabels_get ()
     GtkWidget *widget=NULL;
     
     _gui_tools_colorlabels_tool = gtk_hbox_new (FALSE,2);
+    gtk_container_set_border_width (GTK_CONTAINER (_gui_tools_colorlabels_tool),2);
+	  
     for (int i=0;i<4;i++)
     {
       widget = dtgtk_button_new(dtgtk_cairo_paint_label, (i|8));

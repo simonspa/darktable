@@ -61,8 +61,10 @@ libdarktable_la_SOURCES= \
 			gui/presets.c \
 			gui/toolbars.c \
 			gui/tools/collection.c \
+			gui/tools/global.c \
 			gui/tools/lighttable_layout.c \
 			gui/tools/colorlabels.c \
+			gui/tools/ratings.c \
 			libs/lib.c \
 			views/view.c 
 			
@@ -85,7 +87,9 @@ noinst_HEADERS= \
 			gui/toolbars.h \
 			gui/tools/collection.h \
 			gui/tools/colorlabels.h \
+			gui/tools/global.h \
 			gui/tools/lighttable_layout.h \
+			gui/tools/ratings.h \
 			develop/develop.h \
 			develop/imageop.h \
 			common/collection.h \

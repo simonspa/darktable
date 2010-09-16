@@ -125,6 +125,7 @@ int dt_view_load_module(dt_view_t *view, const char *module)
   if(!g_module_symbol(view->module, "configure",       (gpointer)&(view->configure)))       view->configure = NULL;
   if(!g_module_symbol(view->module, "scrolled",        (gpointer)&(view->scrolled)))        view->scrolled = NULL;
   if(!g_module_symbol(view->module, "border_scrolled", (gpointer)&(view->border_scrolled))) view->border_scrolled = NULL;
+  if(!g_module_symbol(view->module, "toggle_film_strip", (gpointer)&(view->toggle_film_strip))) view->border_scrolled = NULL;
 
   if(view->init) view->init(view);
 
@@ -336,6 +337,13 @@ void dt_view_manager_border_scrolled (dt_view_manager_t *vm, double x, double y,
   if(vm->current_view < 0) return;
   dt_view_t *v = vm->view + vm->current_view;
   if(v->border_scrolled) v->border_scrolled(v, x, y, which, up);
+}
+
+void dt_view_manager_toggle_film_strip (dt_view_manager_t *vm)
+{
+  if(vm->current_view < 0) return;
+  dt_view_t *v = vm->view + vm->current_view;
+  if(v->toggle_film_strip) v->toggle_film_strip(v);
 }
 
 void dt_view_set_scrollbar(dt_view_t *view, float hpos, float hsize, float hwinsize, float vpos, float vsize, float vwinsize)
@@ -614,8 +622,8 @@ void dt_view_image_expose(dt_image_t *img, dt_view_image_over_t *image_over, int
     {
       cairo_save(cr);
       int col = sqlite3_column_int(stmt, 0);
-	  // see src/dtgtk/paint.c
-	  dtgtk_cairo_paint_label(cr, x+(4*r*col)-r, y-r, r*2, r*2, col);
+    // see src/dtgtk/paint.c
+    dtgtk_cairo_paint_label(cr, x+(4*r*col)-r, y-r, r*2, r*2, col);
       cairo_restore(cr);
     }
     sqlite3_finalize(stmt);

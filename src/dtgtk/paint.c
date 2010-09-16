@@ -361,3 +361,32 @@ void dtgtk_cairo_paint_label (cairo_t *cr,gint x,gint y,gint w,gint h,gint flags
 
 }
 
+void dtgtk_cairo_paint_star (cairo_t *cr,gint x,gint y,gint w,gint h,gint flags)
+{
+	gint s=w<h?w:h;
+	cairo_translate(cr, x+(w/2.0)-(s/2.0), y+(h/2.0)-(s/2.0));
+	cairo_scale(cr,s,s);
+
+	float xx = 0.5;
+	float yy = 0.5;
+	float r1,r2;
+	r1=0.8;
+	r2=0.38;
+	
+	const float d = 2.0*M_PI*0.1f;
+	
+	const float dx[10] = {sinf(0.0), sinf(d), sinf(2*d), sinf(3*d), sinf(4*d), sinf(5*d), sinf(6*d), sinf(7*d), sinf(8*d), sinf(9*d)};
+	const float dy[10] = {cosf(0.0), cosf(d), cosf(2*d), cosf(3*d), cosf(4*d), cosf(5*d), cosf(6*d), cosf(7*d), cosf(8*d), cosf(9*d)};
+	
+	cairo_move_to(cr, xx+r1*dx[0], yy-r1*dy[0]);
+	
+	for(int k=1;k<10;k++)
+		if(k&1) 
+			cairo_line_to(cr, xx+r2*dx[k], yy-r2*dy[k]);
+		else    
+			cairo_line_to(cr, xx+r1*dx[k], yy-r1*dy[k]);
+	
+	cairo_close_path(cr);
+	cairo_set_line_width(cr, 0.15);
+	cairo_stroke(cr);
+}

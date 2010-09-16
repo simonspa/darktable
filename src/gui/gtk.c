@@ -44,9 +44,7 @@
 #include "gui/devices.h"
 #include "gui/presets.h"
 #include "gui/toolbars.h"
-#include "gui/tools/collection.h"
-#include "gui/tools/lighttable_layout.h"
-#include "gui/tools/colorlabels.h"
+#include "gui/tools/tools.h"
 
 #include "control/control.h"
 #include "control/jobs.h"
@@ -900,14 +898,19 @@ dt_gui_gtk_init(dt_gui_gtk_t *gui, int argc, char *argv[])
       return 1;
     }
   }
+  
+  
+  darktable.gui->redraw_widgets = NULL;
+  darktable.gui->key_accels = NULL;
 
   /* initialize the toolbars */
   dt_gui_toolbars_init ();
   
-  /* add global tools to toolbar*/
-  dt_gui_toolbars_set_tool (TopCenterToolbar, dt_gui_tools_collection_get ());
   dt_gui_toolbars_set_tool (BottomCenterToolbar, dt_gui_tools_lighttable_layout_get ());
-  dt_gui_toolbars_set_tool (BottomLeftToolbar, dt_gui_tools_colorlabels_get ());
+  dt_gui_toolbars_add_tool (BottomLeftToolbar, dt_gui_tools_ratings_get ());
+  dt_gui_toolbars_add_tool (BottomLeftToolbar, dt_gui_tools_colorlabels_get ());
+  dt_gui_toolbars_set_tool (TopCenterToolbar, dt_gui_tools_collection_get ());
+  dt_gui_toolbars_set_tool (TopRightToolbar, dt_gui_tools_global_get ());
   
   /* add signal for size-allocate of right panel */
   widget = glade_xml_get_widget (darktable.gui->main_window, "right");
@@ -1101,8 +1104,6 @@ dt_gui_gtk_init(dt_gui_gtk_t *gui, int argc, char *argv[])
   
   dt_ctl_get_display_profile(widget, &darktable.control->xprofile_data, &darktable.control->xprofile_size);
 
-  darktable.gui->redraw_widgets = NULL;
-  darktable.gui->key_accels = NULL;
   
   // register keys for view switching
   dt_gui_key_accel_register(0, GDK_t, _gui_switch_view_key_accel_callback, (void *)DT_GUI_VIEW_SWITCH_TO_TETHERING);

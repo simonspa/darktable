@@ -499,7 +499,13 @@ zoom_key_accel(void *data)
 static void
 film_strip_key_accel(void *data)
 {
-  dt_view_film_strip_toggle(darktable.view_manager, film_strip_activated, data);
+  dt_view_manager_toggle_film_strip(data);
+}
+
+void 
+toggle_film_strip (struct dt_view_t *self) 
+{
+  dt_view_film_strip_toggle(darktable.view_manager, film_strip_activated, self);
   dt_control_queue_draw_all();
 }
 
@@ -625,7 +631,7 @@ void enter(dt_view_t *self)
     dt_view_film_strip_open(darktable.view_manager, film_strip_activated, self);
     dt_view_film_strip_prefetch();
   }
-  dt_gui_key_accel_register(GDK_CONTROL_MASK, GDK_f, film_strip_key_accel, self);
+
   dt_gui_key_accel_register(GDK_MOD1_MASK, GDK_1, zoom_key_accel, (void *)1);
   dt_gui_key_accel_register(GDK_MOD1_MASK, GDK_2, zoom_key_accel, (void *)2);
   dt_gui_key_accel_register(GDK_MOD1_MASK, GDK_3, zoom_key_accel, (void *)3);

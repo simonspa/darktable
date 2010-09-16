@@ -59,6 +59,7 @@ typedef struct dt_view_t
   void (*configure)       (struct dt_view_t *self, int width, int height);
   void (*scrolled)        (struct dt_view_t *self, double x, double y, int up);            // mouse scrolled in view
   void (*border_scrolled) (struct dt_view_t *self, double x, double y, int which, int up); // mouse scrolled on left/right/top/bottom border (which 0123).
+  void (*toggle_film_strip) (struct dt_view_t *self);
 }
 dt_view_t;
 
@@ -120,6 +121,7 @@ int dt_view_manager_key_released     (dt_view_manager_t *vm, uint16_t which);
 void dt_view_manager_configure       (dt_view_manager_t *vm, int width, int height);
 void dt_view_manager_scrolled        (dt_view_manager_t *vm, double x, double y, int up);
 void dt_view_manager_border_scrolled (dt_view_manager_t *vm, double x, double y, int which, int up);
+void dt_view_manager_toggle_film_strip (dt_view_manager_t *vm);
 
 /** load module to view managers list, if still space. return slot number on success. */
 int dt_view_manager_load_module(dt_view_manager_t *vm, const char *mod);

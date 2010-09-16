@@ -1,6 +1,6 @@
 /*
     This file is part of darktable,
-    copyright (c) 2009--2010 Henrik Andersson.
+    copyright (c) 2010 Henrik Andersson.
 
     darktable is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -16,14 +16,10 @@
     along with darktable.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+#ifndef DT_GUI_TOOLS_RATINGS_H
+#define DT_GUI_TOOLS_RATINGS_H
 
-#ifndef DT_GUI_TOOLS_TOOLS_H
-#define DT_GUI_TOOLS_TOOLS_H
-
-#include "gui/tools/collection.h"
-#include "gui/tools/colorlabels.h"
-#include "gui/tools/global.h"
-#include "gui/tools/lighttable_layout.h"
-#include "gui/tools/ratings.h"
+/** get the widget for the colorlabels tool, works like a singelton */
+GtkWidget* dt_gui_tools_ratings_get ();
 
 #endif
