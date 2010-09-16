@@ -79,7 +79,7 @@ _button_expose (GtkWidget *widget, GdkEventExpose *event)
   cr = gdk_cairo_create (widget->window);
   
   /* draw background dependent on state */
-  if(state != GTK_STATE_NORMAL) 
+  if ( !(DTGTK_BUTTON (widget)->icon_flags & CPF_BG_TRANSPARENT) )
   {
 	  cairo_rectangle (cr,x,y,width,height);
 	  cairo_set_source_rgba (cr,
