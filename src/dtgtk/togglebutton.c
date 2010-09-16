@@ -123,8 +123,8 @@ static gboolean _togglebutton_expose(GtkWidget *widget, GdkEventExpose *event)
   int state = gtk_widget_get_state(widget);
 
   /* update paint flags depending of states */
-  int flags=DTGTK_TOGGLEBUTTON (widget)->icon_flags;
-  gboolean active = gtk_toggle_button_get_active( GTK_TOGGLE_BUTTON (widget));
+  int flags = DTGTK_TOGGLEBUTTON (widget)->icon_flags;
+  gboolean active = gtk_toggle_button_get_active ( GTK_TOGGLE_BUTTON (widget));
   if (active)
     flags |= CPF_ACTIVE;
   else
@@ -148,20 +148,12 @@ static gboolean _togglebutton_expose(GtkWidget *widget, GdkEventExpose *event)
   int width = widget->allocation.width;
   int height = widget->allocation.height;
 
-  /* set CPF_ACTIVE bit if togglebutton is active */
-  int flags = (DTGTK_TOGGLEBUTTON (widget))->icon_flags;
-  if (gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget)))
-    flags |=CPF_ACTIVE;
-  else
-    flags &=~(CPF_ACTIVE);
-  DTGTK_TOGGLEBUTTON (widget)->icon_flags = flags;
-  
   /* begin cairo drawing */
   cairo_t *cr;
   cr = gdk_cairo_create (widget->window);
   
   /* draw background dependent on state */
-  if ( !(DTGTK_TOGGLEBUTTON (widget)->icon_flags & CPF_BG_TRANSPARENT) )
+  if ( !(flags & CPF_BG_TRANSPARENT) )
   {
     cairo_rectangle (cr,x,y,width,height);
     cairo_set_source_rgba (cr,
