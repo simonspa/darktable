@@ -335,6 +335,13 @@ void enter(dt_view_t *self)
 
 	lib->mode = dt_conf_get_int("plugins/capture/mode");
 
+	
+	/* clear left/right toolbar from toolars */
+	dt_gui_toolbars_clear (BottomLeftToolbar);
+	dt_gui_toolbars_clear (BottomRightToolbar);  
+	
+	dt_gui_toolbars_clear(BottomCenterToolbar);
+	
 	// add expanders
 	GtkBox *box = GTK_BOX(glade_xml_get_widget (darktable.gui->main_window, "plugins_vbox"));
 	

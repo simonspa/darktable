@@ -525,7 +525,12 @@ void enter(dt_view_t *self)
   dev->gui_module = NULL;
   dt_dev_load_image(dev, dev->image);
 
-  /* add darkroom tools */
+  /* clear left/right toolbar from toolars */
+  dt_gui_toolbars_clear (BottomLeftToolbar);
+  dt_gui_toolbars_clear (BottomRightToolbar);  
+  
+  
+  /* add darkroom specific tools */
   dt_gui_toolbars_set_tool (BottomCenterToolbar, dt_gui_tools_colorpicker_get ());
   
   // adjust gui:
