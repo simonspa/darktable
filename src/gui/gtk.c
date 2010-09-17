@@ -841,8 +841,6 @@ dt_gui_gtk_init(dt_gui_gtk_t *gui, int argc, char *argv[])
 
   /* initialize the toolbars */
   dt_gui_toolbars_init ();
-  dt_gui_toolbars_add_tool (BottomLeftToolbar, dt_gui_tools_ratings_get ());
-  dt_gui_toolbars_add_tool (BottomLeftToolbar, dt_gui_tools_colorlabels_get ());
   dt_gui_toolbars_set_tool (TopRightToolbar, dt_gui_tools_global_get ());
   
   /* add signal for size-allocate of right panel */

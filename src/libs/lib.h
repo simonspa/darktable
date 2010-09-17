@@ -66,6 +66,8 @@ typedef struct dt_lib_module_t
   void (*gui_cleanup)     (struct dt_lib_module_t *self);
   /** reset to defaults. */
   void (*gui_reset)       (struct dt_lib_module_t *self);
+  /** request toolbox widget for left/right toolbox in bottom toolbar */
+  GtkWidget * (*get_toolbox)  (struct dt_lib_module_t *self,gboolean left);
 
   /** optional event callbacks for big center widget. */
   /** optional method called after lighttable expose. */

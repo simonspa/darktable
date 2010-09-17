@@ -632,20 +632,40 @@ void enter(dt_view_t *self)
   gtk_widget_set_visible(widget, TRUE);
   
   gtk_widget_set_visible(glade_xml_get_widget (darktable.gui->main_window, "modulegroups_eventbox"), FALSE);
+
+  /* clear left/right toolbar from toolars */
+  dt_gui_toolbars_clear (BottomLeftToolbar);
+  dt_gui_toolbars_clear (BottomRightToolbar);  
   
   /* add lighttable specific tools */
   dt_gui_toolbars_set_tool (TopCenterToolbar, dt_gui_tools_collection_get ());
   dt_gui_toolbars_set_tool (BottomCenterToolbar, dt_gui_tools_lighttable_layout_get ());
+  dt_gui_toolbars_add_tool (BottomLeftToolbar, dt_gui_tools_ratings_get ());
+  dt_gui_toolbars_add_tool (BottomLeftToolbar, dt_gui_tools_colorlabels_get ());
+  
+ 
   
   while(modules)
   {
     dt_lib_module_t *module = (dt_lib_module_t *)(modules->data);
     if( module->views() & DT_LIGHTTABLE_VIEW )
-    { // Module does support this view let's add it to plugin box
+    { 
+      // Module does support this view let's add it to plugin box
       module->gui_init(module);
       // add the widget created by gui_init to an expander and both to list.
       GtkWidget *expander = dt_lib_gui_get_expander(module);
       gtk_box_pack_start(box, expander, FALSE, FALSE, 0);
+      
+      /* add module toolbox if exists */
+      if (module->get_toolbox)
+      {
+        GtkWidget *tool;
+        if ((tool=module->get_toolbox (module,TRUE))!=NULL)
+          dt_gui_toolbars_add_tool (BottomLeftToolbar,tool);
+        if ((tool=module->get_toolbox (module,FALSE))!=NULL)
+          dt_gui_toolbars_add_tool (BottomRightToolbar,tool);
+        
+      }
     }
     modules = g_list_previous(modules);
   }

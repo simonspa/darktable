@@ -39,5 +39,10 @@ void dt_gui_toolbars_set_tool (dt_gui_toolbar_t toolbar,GtkWidget *);
 /** add a seperator to toolbar, just some spacing... */
 void dt_gui_toolbars_add_seperator (dt_gui_toolbar_t toolbar); 
 
+/** removes all tools added to toolbar */
+void dt_gui_toolbars_clear (dt_gui_toolbar_t toolbar);
+
+/** creates a new toolbox for use in modules. */
+GtkWidget *dt_gui_toolbars_toolbox_new ();
 
 #endif

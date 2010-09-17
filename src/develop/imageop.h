@@ -108,7 +108,9 @@ typedef struct dt_iop_module_t
   void (*gui_cleanup)     (struct dt_iop_module_t *self);
   /** optional method called after darkroom expose. */
   void (*gui_post_expose) (struct dt_iop_module_t *self, cairo_t *cr, int32_t width, int32_t height, int32_t pointerx, int32_t pointery);
-
+  /** request toolbox widget for left/right toolbox in bottom toolbar */
+  GtkWidget * (*get_toolbox)  (struct dt_iop_module_t *self,gboolean left);
+ 
   /** optional event callbacks */
   int  (*mouse_leave)     (struct dt_iop_module_t *self);
   int  (*mouse_moved)     (struct dt_iop_module_t *self, double x, double y, int which);

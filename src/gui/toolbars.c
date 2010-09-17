@@ -83,9 +83,21 @@ dt_gui_toolbars_init ()
 }
 
 void 
+dt_gui_toolbars_clear (dt_gui_toolbar_t toolbar)
+{
+  GtkBox *toolbox=_gui_toolbars_get_toolbox (toolbar);
+  GList *item=NULL;
+  while ((item=g_list_first (gtk_container_get_children (GTK_CONTAINER (toolbox)))))
+    gtk_container_remove (GTK_CONTAINER (toolbox), GTK_WIDGET (item->data));
+}
+
+
+void 
 dt_gui_toolbars_add_tool (dt_gui_toolbar_t toolbar,GtkWidget *tool)
 {
   GtkBox *toolbox = _gui_toolbars_get_toolbox (toolbar);
+  gtk_widget_show_all(tool);
+  
   /* add tool to end of toolbar */
   if (toolbar==TopRightToolbar || toolbar==BottomRightToolbar)
     gtk_box_pack_end (toolbox,tool,FALSE,FALSE,0);
@@ -147,5 +159,13 @@ _gui_toolbars_get_toolbox (dt_gui_toolbar_t toolbar)
     toolbox = GTK_BOX (g_list_nth_data (gtk_container_get_children (GTK_CONTAINER (bar)),2));
   
   return toolbox;
+}
+
+GtkWidget *dt_gui_toolbars_toolbox_new () 
+{
+  GtkBox *toolbox = GTK_BOX (gtk_hbox_new(FALSE,2));
+  gtk_container_set_border_width (GTK_CONTAINER (toolbox),2);
+  gtk_widget_set_name (GTK_WIDGET (toolbox),"module-toolbox");
+  return GTK_WIDGET (toolbox);
 }
 
