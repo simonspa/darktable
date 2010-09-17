@@ -52,7 +52,7 @@ dt_gui_tools_colorlabels_get ()
     _gui_tools_colorlabels_tool = gtk_hbox_new (FALSE,2);
     gtk_container_set_border_width (GTK_CONTAINER (_gui_tools_colorlabels_tool),2);
 	  
-    for (int i=0;i<4;i++)
+    for (long int i=0;i<4;i++)
     {
       widget = dtgtk_button_new(dtgtk_cairo_paint_label, (i|CPF_SPECIAL_FLAG|CPF_BG_TRANSPARENT));
       gtk_object_set(GTK_OBJECT(widget), "tooltip-text", _gui_tools_colorlabels_tooltips[i], NULL);
