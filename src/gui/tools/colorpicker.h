@@ -16,15 +16,16 @@
     along with darktable.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+#ifndef DT_GUI_TOOLS_COLORPICKER_H
+#define DT_GUI_TOOLS_COLORPICKER_H
 
-#ifndef DT_GUI_TOOLS_TOOLS_H
-#define DT_GUI_TOOLS_TOOLS_H
+#include <gtk/gtk.h>
 
-#include "gui/tools/collection.h"
-#include "gui/tools/colorlabels.h"
-#include "gui/tools/colorpicker.h"
-#include "gui/tools/global.h"
-#include "gui/tools/lighttable_layout.h"
-#include "gui/tools/ratings.h"
+/** get the widget for the lighttable layout tool, works like a singelton */
+GtkWidget* dt_gui_tools_colorpicker_get ();
+
+void dt_gui_tools_colorpicker_restore_settings ();
+
+void dt_gui_tools_colorpicker_update ();
 
 #endif

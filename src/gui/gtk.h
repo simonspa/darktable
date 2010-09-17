@@ -20,6 +20,8 @@
 
 #include <gtk/gtk.h>
 #include <glade/glade.h>
+#include "gui/toolbars.h"
+#include "gui/tools/tools.h"
 #include "gui/navigation.h"
 #include "gui/histogram.h"
 

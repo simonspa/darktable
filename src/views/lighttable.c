@@ -155,7 +155,7 @@ expose_filemanager (dt_view_t *self, cairo_t *cr, int32_t width, int32_t height,
   /* get the collection query */
   const gchar *query=dt_collection_get_query (darktable.collection);
   if(!query)
-	return;
+  return;
   
   
   if(offset < 0)         lib->offset = offset = 0;
@@ -630,8 +630,12 @@ void enter(dt_view_t *self)
   // Adjust gui
   GtkWidget *widget = glade_xml_get_widget (darktable.gui->main_window, "devices_eventbox");
   gtk_widget_set_visible(widget, TRUE);
-	
+  
   gtk_widget_set_visible(glade_xml_get_widget (darktable.gui->main_window, "modulegroups_eventbox"), FALSE);
+  
+  /* add lighttable specific tools */
+  dt_gui_toolbars_set_tool (TopCenterToolbar, dt_gui_tools_collection_get ());
+  dt_gui_toolbars_set_tool (BottomCenterToolbar, dt_gui_tools_lighttable_layout_get ());
   
   while(modules)
   {

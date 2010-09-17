@@ -1101,6 +1101,9 @@ void dt_control_restore_gui_settings(dt_ctl_gui_mode_t mode)
   
   /* restore settings for lighttable layout tool */
   dt_gui_tools_lighttable_layout_restore_settings ();
+	
+ /* restore settings for lighttable layout tool */
+  dt_gui_tools_colorpicker_restore_settings ();
 
   /* restore settings for collection tool */
   dt_gui_tools_collection_restore_settings ();

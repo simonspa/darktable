@@ -525,6 +525,9 @@ void enter(dt_view_t *self)
   dev->gui_module = NULL;
   dt_dev_load_image(dev, dev->image);
 
+  /* add darkroom tools */
+  dt_gui_toolbars_set_tool (BottomCenterToolbar, dt_gui_tools_colorpicker_get ());
+  
   // adjust gui:
   GtkWidget *widget;
   gtk_widget_set_visible (glade_xml_get_widget (darktable.gui->main_window, "modulegroups_eventbox"), TRUE);

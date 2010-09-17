@@ -97,7 +97,7 @@ void
 dt_gui_toolbars_set_tool (dt_gui_toolbar_t toolbar,GtkWidget *tool)
 {
   GtkBox *toolbox = _gui_toolbars_get_toolbox (toolbar);
-  
+  gtk_widget_show_all(tool);
   /* remove all childs of toolbox and add tool */
   GtkWidget *child=NULL;
   do
