@@ -79,7 +79,7 @@ void dtgtk_cairo_paint_arrow(cairo_t *cr,gint x,gint y,gint w,gint h,gint flags)
 	cairo_move_to(cr,0.8,0.2);
 	cairo_line_to(cr,0.2,0.5);
 	cairo_line_to(cr,0.8,0.8);
-	cairo_stroke(cr);
+	cairo_fill(cr);
 	cairo_identity_matrix(cr);
 }
 
