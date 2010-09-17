@@ -430,7 +430,7 @@ GtkWidget *dt_iop_gui_get_expander(dt_iop_module_t *module)
   if(!module->hide_enable_button)
   {
     // GtkToggleButton *button = GTK_TOGGLE_BUTTON(gtk_toggle_button_new());
-    GtkDarktableToggleButton *button = DTGTK_TOGGLEBUTTON(dtgtk_togglebutton_new(dtgtk_cairo_paint_switch,CPF_BG_TRANSPARENT));
+    GtkDarktableToggleButton *button = DTGTK_TOGGLEBUTTON(dtgtk_togglebutton_new(dtgtk_cairo_paint_switch,CPF_STYLE_FLAT));
     char tooltip[512];
     snprintf(tooltip, 512, module->enabled ? _("%s is switched on") : _("%s is switched off"), module->name());
     gtk_object_set(GTK_OBJECT(button), "tooltip-text", tooltip, NULL);
@@ -442,8 +442,8 @@ GtkWidget *dt_iop_gui_get_expander(dt_iop_module_t *module)
   }
 
   gtk_box_pack_start(GTK_BOX(hbox), GTK_WIDGET(module->expander), TRUE, TRUE, 0);
-  GtkDarktableButton *resetbutton = DTGTK_BUTTON(dtgtk_button_new(dtgtk_cairo_paint_reset,0));
-  GtkDarktableButton *presetsbutton = DTGTK_BUTTON(dtgtk_button_new(dtgtk_cairo_paint_presets,0));
+  GtkDarktableButton *resetbutton = DTGTK_BUTTON(dtgtk_button_new(dtgtk_cairo_paint_reset,CPF_STYLE_FLAT));
+  GtkDarktableButton *presetsbutton = DTGTK_BUTTON(dtgtk_button_new(dtgtk_cairo_paint_presets,CPF_STYLE_FLAT));
   gtk_widget_set_size_request(GTK_WIDGET(presetsbutton),13,13);
   gtk_widget_set_size_request(GTK_WIDGET(resetbutton),13,13);
   gtk_object_set(GTK_OBJECT(resetbutton), "tooltip-text", _("reset parameters"), NULL);

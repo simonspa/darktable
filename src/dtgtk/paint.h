@@ -32,6 +32,8 @@ typedef enum dtgtk_cairo_paint_flags_t {
 	CPF_PRELIGHT=32,
 	CPF_IGNORE_FG_STATE=64,	// Ignore state when setting foregroundcolor 
 	CPF_BG_TRANSPARENT=128,	// Transparent background..
+	CPF_STYLE_FLAT=256,		// flat styled widget
+	CPF_STYLE_BOX=512,		// boxed styled widget (as standard gtk buttons)
 	CPF_SPECIAL_FLAG=2048	// Special flag
 	
 } dtgtk_cairo_paint_flags_t;

@@ -27,7 +27,7 @@ static GtkBox * _gui_toolbars_get_toolbox (dt_gui_toolbar_t toolbar);
 static GtkSizeGroup *_gui_toolbars_sizegroup_top = NULL;
 static GtkSizeGroup *_gui_toolbars_sizegroup_bottom = NULL;
 
-#define TOOLBARS_TOOL_SPACING	16
+#define TOOLBARS_TOOL_SPACING	24
 
 void 
 dt_gui_toolbars_init ()

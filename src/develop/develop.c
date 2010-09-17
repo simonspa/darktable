@@ -845,7 +845,7 @@ void dt_dev_check_zoom_bounds(dt_develop_t *dev, float *zoom_x, float *zoom_y, d
   }
   else
   {
-    const float scale = dt_dev_get_zoom_scale(dev, zoom, closeup ? 2 : 1, 0);
+    const float scale = dt_dev_get_zoom_scale(dev, zoom, closeup ? 4 : 1, 0);
     const float imgw = procw;
     const float imgh = proch;
     const float devw = dev->width;

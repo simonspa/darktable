@@ -117,12 +117,12 @@ gui_init (dt_lib_module_t *self)
   hbox = GTK_BOX(gtk_hbox_new(TRUE, 5));
 
   GtkBox *hbox2 = GTK_BOX(gtk_hbox_new(TRUE, 5));
-  button = dtgtk_button_new(dtgtk_cairo_paint_refresh, CPF_BG_TRANSPARENT);
+  button = dtgtk_button_new(dtgtk_cairo_paint_refresh, 0);
   gtk_object_set(GTK_OBJECT(button), "tooltip-text", _("rotate selected images 90 degrees ccw"), NULL);
   gtk_box_pack_start(hbox2, button, TRUE, TRUE, 0);
   g_signal_connect(G_OBJECT(button), "clicked", G_CALLBACK(button_clicked), (gpointer)4);
 
-  button = dtgtk_button_new(dtgtk_cairo_paint_refresh, CPF_DIRECTION_LEFT|CPF_BG_TRANSPARENT);
+  button = dtgtk_button_new(dtgtk_cairo_paint_refresh, CPF_DIRECTION_LEFT|0);
   gtk_object_set(GTK_OBJECT(button), "tooltip-text", _("rotate selected images 90 degrees cw"), NULL);
   gtk_box_pack_start(hbox2, button, TRUE, TRUE, 0);
   g_signal_connect(G_OBJECT(button), "clicked", G_CALLBACK(button_clicked), (gpointer)5);
@@ -137,12 +137,12 @@ gui_init (dt_lib_module_t *self)
   
   /* create the toolbox for this module */
   lib->toolbox = GTK_BOX (dt_gui_toolbars_toolbox_new ());
-  button = dtgtk_button_new(dtgtk_cairo_paint_refresh, CPF_BG_TRANSPARENT);
+  button = dtgtk_button_new(dtgtk_cairo_paint_refresh, CPF_STYLE_FLAT);
   gtk_object_set(GTK_OBJECT(button), "tooltip-text", _("rotate selected images 90 degrees ccw"), NULL);
   gtk_box_pack_start( lib->toolbox, button, FALSE, FALSE, 0);
   g_signal_connect(G_OBJECT(button), "clicked", G_CALLBACK(button_clicked), (gpointer)4);
 
-  button = dtgtk_button_new(dtgtk_cairo_paint_refresh, CPF_DIRECTION_LEFT|CPF_BG_TRANSPARENT);
+  button = dtgtk_button_new(dtgtk_cairo_paint_refresh, CPF_DIRECTION_LEFT|CPF_STYLE_FLAT);
   gtk_object_set(GTK_OBJECT(button), "tooltip-text", _("rotate selected images 90 degrees cw"), NULL);
   gtk_box_pack_start( lib->toolbox, button, FALSE, FALSE, 0);
   g_signal_connect(G_OBJECT(button), "clicked", G_CALLBACK(button_clicked), (gpointer)5);
