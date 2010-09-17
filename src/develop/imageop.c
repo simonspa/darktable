@@ -429,7 +429,7 @@ GtkWidget *dt_iop_gui_get_expander(dt_iop_module_t *module)
   if(!module->hide_enable_button)
   {
     // GtkToggleButton *button = GTK_TOGGLE_BUTTON(gtk_toggle_button_new());
-    GtkDarktableToggleButton *button = DTGTK_TOGGLEBUTTON(dtgtk_togglebutton_new(dtgtk_cairo_paint_switch,0));
+    GtkDarktableToggleButton *button = DTGTK_TOGGLEBUTTON(dtgtk_togglebutton_new(dtgtk_cairo_paint_switch,CPF_BG_TRANSPARENT));
     char tooltip[512];
     snprintf(tooltip, 512, module->enabled ? _("%s is switched on") : _("%s is switched off"), module->name());
     gtk_object_set(GTK_OBJECT(button), "tooltip-text", tooltip, NULL);
