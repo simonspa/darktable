@@ -74,5 +74,6 @@ void dtgtk_cairo_paint_aspectflip(cairo_t *cr,gint x,gint y,gint w,gint h,gint f
 void dtgtk_cairo_paint_label(cairo_t *cr,gint x,gint y,gint w,gint h,gint flags);
 /** Paint a star used for ratings */
 void dtgtk_cairo_paint_star (cairo_t *cr,gint x,gint y,gint w,gint h,gint flags);
-
+/** Paint a window used as header */
+void dtgtk_cairo_paint_header (cairo_t *cr,gint x,gint y,gint w,gint h,gint flags);
 #endif

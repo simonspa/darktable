@@ -847,8 +847,8 @@ dt_gui_gtk_init(dt_gui_gtk_t *gui, int argc, char *argv[])
   /* initialize the header */
   dt_gui_views_init ();
   dt_gui_views_add (_("lighttable"),DT_GUI_VIEW_SWITCH_TO_LIBRARY);
-  dt_gui_views_add (_("develop"),DT_GUI_VIEW_SWITCH_TO_DARKROOM);
-  dt_gui_views_add (_("tethering"),DT_GUI_VIEW_SWITCH_TO_TETHERING);
+  dt_gui_views_add (_("darkroom"),DT_GUI_VIEW_SWITCH_TO_DARKROOM);
+  dt_gui_views_add (_("capture"),DT_GUI_VIEW_SWITCH_TO_TETHERING);
   
   /* initialize the toolbars */
   dt_gui_toolbars_init ();
