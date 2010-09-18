@@ -79,7 +79,7 @@ void dt_gui_views_add ( char *name, int view)
  
   /* create the view label */
   GtkWidget *widget = dtgtk_togglebutton_new_with_label(name,NULL,CPF_BG_TRANSPARENT);
-  g_signal_connect (G_OBJECT (widget),"button-press-event", G_CALLBACK (_gui_views_toggled_callback), (gpointer)view);
+  g_signal_connect (G_OBJECT (widget),"button-press-event", G_CALLBACK (_gui_views_toggled_callback), (gpointer)(long int)view);
   gtk_widget_set_name (widget,HEADER_LABEL_NAME);
   gtk_box_pack_start (_gui_views_box,widget,TRUE,FALSE,0);
   
