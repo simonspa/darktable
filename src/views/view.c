@@ -31,9 +31,39 @@
 #include <strings.h>
 #include <glade/glade.h>
 #include <math.h>
+/*
+* events
+*/
+
+void _view_manager_initialize_event_object (dt_view_manager_t *vm)
+{
+  GType typecode;
+  GTypeInfo _view_manager_event_type_info = { 0,
+      (GBaseInitFunc) NULL, (GBaseFinalizeFunc) NULL,
+      (GClassInitFunc) NULL, (GClassFinalizeFunc) NULL,
+      NULL, 0,0, (GInstanceInitFunc) NULL
+  };
+  GTypeQuery query;
+
+  g_type_query(G_TYPE_OBJECT, &query);
+  _view_manager_event_type_info.class_size = query.class_size;
+  _view_manager_event_type_info.instance_size = query.instance_size;
+
+  /* increase the size of the class or instance structs here if necessary */
+
+  typecode = g_type_register_static(G_TYPE_OBJECT, "ViewManagerEvents",&_view_manager_event_type_info, 0);
+  
+  vm->events = g_object_new (typecode,NULL);
+  g_signal_new( "film-strip-view-toggled",G_TYPE_OBJECT, G_SIGNAL_RUN_LAST,0,NULL,NULL,g_cclosure_marshal_VOID__VOID,GTK_TYPE_NONE,0);
+  g_signal_new( "view-manager-switched-mode",G_TYPE_OBJECT, G_SIGNAL_RUN_LAST,0,NULL,NULL,g_cclosure_marshal_VOID__VOID,GTK_TYPE_NONE,0);
+  
+}
+
+
 
 void dt_view_manager_init(dt_view_manager_t *vm)
 {
+  _view_manager_initialize_event_object(vm);
   vm->film_strip_dragging = 0;
   vm->film_strip_on = 0;
   vm->film_strip_size = 0.15f;
@@ -167,6 +197,9 @@ int dt_view_manager_switch (dt_view_manager_t *vm, int k)
     if(vm->current_view >= 0 && v->leave) v->leave(v);
     vm->current_view = newv;
     if(newv >= 0 && nv->enter) nv->enter(nv);
+    
+    g_signal_emit_by_name(G_OBJECT(vm->events),"view-manager-switched-mode");
+
   }
   return error;
 }
@@ -732,6 +765,8 @@ void dt_view_film_strip_toggle(dt_view_manager_t *vm, void (*activated)(const in
     dt_view_film_strip_open(vm, activated, data);
     dt_conf_set_bool("plugins/filmstrip/on", TRUE);
   }
+  
+  g_signal_emit_by_name(G_OBJECT(vm->events),"film-strip-view-toggled");
 }
 
 void dt_view_film_strip_scroll_to(dt_view_manager_t *vm, const int st)

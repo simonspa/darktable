@@ -19,6 +19,7 @@
 #define DT_VIEW_H
 
 #include "common/image.h"
+#include <glib-object.h>
 #include <inttypes.h>
 #include <gmodule.h>
 #include <cairo.h>
@@ -81,14 +82,15 @@ void dt_view_toggle_selection(int iid);
 
 #define DT_VIEW_MAX_MODULES 10
 
-
-
 /**
  * holds all relevant data needed to manage the view
  * modules.
  */
 typedef struct dt_view_manager_t
 {
+  /** connect to signal here to receive events... */
+  GObject *events;
+  
   dt_view_t film_strip;
   dt_view_t view[DT_VIEW_MAX_MODULES];
   int32_t current_view, num_views;
