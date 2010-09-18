@@ -43,7 +43,9 @@ _button_size_request(GtkWidget *widget,GtkRequisition *requisition)
 	g_return_if_fail (widget != NULL);
 	g_return_if_fail (DTGTK_IS_BUTTON(widget));
 	g_return_if_fail (requisition != NULL);
-	requisition->width = 17;
+	
+	
+	requisition->width =22;
 	requisition->height = 17;
 }
 
@@ -56,6 +58,14 @@ _button_expose (GtkWidget *widget, GdkEventExpose *event)
 	GtkStyle *style=gtk_widget_get_style(widget);
 	int state = gtk_widget_get_state(widget);
 
+	/* update paint flags depending of states */
+	int flags = DTGTK_BUTTON (widget)->icon_flags;
+	
+	/* set inner border */
+	int border = (flags&CPF_DO_NOT_USE_BORDER)?2:4;
+	
+	
+	
 	/* create pango text settings if label exists */
 	PangoLayout *layout=NULL;    
 	int pw=0,ph=0;
@@ -78,7 +88,7 @@ _button_expose (GtkWidget *widget, GdkEventExpose *event)
 	int height = widget->allocation.height;
 
 	/* draw standard button background if not transparent */
-	if( (DTGTK_BUTTON (widget)->icon_flags & CPF_STYLE_FLAT ))
+	if( (flags & CPF_STYLE_FLAT ))
 	{
 		if( state != GTK_STATE_NORMAL )
 		{
@@ -91,7 +101,7 @@ _button_expose (GtkWidget *widget, GdkEventExpose *event)
 			cairo_fill (cr);
 		}
 	} 
-	else if( !(DTGTK_BUTTON (widget)->icon_flags & CPF_BG_TRANSPARENT) )  
+	else if( !(flags & CPF_BG_TRANSPARENT) )  
 	{
 		/* draw default boxed button */
 		gtk_paint_box (widget->style, widget->window,
@@ -106,18 +116,17 @@ _button_expose (GtkWidget *widget, GdkEventExpose *event)
 	/* draw icon */
 	if (DTGTK_BUTTON (widget)->icon)
 	{
-		if (DTGTK_BUTTON (widget)->icon_flags & CPF_IGNORE_FG_STATE) 
+		if (flags & CPF_IGNORE_FG_STATE) 
 		state = GTK_STATE_NORMAL;
-		cr = gdk_cairo_create (widget->window);
 		cairo_set_source_rgb (cr,
 				style->fg[state].red/65535.0, 
 				style->fg[state].green/65535.0, 
 				style->fg[state].blue/65535.0);
 		
 		if (text)
-			DTGTK_BUTTON (widget)->icon (cr,x+2,y+2,height-4,height-4,DTGTK_BUTTON (widget)->icon_flags);
+			DTGTK_BUTTON (widget)->icon (cr,x+border,y+border,height-(border*2),height-(border*2),flags);
 		else
-			DTGTK_BUTTON (widget)->icon (cr,x+2,y+2,width-4,height-4,DTGTK_BUTTON (widget)->icon_flags);
+			DTGTK_BUTTON (widget)->icon (cr,x+border,y+border,width-(border*2),height-(border*2),flags);
 	}
 	cairo_destroy (cr);
 	

@@ -17,6 +17,7 @@
 */
 #include <string.h>
 #include "togglebutton.h"
+#include "button.h"
 
 static void _togglebutton_class_init(GtkDarktableToggleButtonClass *klass);
 static void _togglebutton_init(GtkDarktableToggleButton *slider);
@@ -54,7 +55,7 @@ static void  _togglebutton_size_request(GtkWidget *widget,GtkRequisition *requis
 	g_return_if_fail(widget != NULL);
 	g_return_if_fail(DTGTK_IS_TOGGLEBUTTON(widget));
 	g_return_if_fail(requisition != NULL);
-	requisition->width = 17;
+	requisition->width = 22;
 	requisition->height = 17;
 }
 
@@ -94,8 +95,13 @@ static gboolean _togglebutton_expose(GtkWidget *widget, GdkEventExpose *event)
 	GtkStyle *style=gtk_widget_get_style(widget);
 	int state = gtk_widget_get_state(widget);
 
-	/* update paint flags depending of states */
+	/* fetch flags */
 	int flags = DTGTK_TOGGLEBUTTON (widget)->icon_flags;
+	
+	/* set inner border */
+	int border = (flags&CPF_DO_NOT_USE_BORDER)?2:4;
+	
+	/* update active state paint flag */
 	gboolean active = gtk_toggle_button_get_active ( GTK_TOGGLE_BUTTON (widget));
 	if (active)
 		flags |= CPF_ACTIVE;
@@ -112,8 +118,8 @@ static gboolean _togglebutton_expose(GtkWidget *widget, GdkEventExpose *event)
 	int width = widget->allocation.width;
 	int height = widget->allocation.height;
 
-	/* draw standard button background if not transparent */
-	if( (DTGTK_TOGGLEBUTTON (widget)->icon_flags & CPF_STYLE_FLAT ))
+	/* draw standard button background if not transparent nor flat styled */
+	if( (flags & CPF_STYLE_FLAT ))
 	{
 		if( state != GTK_STATE_NORMAL )
 		{
@@ -126,7 +132,7 @@ static gboolean _togglebutton_expose(GtkWidget *widget, GdkEventExpose *event)
 			cairo_fill (cr);
 		}
 	} 
-	else if( !(DTGTK_TOGGLEBUTTON (widget)->icon_flags & CPF_BG_TRANSPARENT) )  
+	else if( !(flags & CPF_BG_TRANSPARENT) )  
 	{
 		/* draw default boxed button */
 		gtk_paint_box (widget->style, widget->window,
@@ -152,17 +158,16 @@ static gboolean _togglebutton_expose(GtkWidget *widget, GdkEventExpose *event)
 	if (DTGTK_TOGGLEBUTTON (widget)->icon)
 	{
 		if (flags & CPF_IGNORE_FG_STATE) 
-		state = GTK_STATE_NORMAL;
-		cr = gdk_cairo_create (widget->window);
+			state = GTK_STATE_NORMAL;
 		cairo_set_source_rgb (cr,
 				style->fg[state].red/65535.0, 
 				style->fg[state].green/65535.0, 
 				style->fg[state].blue/65535.0);
 		
 		if (text)
-			DTGTK_TOGGLEBUTTON (widget)->icon (cr,x+4,y+4,height-8,height-8,flags);
+			DTGTK_TOGGLEBUTTON (widget)->icon (cr,x+border,y+border,height-(border*2),height-(border*2),flags);
 		else
-			DTGTK_TOGGLEBUTTON (widget)->icon (cr,x+4,y+4,width-8,height-8,flags);
+			DTGTK_TOGGLEBUTTON (widget)->icon (cr,x+border,y+border,width-(border*2),height-(border*2),flags);
 	}
 	cairo_destroy (cr);
 	
