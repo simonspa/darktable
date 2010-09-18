@@ -55,6 +55,7 @@ void dt_view_manager_init(dt_view_manager_t *vm)
       if(strcmp(module,"darkroom") == 0) 
         darktable.develop = (dt_develop_t *)vm->view[res].data;
     }
+    
     module = modules[++midx];
   }
   vm->current_view=-1;

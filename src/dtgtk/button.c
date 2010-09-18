@@ -64,8 +64,6 @@ _button_expose (GtkWidget *widget, GdkEventExpose *event)
 	/* set inner border */
 	int border = (flags&CPF_DO_NOT_USE_BORDER)?2:4;
 	
-	
-	
 	/* create pango text settings if label exists */
 	PangoLayout *layout=NULL;    
 	int pw=0,ph=0;
@@ -111,17 +109,17 @@ _button_expose (GtkWidget *widget, GdkEventExpose *event)
 	}
 	
 	
-	
+	cairo_set_source_rgb (cr,
+				style->fg[state].red/65535.0, 
+				style->fg[state].green/65535.0, 
+				style->fg[state].blue/65535.0);
 
 	/* draw icon */
 	if (DTGTK_BUTTON (widget)->icon)
 	{
 		if (flags & CPF_IGNORE_FG_STATE) 
-		state = GTK_STATE_NORMAL;
-		cairo_set_source_rgb (cr,
-				style->fg[state].red/65535.0, 
-				style->fg[state].green/65535.0, 
-				style->fg[state].blue/65535.0);
+			state = GTK_STATE_NORMAL;
+		
 		
 		if (text)
 			DTGTK_BUTTON (widget)->icon (cr,x+border,y+border,height-(border*2),height-(border*2),flags);

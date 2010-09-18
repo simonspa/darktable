@@ -44,6 +44,7 @@
 #include "gui/devices.h"
 #include "gui/presets.h"
 #include "gui/toolbars.h"
+#include "gui/views.h"
 
 
 #include "control/control.h"
@@ -607,9 +608,8 @@ void quit()
   gtk_widget_queue_draw(widget);
 }
 
-static void _gui_switch_view_key_accel_callback(void *p)
+void dt_gui_switch_view (long int view) 
 {
-  int view=(long int)p;
   dt_ctl_gui_mode_t mode=DT_MODE_NONE;
   /* do some setup before switch view*/
   switch (view)
@@ -636,6 +636,11 @@ static void _gui_switch_view_key_accel_callback(void *p)
   
   /* try switch to mode */
   dt_ctl_switch_mode_to (mode);
+}
+
+static void _gui_switch_view_key_accel_callback(void *p)
+{
+  dt_gui_switch_view ((long int)p);
 }
 
 static void quit_callback(void *p)
@@ -839,6 +844,12 @@ dt_gui_gtk_init(dt_gui_gtk_t *gui, int argc, char *argv[])
   darktable.gui->redraw_widgets = NULL;
   darktable.gui->key_accels = NULL;
 
+  /* initialize the header */
+  dt_gui_views_init ();
+  dt_gui_views_add (_("lighttable"),DT_GUI_VIEW_SWITCH_TO_LIBRARY);
+  dt_gui_views_add (_("develop"),DT_GUI_VIEW_SWITCH_TO_DARKROOM);
+  dt_gui_views_add (_("tethering"),DT_GUI_VIEW_SWITCH_TO_TETHERING);
+  
   /* initialize the toolbars */
   dt_gui_toolbars_init ();
   dt_gui_toolbars_set_tool (TopRightToolbar, dt_gui_tools_global_get ());
@@ -881,9 +892,16 @@ dt_gui_gtk_init(dt_gui_gtk_t *gui, int argc, char *argv[])
         
   gtk_widget_show_all(widget);
 
-  widget = glade_xml_get_widget (darktable.gui->main_window, "darktable_label");
-  gtk_label_set_label(GTK_LABEL(widget), "<span color=\"#7f7f7f\"><big><b>"PACKAGE_NAME"-"PACKAGE_VERSION"</b></big></span>");
-  
+  /* add name and version to header */
+  GtkBox *hbox = GTK_BOX (glade_xml_get_widget (darktable.gui->main_window, "header"));
+  widget = gtk_label_new (PACKAGE_NAME"-"PACKAGE_VERSION);
+  gtk_widget_set_name (widget,"header_label");
+  gtk_widget_show_all (widget);
+  gtk_box_pack_start(hbox,gtk_label_new(""),FALSE,FALSE,8);
+  gtk_box_pack_start(hbox,widget,FALSE,FALSE,8);
+
+ 
+  /* connect signals of centerview */
   widget = glade_xml_get_widget (darktable.gui->main_window, "center");
 
   g_signal_connect (G_OBJECT (widget), "key-press-event",
@@ -1003,7 +1021,7 @@ dt_gui_gtk_init(dt_gui_gtk_t *gui, int argc, char *argv[])
                     G_CALLBACK (dt_control_size_allocate_endmarker), (gpointer)1);
 
   // switch modes in gui by double-clicking label
-  widget = glade_xml_get_widget (darktable.gui->main_window, "view_label_eventbox");
+  /*widget = glade_xml_get_widget (darktable.gui->main_window, "view_label_eventbox");
   g_signal_connect (G_OBJECT (widget), "button-press-event",
                     G_CALLBACK (view_label_clicked),
                     (gpointer)0);
@@ -1013,6 +1031,7 @@ dt_gui_gtk_init(dt_gui_gtk_t *gui, int argc, char *argv[])
   g_signal_connect (G_OBJECT (widget), "button-press-event",
                     G_CALLBACK (darktable_label_clicked),
                     (gpointer)0);
+                    */
 
 
   widget = glade_xml_get_widget (darktable.gui->main_window, "center");

@@ -28,7 +28,6 @@
 
 static GtkWidget *_gui_tools_ratings_tool = NULL;
 
-
 static void
 _gui_tools_ratings_button_clicked(GtkToggleButton *widget, gpointer user_data)
 {

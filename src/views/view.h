@@ -80,6 +80,9 @@ void dt_view_image_expose(dt_image_t *img, dt_view_image_over_t *image_over, int
 void dt_view_toggle_selection(int iid);
 
 #define DT_VIEW_MAX_MODULES 10
+
+
+
 /**
  * holds all relevant data needed to manage the view
  * modules.

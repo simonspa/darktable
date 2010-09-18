@@ -181,6 +181,16 @@ style "scale-fixed-font" = "clearlooks-default"
   font_name = "Monospace 8"
 }
 
+style "clearlooks-header" = "clearlooks-default"
+{
+  text[NORMAL]      = "#7f7f7f"
+  text[PRELIGHT]      = "#e2e2e2"
+  fg[NORMAL]      = "#7f7f7f"
+  fg[ACTIVE]      = "#B0B0B0"
+  fg[PRELIGHT]      = "#e2e2e2"
+  font_name = "Sans bold 11"
+}
+
 style "clearlooks-scrollbar" = "clearlooks-defaults"
 {
   xthickness = 0
@@ -236,6 +246,7 @@ widget "*.plugins_vbox.GtkEventBox" style "clearlooks-brightbg"
 # widget "*.left.GtkEventBox" style "clearlooks-brightbg"
 # widget "*.left_scrolled.GtkEventBox" style "clearlooks-brightbg"
 widget "*.GtkEventBox.GtkVBox.GtkHBox.GtkButton" style "clearlooks-vbrightbg"
+widget "*.header_label" style "clearlooks-header"
 widget "*.devices_eventbox" style "clearlooks-brightbg"
 widget "*.library_eventbox" style "clearlooks-brightbg"
 widget "*.snapshots_eventbox" style "clearlooks-brightbg"
