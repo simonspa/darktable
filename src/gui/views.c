@@ -30,6 +30,7 @@ static void _gui_views_add_separator (gboolean sep)
   GtkWidget *widget = gtk_label_new( sep?"|":"");
   gtk_widget_set_name (widget,HEADER_LABEL_NAME);
   gtk_box_pack_start (_gui_views_box,widget,TRUE,FALSE,8);
+  gtk_misc_set_alignment(GTK_MISC(widget), 0.5, 1.0);
 }
 
 void 
@@ -54,13 +55,12 @@ typedef struct _gui_view_label_item_t {
 
 static void _gui_views_switched(GObject *obj,gpointer user_data) 
 {
-  _gui_view_label_item_t *item=user_data;
+  _gui_view_label_item_t *item = user_data;
   
   const gchar *name = dt_view_manager_name (darktable.view_manager);
   
-  gtk_toggle_button_set_active (
-    GTK_TOGGLE_BUTTON (item->widget),
-    (strcmp(name,gtk_button_get_label (GTK_BUTTON(item->widget)))==0)?TRUE:FALSE
+  gtk_widget_set_state (item->widget,
+    (strcmp(name,gtk_label_get_text (GTK_LABEL (item->widget)))==0)?GTK_STATE_ACTIVE:GTK_STATE_NORMAL
   );
 }
 
@@ -78,10 +78,11 @@ void dt_gui_views_add ( char *name, int view)
     _gui_views_add_separator(TRUE);
  
   /* create the view label */
-  GtkWidget *widget = dtgtk_togglebutton_new_with_label(name,NULL,CPF_BG_TRANSPARENT);
+  GtkWidget *widget = gtk_label_new(name);
   g_signal_connect (G_OBJECT (widget),"button-press-event", G_CALLBACK (_gui_views_toggled_callback), (gpointer)(long int)view);
   gtk_widget_set_name (widget,HEADER_LABEL_NAME);
   gtk_box_pack_start (_gui_views_box,widget,TRUE,FALSE,0);
+  gtk_misc_set_alignment(GTK_MISC(widget), 0.5, 1.0);
   
   /* connect switch view manager event */
   _gui_view_label_item_t *item = g_malloc (sizeof(_gui_view_label_item_t));

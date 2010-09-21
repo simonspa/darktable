@@ -775,7 +775,8 @@ void *dt_control_expose(void *voidptr)
   gdk_drawable_get_size(darktable.gui->pixmap, &width, &height);
   GtkWidget *widget = glade_xml_get_widget (darktable.gui->main_window, "center");
   gtk_widget_get_pointer(widget, &pointerx, &pointery);
-
+  GtkStyle *style=gtk_widget_get_style(widget);
+	
   //create a gtk-independant surface to draw on
   cairo_surface_t *cst = cairo_image_surface_create(CAIRO_FORMAT_ARGB32, width, height);
   cairo_t *cr = cairo_create(cst);
@@ -787,7 +788,13 @@ void *dt_control_expose(void *voidptr)
   darktable.control->width = width;
   darktable.control->height = height;
 
-  cairo_set_source_rgb (cr, darktable.gui->bgcolor[0]+0.04, darktable.gui->bgcolor[1]+0.04, darktable.gui->bgcolor[2]+0.04);
+
+  cairo_set_source_rgb (cr, 
+	style->bg[GTK_STATE_NORMAL].red/65535.0, 
+	style->bg[GTK_STATE_NORMAL].green/65535.0, 
+	style->bg[GTK_STATE_NORMAL].blue/65535.0
+  );
+  
   cairo_set_line_width(cr, tb);
   cairo_rectangle(cr, tb/2., tb/2., width-tb, height-tb);
   cairo_stroke(cr);

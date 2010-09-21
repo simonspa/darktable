@@ -895,6 +895,7 @@ dt_gui_gtk_init(dt_gui_gtk_t *gui, int argc, char *argv[])
   /* add name and version to header */
   GtkBox *hbox = GTK_BOX (glade_xml_get_widget (darktable.gui->main_window, "header"));
   widget = gtk_label_new (PACKAGE_NAME"-"PACKAGE_VERSION);
+    gtk_misc_set_alignment(GTK_MISC(widget), 0.0, 0.0);
   gtk_widget_set_name (widget,"header_label");
   gtk_widget_show_all (widget);
   gtk_box_pack_start(hbox,gtk_label_new(""),FALSE,FALSE,8);

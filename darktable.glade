@@ -27,15 +27,16 @@
 						<property name="n_columns">5</property>
 						<child>
 							<widget class="GtkHBox" id="header">
-								<property name="height_request">32</property>
+								<property name="height_request">64</property>
 								<property name="visible">True</property>
 								<property name="app_paintable">True</property>
+								<property name="border-width">10</property>
 							</widget>
 							<packing>
 								<property name="left_attach">1</property>
 								<property name="right_attach">4</property>
 								<property name="x_options">GTK_EXPAND | GTK_FILL</property>
-								<property name="y_options">GTK_SHRINK </property>
+								<property name="y_options">GTK_SHRINK</property>
 						
 							</packing>
 						</child>
