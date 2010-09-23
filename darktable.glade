@@ -372,6 +372,7 @@
 																						<property name="events">GDK_EXPOSURE_MASK | GDK_STRUCTURE_MASK</property>
 																						<child>
 																							<widget class="GtkVBox" id="section">
+																								<property name="spacing">5</property>
 																								<property name="visible">True</property>
 																								<child>
 																									<widget class="GtkButton" id="button_import">
@@ -452,6 +453,7 @@
 																						<child><placeholder/></child>
 																						<child>
 																							<widget class="GtkVBox" id="section">
+																								<property name="spacing">5</property>
 																								<property name="visible">True</property>
 																								<child>
 																									<widget class="GtkEntry" id="entry_film">
