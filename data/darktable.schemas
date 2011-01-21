@@ -470,8 +470,8 @@
     </schema>
     
     <schema>
-      <key>/schemas/apps/darktable/ui_last/expander_library</key>
-      <applyto>/apps/darktable/ui_last/expander_library</applyto>
+      <key>/schemas/apps/darktable/ui_last/expander_import</key>
+      <applyto>/apps/darktable/ui_last/expander_import</applyto>
       <owner>darktable</owner>
       <type>int</type>
       <default>2</default>

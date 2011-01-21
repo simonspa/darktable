@@ -59,10 +59,6 @@ void dt_film_cleanup(dt_film_t *film)
 	{
 		dt_film_remove(film->id);
 	}
-	else
-	{
-		dt_control_update_recent_films();
-	}
 }
 
 void dt_film_set_query(const int32_t id)
@@ -100,7 +96,6 @@ dt_film_open2 (dt_film_t *film)
 		sqlite3_step (stmt);
 		
 		sqlite3_finalize (stmt);
-		dt_control_update_recent_films ();
 		dt_film_set_query (film->id);
 		dt_control_queue_draw_all ();
 		dt_view_manager_reset (darktable.view_manager);
@@ -132,13 +127,13 @@ int dt_film_open(const int32_t id)
 	}
 	sqlite3_finalize(stmt);
 	// TODO: prefetch to cache using image_open
-	dt_control_update_recent_films();
 	dt_film_set_query(id);
 	dt_control_queue_draw_all();
 	dt_view_manager_reset(darktable.view_manager);
 	return 0;
 }
 
+// FIXME: needs a rewrite
 int dt_film_open_recent(const int num)
 {
 	sqlite3_stmt *stmt;
@@ -157,7 +152,7 @@ int dt_film_open_recent(const int num)
 		sqlite3_step(stmt);
 	}
 	sqlite3_finalize(stmt);
-	dt_control_update_recent_films();
+	// dt_control_update_recent_films();
 	return 0;
 }
 
@@ -376,6 +371,6 @@ void dt_film_remove(const int id)
   DT_DEBUG_SQLITE3_BIND_INT(stmt, 1, id);
   sqlite3_step(stmt);
   sqlite3_finalize(stmt);
-  dt_control_update_recent_films();
+  // dt_control_update_recent_films();
 }
 
