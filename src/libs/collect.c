@@ -29,10 +29,29 @@
 
 DT_MODULE(1)
 
-typedef struct dt_lib_collect_t
+#define MAX_RULES 10
+
+typedef enum dt_lib_collect_mode_t
 {
+  DT_LIB_COLLECT_MODE_AND=0,
+  DT_LIB_COLLECT_MODE_OR,
+  DT_LIB_COLLECT_MODE_AND_NOT
+}
+dt_lib_collect_mode_t;
+
+typedef struct dt_lib_collect_rule_t
+{
+  int num;
+  GtkWidget *hbox;
   GtkComboBox *combo;
   GtkWidget *text;
+  GtkWidget *button;
+}
+dt_lib_collect_rule_t;
+
+typedef struct dt_lib_collect_t
+{
+  dt_lib_collect_rule_t rule[MAX_RULES];
   GtkTreeView *view;
   GtkScrolledWindow *scrolledwindow;
 }
@@ -57,23 +76,24 @@ uint32_t views()
   return DT_LIGHTTABLE_VIEW;
 }
 
+static dt_lib_collect_t*
+get_collect (dt_lib_collect_rule_t *r)
+{
+  return (dt_lib_collect_t *)(((char *)r) - r->num*sizeof(dt_lib_collect_t));
+}
+
 void
 gui_reset (dt_lib_module_t *self)
 {
-  int last_film = dt_conf_get_int ("ui_last/film_roll");
-  dt_film_open(last_film);
+  // FIXME: unify this interface via gconf!
+  // TODO: go to last query..? just one default query?
+  // int last_film = dt_conf_get_int ("ui_last/film_roll");
+  // dt_film_open(last_film);
 }
 
 static void
-update_query(dt_lib_collect_t *d)
+get_query_string(const int property, const gchar *escaped_text, char *query)
 {
-  char query[1024];
-
-  // film roll, camera, tag, day, history
-  int property = gtk_combo_box_get_active(d->combo);
-  const gchar *text = gtk_entry_get_text(GTK_ENTRY(d->text));
-  gchar *escaped_text = dt_util_str_replace(text, "'", "''");
-  
   switch(property)
   {
     case 0: // film roll
@@ -83,16 +103,16 @@ update_query(dt_lib_collect_t *d)
     case 5: // colorlabel
     {
       int color = 0;
-      if     (strcmp(text,_("red")   )==0) color=0;
-      else if(strcmp(text,_("yellow"))==0) color=1;
-      else if(strcmp(text,_("green") )==0) color=2;
-      else if(strcmp(text,_("blue")  )==0) color=3;
-      else if(strcmp(text,_("purple"))==0) color=4;
+      if     (strcmp(escaped_text,_("red")   )==0) color=0;
+      else if(strcmp(escaped_text,_("yellow"))==0) color=1;
+      else if(strcmp(escaped_text,_("green") )==0) color=2;
+      else if(strcmp(escaped_text,_("blue")  )==0) color=3;
+      else if(strcmp(escaped_text,_("purple"))==0) color=4;
       snprintf(query, 1024, "(id in (select imgid from color_labels where color=%d))", color);
     } break;
     
     case 4: // history
-      snprintf(query, 1024, "(id %s in (select imgid from history where imgid=images.id)) ",(strcmp(text,_("altered"))==0)?"":"not");
+      snprintf(query, 1024, "(id %s in (select imgid from history where imgid=images.id)) ",(strcmp(escaped_text,_("altered"))==0)?"":"not");
       break;
       
     case 1: // camera
@@ -130,10 +150,42 @@ update_query(dt_lib_collect_t *d)
       snprintf(query, 1024, "(datetime_taken like '%%%s%%')", escaped_text);
       break;
   }
-  g_free(escaped_text);
+}
+
+static void
+update_query()
+{
+  char query[1024], confname[200];
+  char complete_query[4096];
+  int pos = 0;
+
+  const int num_rules = CLAMP(dt_conf_get_int("plugins/lighttable/collect/num_rules"), 1, 10);
+  char *conj[] = {"and", "or", "and not"};
+  complete_query[pos++] = '(';
+  for(int i=0;i<num_rules;i++)
+  {
+    snprintf(confname, 200, "plugins/lighttable/collect/item%1d", i);
+    const int property = dt_conf_get_int(confname);
+    snprintf(confname, 200, "plugins/lighttable/collect/string%1d", i);
+    gchar *text = dt_conf_get_string(confname);
+    if(!text) break;
+    snprintf(confname, 200, "plugins/lighttable/collect/mode%1d", i);
+    const dt_lib_collect_mode_t mode = dt_conf_get_int(confname);
+    gchar *escaped_text = dt_util_str_replace(text, "'", "''");
+
+    get_query_string(property, escaped_text, query);
+
+    if(i < num_rules - 1) pos += sprintf(complete_query + pos, " %s %s", conj[mode], query);
+    else pos += sprintf(complete_query + pos, "%s", query);
+    
+    g_free(escaped_text);
+    g_free(text);
+  }
+  complete_query[pos++] = ')';
+  complete_query[pos++] = '\0';
   
   /* set the extended where and the use of it in the query */
-  dt_collection_set_extended_where (darktable.collection,query);
+  dt_collection_set_extended_where (darktable.collection, complete_query);
   dt_collection_set_query_flags (darktable.collection, (dt_collection_get_query_flags (darktable.collection) | COLLECTION_QUERY_USE_WHERE_EXT));
   
   /* remove film id from default filter */
@@ -146,8 +198,9 @@ update_query(dt_lib_collect_t *d)
 }
 
 static gboolean
-entry_key_press (GtkEntry *entry, GdkEventKey *event, dt_lib_collect_t *d)
+entry_key_press (GtkEntry *entry, GdkEventKey *event, dt_lib_collect_rule_t *dr)
 { // update related list
+  dt_lib_collect_t *d = get_collect(dr);
   sqlite3_stmt *stmt;
   GtkTreeIter iter;
   GtkTreeView *view = d->view;
@@ -156,11 +209,14 @@ entry_key_press (GtkEntry *entry, GdkEventKey *event, dt_lib_collect_t *d)
   gtk_tree_view_set_model(GTK_TREE_VIEW(view), NULL);
   gtk_list_store_clear(GTK_LIST_STORE(model));
   char query[1024];
-  int property = gtk_combo_box_get_active(d->combo);
-  const gchar *text = gtk_entry_get_text(GTK_ENTRY(d->text));
+  int property = gtk_combo_box_get_active(dr->combo);
+  const gchar *text = gtk_entry_get_text(GTK_ENTRY(dr->text));
   gchar *escaped_text = dt_util_str_replace(text, "'", "''");
-  dt_conf_set_string("plugins/lighttable/collect/string", text);
-  dt_conf_set_int ("plugins/lighttable/collect/item", property);
+  char confname[200];
+  snprintf(confname, 200, "plugins/lighttable/collect/string%1d", dr->num);
+  dt_conf_set_string (confname, text);
+  snprintf(confname, 200, "plugins/lighttable/collect/item%1d", dr->num);
+  dt_conf_set_int (confname, property);
   
   switch(property)
   {
@@ -262,12 +318,12 @@ entry_key_press (GtkEntry *entry, GdkEventKey *event, dt_lib_collect_t *d)
 entry_key_press_exit:
   gtk_tree_view_set_model(GTK_TREE_VIEW(view), model);
   g_object_unref(model);
-  update_query(d);
+  update_query();
   return FALSE;
 }
 
 static void
-combo_changed (GtkComboBox *combo, dt_lib_collect_t *d)
+combo_changed (GtkComboBox *combo, dt_lib_collect_rule_t *d)
 {
   gtk_entry_set_text(GTK_ENTRY(d->text), "");
   entry_key_press (NULL, NULL, d);
@@ -284,13 +340,14 @@ row_activated (GtkTreeView *view, GtkTreePath *path, GtkTreeViewColumn *col, dt_
   gtk_tree_model_get (model, &iter, 
                       DT_LIB_COLLECT_COL_TEXT, &text,
                       -1);
-  gtk_entry_set_text(GTK_ENTRY(d->text), text);
-  entry_key_press (NULL, NULL, d);
+  const int active = CLAMP(dt_conf_get_int("plugins/lighttable/collect/num_rules") - 1, 0, 9);
+  gtk_entry_set_text(GTK_ENTRY(d->rule[active].text), text);
+  entry_key_press (NULL, NULL, d->rule + active);
   g_free(text);
 }
 
 static void
-entry_activated (GtkWidget *entry, dt_lib_collect_t *d)
+entry_activated (GtkWidget *entry, dt_lib_collect_rule_t *d)
 {
   entry_key_press (NULL, NULL, d);
 }
@@ -326,6 +383,83 @@ hide_callback (GObject    *object,
 }
 #endif
 
+static void
+menuitem_and (GtkMenuItem *menuitem, dt_lib_collect_rule_t *d)
+{
+  // TODO: add next row with and operator
+}
+
+static void
+menuitem_or (GtkMenuItem *menuitem, dt_lib_collect_rule_t *d)
+{
+  // TODO: add next row with or operator
+}
+
+static void
+menuitem_and_not (GtkMenuItem *menuitem, dt_lib_collect_rule_t *d)
+{
+  // TODO: add next row with and not operator
+}
+
+static void
+menuitem_clear (GtkMenuItem *menuitem, dt_lib_collect_rule_t *d)
+{
+  // TODO: remove this row, or if 1st, clear text entry box
+}
+
+static gboolean
+popup_button_callback(GtkWidget *widget, GdkEventButton *event, dt_lib_collect_rule_t *d)
+{
+  if(event->button != 1) return FALSE;
+
+  GtkWidget *menu = gtk_menu_new();
+  GtkWidget *mi;
+
+  mi = gtk_menu_item_new_with_label("clear this rule");
+  gtk_menu_shell_append(GTK_MENU_SHELL(menu), mi);
+  g_signal_connect(G_OBJECT(mi), "activate", G_CALLBACK(menuitem_clear), d);
+  
+  mi = gtk_menu_item_new_with_label("and new rule");
+  gtk_menu_shell_append(GTK_MENU_SHELL(menu), mi);
+  g_signal_connect(G_OBJECT(mi), "activate", G_CALLBACK(menuitem_and), d);
+
+  mi = gtk_menu_item_new_with_label("or new rule");
+  gtk_menu_shell_append(GTK_MENU_SHELL(menu), mi);
+  g_signal_connect(G_OBJECT(mi), "activate", G_CALLBACK(menuitem_or), d);
+
+  mi = gtk_menu_item_new_with_label("and not new rule");
+  gtk_menu_shell_append(GTK_MENU_SHELL(menu), mi);
+  g_signal_connect(G_OBJECT(mi), "activate", G_CALLBACK(menuitem_and_not), d);
+
+  gtk_menu_popup(GTK_MENU(menu), NULL, NULL, NULL, NULL, event->button, event->time);
+  gtk_widget_show_all(menu);
+
+  return TRUE;
+}
+
+static void
+gui_update (dt_lib_collect_t *d)
+{
+  const int active = CLAMP(dt_conf_get_int("plugins/lighttable/collect/num_rules") - 1, 0, 10);
+  char confname[200];
+  for(int i=0;i<=active;i++)
+  {
+    snprintf(confname, 200, "plugins/lighttable/collect/item%1d", i);
+    gtk_combo_box_set_active(GTK_COMBO_BOX(d->rule[i].combo), dt_conf_get_int(confname));
+    snprintf(confname, 200, "plugins/lighttable/collect/string%1d", i);
+    gchar *text = dt_conf_get_string(confname);
+    if(text)
+    {
+      gtk_entry_set_text(GTK_ENTRY(d->rule[i].text), text);
+      g_free(text);
+    }
+    snprintf(confname, 200, "plugins/lighttable/collect/mode%1d", i);
+    // TODO: set button state!
+    // gtk_combo_box_set_active(GTK_COMBO_BOX(w), dt_conf_get_int(confname));
+  }
+  // update list of proposals
+  entry_key_press (NULL, NULL, d->rule + active);
+}
 
 void
 gui_init (dt_lib_module_t *self)
@@ -342,46 +476,50 @@ gui_init (dt_lib_module_t *self)
   d->view = view;
   GtkListStore *liststore;
 
-  box = GTK_BOX(gtk_hbox_new(FALSE, 5));
-  gtk_box_pack_start(GTK_BOX(self->widget), GTK_WIDGET(box), TRUE, TRUE, 0);
-  w = gtk_combo_box_new_text();
-  d->combo = GTK_COMBO_BOX(w);
-  gtk_combo_box_append_text(GTK_COMBO_BOX(w), _("film roll"));
-  gtk_combo_box_append_text(GTK_COMBO_BOX(w), _("camera"));
-  gtk_combo_box_append_text(GTK_COMBO_BOX(w), _("tag"));
-  gtk_combo_box_append_text(GTK_COMBO_BOX(w), _("date"));
-  gtk_combo_box_append_text(GTK_COMBO_BOX(w), _("history"));
-  gtk_combo_box_append_text(GTK_COMBO_BOX(w), _("colorlabel"));
-  gtk_combo_box_append_text(GTK_COMBO_BOX(w), _("title"));
-  gtk_combo_box_append_text(GTK_COMBO_BOX(w), _("description"));
-  gtk_combo_box_append_text(GTK_COMBO_BOX(w), _("creator"));
-  gtk_combo_box_append_text(GTK_COMBO_BOX(w), _("publisher"));
-  gtk_combo_box_append_text(GTK_COMBO_BOX(w), _("rights"));
-  gtk_combo_box_set_active(GTK_COMBO_BOX(w), dt_conf_get_int("plugins/lighttable/collect/item"));
-  g_signal_connect(G_OBJECT(w), "changed", G_CALLBACK(combo_changed), d);
-  gtk_box_pack_start(box, w, FALSE, FALSE, 0);
-  w = gtk_entry_new();
-  dt_gui_key_accel_block_on_focus(w);
-  d->text = w;
-
-  /* xgettext:no-c-format */
-  gtk_object_set(GTK_OBJECT(d->text), "tooltip-text", _("type your query, use `%' as wildcard"), (char *)NULL);
-  gchar *text = dt_conf_get_string("plugins/lighttable/collect/string");
-  if(text)
+  for(int i=0;i<MAX_RULES;i++)
   {
-    gtk_entry_set_text(GTK_ENTRY(d->text), text);
-    g_free(text);
+    d->rule[i].num = i;
+    box = GTK_BOX(gtk_hbox_new(FALSE, 5));
+    d->rule[i].hbox = GTK_WIDGET(box);
+    gtk_box_pack_start(GTK_BOX(self->widget), GTK_WIDGET(box), TRUE, TRUE, 0);
+    w = gtk_combo_box_new_text();
+    d->rule[i].combo = GTK_COMBO_BOX(w);
+    gtk_combo_box_append_text(GTK_COMBO_BOX(w), _("film roll"));
+    gtk_combo_box_append_text(GTK_COMBO_BOX(w), _("camera"));
+    gtk_combo_box_append_text(GTK_COMBO_BOX(w), _("tag"));
+    gtk_combo_box_append_text(GTK_COMBO_BOX(w), _("date"));
+    gtk_combo_box_append_text(GTK_COMBO_BOX(w), _("history"));
+    gtk_combo_box_append_text(GTK_COMBO_BOX(w), _("colorlabel"));
+    gtk_combo_box_append_text(GTK_COMBO_BOX(w), _("title"));
+    gtk_combo_box_append_text(GTK_COMBO_BOX(w), _("description"));
+    gtk_combo_box_append_text(GTK_COMBO_BOX(w), _("creator"));
+    gtk_combo_box_append_text(GTK_COMBO_BOX(w), _("publisher"));
+    gtk_combo_box_append_text(GTK_COMBO_BOX(w), _("rights"));
+    g_signal_connect(G_OBJECT(w), "changed", G_CALLBACK(combo_changed), d->rule + i);
+    gtk_box_pack_start(box, w, FALSE, FALSE, 0);
+    w = gtk_entry_new();
+    dt_gui_key_accel_block_on_focus(w);
+    d->rule[i].text = w;
+
+    /* xgettext:no-c-format */
+    gtk_object_set(GTK_OBJECT(w), "tooltip-text", _("type your query, use `%' as wildcard"), (char *)NULL);
+    gtk_widget_add_events(w, GDK_KEY_RELEASE_MASK);
+    g_signal_connect(G_OBJECT(w), "key-release-event", G_CALLBACK(entry_key_press), d->rule + i);
+    g_signal_connect(G_OBJECT(w), "activate", G_CALLBACK(entry_activated), d->rule + i);
+    gtk_box_pack_start(box, w, TRUE, TRUE, 0);
+    w = dtgtk_button_new(dtgtk_cairo_paint_presets, CPF_STYLE_FLAT|CPF_DO_NOT_USE_BORDER);
+    d->rule[i].button = w;
+    gtk_widget_set_events(w, GDK_BUTTON_PRESS_MASK);
+    g_signal_connect(G_OBJECT(w), "button-press-event", G_CALLBACK(popup_button_callback), d->rule + i);
+    gtk_box_pack_start(box, w, FALSE, FALSE, 0);
+
+    gtk_widget_set_no_show_all(d->rule[i].hbox, TRUE);
+    gtk_widget_set_visible(d->rule[i].hbox, FALSE);
   }
+  gtk_widget_set_no_show_all(d->rule[0].hbox, FALSE);
+  gtk_widget_set_visible(d->rule[0].hbox, TRUE);
+
   d->scrolledwindow = GTK_SCROLLED_WINDOW(sw);
-  // g_signal_connect(G_OBJECT(w), "changed", G_CALLBACK(combo_entry_changed), d);
-  gtk_widget_add_events(w, GDK_KEY_RELEASE_MASK);
-  g_signal_connect(G_OBJECT(w), "key-release-event", G_CALLBACK(entry_key_press), d);
-  g_signal_connect(G_OBJECT(w), "activate", G_CALLBACK(entry_activated), d);
-  gtk_box_pack_start(box, w, TRUE, TRUE, 0);
-
-  w = dtgtk_button_new(dtgtk_cairo_paint_cancel, CPF_STYLE_FLAT|CPF_DO_NOT_USE_BORDER);
-  gtk_box_pack_start(box, w, FALSE, FALSE, 0);
-
   gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(sw), GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
   gtk_container_add(GTK_CONTAINER(sw), GTK_WIDGET(view));
   gtk_box_pack_start(GTK_BOX(self->widget), GTK_WIDGET(sw), TRUE, TRUE, 0);
@@ -398,7 +536,7 @@ gui_init (dt_lib_module_t *self)
   gtk_object_set(GTK_OBJECT(view), "tooltip-text", _("doubleclick to select"), (char *)NULL);
   g_signal_connect(G_OBJECT (view), "row-activated", G_CALLBACK (row_activated), d);
 
-  entry_key_press (NULL, NULL, d);
+  gui_update(d);
 }
 
 void
@@ -408,3 +546,4 @@ gui_cleanup (dt_lib_module_t *self)
   self->data = NULL;
 }
 
+#undef MAX_RULES

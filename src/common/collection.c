@@ -147,17 +147,17 @@ dt_collection_reset(const dt_collection_t *collection)
   /* setup defaults */
   params->query_flags = COLLECTION_QUERY_FULL;
   params->filter_flags = COLLECTION_FILTER_FILM_ID | COLLECTION_FILTER_ATLEAST_RATING;
-  params->film_id = dt_conf_get_int("ui_last/film_roll");
+  params->film_id = 1;
   params->rating = 1;
 
   /* check if stored query parameters exist */
   if (dt_conf_key_exists ("plugins/collection/filter_flags"))
   {
-  /* apply stored query parameters from previous darktable session */
-  params->film_id = dt_conf_get_int("plugins/collection/film_id");
-  params->rating = dt_conf_get_int("plugins/collection/rating");
-  params->query_flags = dt_conf_get_int("plugins/collection/query_flags");
-  params->filter_flags= dt_conf_get_int("plugins/collection/filter_flags");
+    /* apply stored query parameters from previous darktable session */
+    params->film_id = dt_conf_get_int("plugins/collection/film_id");
+    params->rating = dt_conf_get_int("plugins/collection/rating");
+    params->query_flags = dt_conf_get_int("plugins/collection/query_flags");
+    params->filter_flags= dt_conf_get_int("plugins/collection/filter_flags");
   }
   dt_collection_update (collection);
 }

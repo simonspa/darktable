@@ -63,12 +63,12 @@ void dt_film_cleanup(dt_film_t *film)
 
 void dt_film_set_query(const int32_t id)
 {
+  // FIXME: do a full collect/ var update!
 	/* enable film id filter and set film id */
 	dt_collection_set_query_flags (darktable.collection, COLLECTION_QUERY_FULL);
 	dt_collection_set_filter_flags (darktable.collection, (dt_collection_get_filter_flags (darktable.collection) | COLLECTION_FILTER_FILM_ID) );
 	dt_collection_set_film_id (darktable.collection, id);
 	dt_collection_update (darktable.collection);
-	dt_conf_set_int ("ui_last/film_roll", id);
 }
 
 /** open film with given id. */
