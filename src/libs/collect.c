@@ -344,8 +344,6 @@ gui_init (dt_lib_module_t *self)
 
   box = GTK_BOX(gtk_hbox_new(FALSE, 5));
   gtk_box_pack_start(GTK_BOX(self->widget), GTK_WIDGET(box), TRUE, TRUE, 0);
-  w = dtgtk_button_new(dtgtk_cairo_paint_cancel, CPF_STYLE_FLAT|CPF_DO_NOT_USE_BORDER);
-  gtk_box_pack_start(box, w, FALSE, FALSE, 0);
   w = gtk_combo_box_new_text();
   d->combo = GTK_COMBO_BOX(w);
   gtk_combo_box_append_text(GTK_COMBO_BOX(w), _("film roll"));
@@ -381,6 +379,9 @@ gui_init (dt_lib_module_t *self)
   g_signal_connect(G_OBJECT(w), "activate", G_CALLBACK(entry_activated), d);
   gtk_box_pack_start(box, w, TRUE, TRUE, 0);
 
+  w = dtgtk_button_new(dtgtk_cairo_paint_cancel, CPF_STYLE_FLAT|CPF_DO_NOT_USE_BORDER);
+  gtk_box_pack_start(box, w, FALSE, FALSE, 0);
+
   gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(sw), GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
   gtk_container_add(GTK_CONTAINER(sw), GTK_WIDGET(view));
   gtk_box_pack_start(GTK_BOX(self->widget), GTK_WIDGET(sw), TRUE, TRUE, 0);
@@ -388,6 +389,7 @@ gui_init (dt_lib_module_t *self)
   liststore = gtk_list_store_new(DT_LIB_COLLECT_NUM_COLS, G_TYPE_STRING, G_TYPE_UINT);
   GtkTreeViewColumn *col = gtk_tree_view_column_new();
   gtk_tree_view_append_column(view, col);
+  gtk_widget_set_size_request(GTK_WIDGET(view), -1, 300);
   GtkCellRenderer *renderer = gtk_cell_renderer_text_new();
   gtk_tree_view_column_pack_start(col, renderer, TRUE);
   gtk_tree_view_column_add_attribute(col, renderer, "text", DT_LIB_COLLECT_COL_TEXT);
@@ -395,18 +397,6 @@ gui_init (dt_lib_module_t *self)
   gtk_tree_view_set_model(view, GTK_TREE_MODEL(liststore));
   gtk_object_set(GTK_OBJECT(view), "tooltip-text", _("doubleclick to select"), (char *)NULL);
   g_signal_connect(G_OBJECT (view), "row-activated", G_CALLBACK (row_activated), d);
-
-  box = GTK_BOX(gtk_hbox_new(TRUE, 5));
-  gtk_box_pack_start(GTK_BOX(self->widget), GTK_WIDGET(box), FALSE, FALSE, 0);
-  w = gtk_button_new_with_label(_("and"));
-  gtk_object_set(GTK_OBJECT(w), "tooltip-text", _("filter out more images"), (char *)NULL);
-  gtk_box_pack_start(box, w, TRUE, TRUE, 0);
-  w = gtk_button_new_with_label(_("or"));
-  gtk_object_set(GTK_OBJECT(w), "tooltip-text", _("add more images"), (char *)NULL);
-  gtk_box_pack_start(box, w, TRUE, TRUE, 0);
-  w = gtk_button_new_with_label(_("except"));
-  gtk_object_set(GTK_OBJECT(w), "tooltip-text", _("exclude some images"), (char *)NULL);
-  gtk_box_pack_start(box, w, TRUE, TRUE, 0);
 
   entry_key_press (NULL, NULL, d);
 }
