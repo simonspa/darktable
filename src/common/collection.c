@@ -167,7 +167,7 @@ dt_collection_reset(const dt_collection_t *collection)
     params->query_flags = dt_conf_get_int("plugins/collection/query_flags");
     params->filter_flags= dt_conf_get_int("plugins/collection/filter_flags");
   }
-  dt_collection_update (collection);
+  dt_collection_update_query (collection);
 }
 
 const gchar *
@@ -395,7 +395,7 @@ dt_collection_listener_unregister(void (*callback)(void *))
 }
 
 void
-dt_collection_update_query()
+dt_collection_update_query(const dt_collection_t *collection)
 {
   char query[1024], confname[200];
   char complete_query[4096];
@@ -429,16 +429,16 @@ dt_collection_update_query()
   // printf("complete query: `%s'\n", complete_query);
   
   /* set the extended where and the use of it in the query */
-  dt_collection_set_extended_where (darktable.collection, complete_query);
-  dt_collection_set_query_flags (darktable.collection, (dt_collection_get_query_flags (darktable.collection) | COLLECTION_QUERY_USE_WHERE_EXT));
+  dt_collection_set_extended_where (collection, complete_query);
+  dt_collection_set_query_flags (collection, (dt_collection_get_query_flags (collection) | COLLECTION_QUERY_USE_WHERE_EXT));
   
   /* remove film id from default filter */
-  dt_collection_set_filter_flags (darktable.collection, (dt_collection_get_filter_flags (darktable.collection) & ~COLLECTION_FILTER_FILM_ID));
+  dt_collection_set_filter_flags (collection, (dt_collection_get_filter_flags (collection) & ~COLLECTION_FILTER_FILM_ID));
   
   /* update query and at last the visual */
-  dt_collection_update (darktable.collection);
+  dt_collection_update (collection);
   
-  dt_control_queue_draw_all();
+  // dt_control_queue_draw_all();
 
   // TODO: update list of recent queries
   // TODO: remove from selected images where not in this query.

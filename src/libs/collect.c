@@ -282,7 +282,7 @@ combo_changed (GtkComboBox *combo, dt_lib_collect_rule_t *d)
   dt_lib_collect_t *c = get_collect(d);
   c->active_rule = d->num;
   entry_key_press (NULL, NULL, d);
-  dt_collection_update_query();
+  dt_collection_update_query(darktable.collection);
 }
 
 static void
@@ -300,14 +300,14 @@ row_activated (GtkTreeView *view, GtkTreePath *path, GtkTreeViewColumn *col, dt_
   gtk_entry_set_text(GTK_ENTRY(d->rule[active].text), text);
   g_free(text);
   entry_key_press (NULL, NULL, d->rule + active);
-  dt_collection_update_query();
+  dt_collection_update_query(darktable.collection);
 }
 
 static void
 entry_activated (GtkWidget *entry, dt_lib_collect_rule_t *d)
 {
   entry_key_press (NULL, NULL, d);
-  dt_collection_update_query();
+  dt_collection_update_query(darktable.collection);
 }
 
 int
@@ -366,6 +366,7 @@ menuitem_and (GtkMenuItem *menuitem, dt_lib_collect_rule_t *d)
     c->active_rule = active;
   }
   gui_update(get_collect(d));
+  dt_collection_update_query(darktable.collection);
 }
 
 static void
@@ -383,6 +384,7 @@ menuitem_or (GtkMenuItem *menuitem, dt_lib_collect_rule_t *d)
     dt_conf_set_int("plugins/lighttable/collect/num_rules", active+1);
   }
   gui_update(get_collect(d));
+  dt_collection_update_query(darktable.collection);
 }
 
 static void
@@ -400,6 +402,7 @@ menuitem_and_not (GtkMenuItem *menuitem, dt_lib_collect_rule_t *d)
     dt_conf_set_int("plugins/lighttable/collect/num_rules", active+1);
   }
   gui_update(get_collect(d));
+  dt_collection_update_query(darktable.collection);
 }
 
 static void
@@ -414,6 +417,7 @@ menuitem_change_and (GtkMenuItem *menuitem, dt_lib_collect_rule_t *d)
     dt_conf_set_int(confname, DT_LIB_COLLECT_MODE_AND);
   }
   gui_update(get_collect(d));
+  dt_collection_update_query(darktable.collection);
 }
 
 static void
@@ -428,6 +432,7 @@ menuitem_change_or (GtkMenuItem *menuitem, dt_lib_collect_rule_t *d)
     dt_conf_set_int(confname, DT_LIB_COLLECT_MODE_OR);
   }
   gui_update(get_collect(d));
+  dt_collection_update_query(darktable.collection);
 }
 
 static void
@@ -442,6 +447,7 @@ menuitem_change_and_not (GtkMenuItem *menuitem, dt_lib_collect_rule_t *d)
     dt_conf_set_int(confname, DT_LIB_COLLECT_MODE_AND_NOT);
   }
   gui_update(get_collect(d));
+  dt_collection_update_query(darktable.collection);
 }
 
 static void
@@ -488,6 +494,7 @@ menuitem_clear (GtkMenuItem *menuitem, dt_lib_collect_rule_t *d)
     }
   }
   gui_update(get_collect(d));
+  dt_collection_update_query(darktable.collection);
 }
 
 static gboolean

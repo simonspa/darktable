@@ -498,7 +498,7 @@ static void
 update_query()
 {
   /* updates query */
-  dt_collection_update (darktable.collection);
+  dt_collection_update_query (darktable.collection);
   
   /* updates visual */
   GtkWidget *win = glade_xml_get_widget (darktable.gui->main_window, "center");

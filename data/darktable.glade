@@ -288,7 +288,7 @@ file manager</property>
                                                     <property name="visible">True</property>
                                                     <property name="can_focus">True</property>
                                                     <property name="receives_default">True</property>
-                                                    <property name="tooltip" translatable="yes">select a folder to import</property>
+                                                    <property name="tooltip" translatable="yes">select a folder to import as film roll</property>
                                                     <property name="xalign">0.05000000074505806</property>
                                                   </widget>
                                                   <packing>
