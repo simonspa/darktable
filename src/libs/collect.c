@@ -462,9 +462,11 @@ menuitem_clear (GtkMenuItem *menuitem, dt_lib_collect_rule_t *d)
 {
   // remove this row, or if 1st, clear text entry box
   const int active = CLAMP(dt_conf_get_int("plugins/lighttable/collect/num_rules"), 1, 10);
+  dt_lib_collect_t *c = get_collect(d);
   if(active > 1)
   {
     dt_conf_set_int("plugins/lighttable/collect/num_rules", active-1);
+    if(c->active_rule >= active-1) c->active_rule = active - 2;
   }
   else
   {
@@ -493,7 +495,7 @@ menuitem_clear (GtkMenuItem *menuitem, dt_lib_collect_rule_t *d)
       g_free(string);
     }
   }
-  gui_update(get_collect(d));
+  gui_update(c);
   dt_collection_update_query(darktable.collection);
 }
 

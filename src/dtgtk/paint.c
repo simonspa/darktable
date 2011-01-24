@@ -554,8 +554,8 @@ void dtgtk_cairo_paint_dropdown(cairo_t *cr,gint x,gint y,gint w,gint h,gint fla
   cairo_set_line_width(cr,0.2);
   cairo_set_line_cap(cr,CAIRO_LINE_CAP_ROUND);
 
-  cairo_move_to(cr, 0.1, 0.2);
-  cairo_line_to(cr, 0.5, 0.8);
-  cairo_line_to(cr, 0.9, 0.2);
+  cairo_move_to(cr, 0.1, 0.3);
+  cairo_line_to(cr, 0.5, 0.7);
+  cairo_line_to(cr, 0.9, 0.3);
   cairo_stroke(cr);
 }
