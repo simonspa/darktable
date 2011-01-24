@@ -53,6 +53,7 @@ dt_lib_collect_rule_t;
 typedef struct dt_lib_collect_t
 {
   dt_lib_collect_rule_t rule[MAX_RULES];
+  int active_rule;
   GtkTreeView *view;
   GtkScrolledWindow *scrolledwindow;
 }
@@ -82,126 +83,6 @@ get_collect (dt_lib_collect_rule_t *r)
 {
   dt_lib_collect_t *d = (dt_lib_collect_t *)(((char *)r) - r->num*sizeof(dt_lib_collect_rule_t));
   return d;
-}
-
-void
-gui_reset (dt_lib_module_t *self)
-{
-  // FIXME: unify this interface via gconf!
-  // TODO: go to last query..? just one default query?
-  // int last_film = dt_conf_get_int ("ui_last/film_roll");
-  // dt_film_open(last_film);
-}
-
-static void
-get_query_string(const int property, const gchar *escaped_text, char *query)
-{
-  switch(property)
-  {
-    case 0: // film roll
-      snprintf(query, 1024, "(film_id in (select id from film_rolls where folder like '%%%s%%'))", escaped_text);
-      break;
-
-    case 5: // colorlabel
-    {
-      int color = 0;
-      if     (strcmp(escaped_text,_("red")   )==0) color=0;
-      else if(strcmp(escaped_text,_("yellow"))==0) color=1;
-      else if(strcmp(escaped_text,_("green") )==0) color=2;
-      else if(strcmp(escaped_text,_("blue")  )==0) color=3;
-      else if(strcmp(escaped_text,_("purple"))==0) color=4;
-      snprintf(query, 1024, "(id in (select imgid from color_labels where color=%d))", color);
-    } break;
-    
-    case 4: // history
-      snprintf(query, 1024, "(id %s in (select imgid from history where imgid=images.id)) ",(strcmp(escaped_text,_("altered"))==0)?"":"not");
-      break;
-      
-    case 1: // camera
-      snprintf(query, 1024, "(maker || ' ' || model like '%%%s%%')", escaped_text);
-      break;
-    case 2: // tag
-      snprintf(query, 1024, "(id in (select imgid from tagged_images as a join "
-                            "tags as b on a.tagid = b.id where name like '%%%s%%'))", escaped_text);
-      break;
-
-    // TODO: How to handle images without metadata? In the moment they are not shown.
-    // TODO: Autogenerate this code?
-    case 6: // title
-      snprintf(query, 1024, "(id in (select id from meta_data where key = %d and value like '%%%s%%'))",
-                            DT_METADATA_XMP_DC_TITLE, escaped_text);
-      break;
-    case 7: // description
-        snprintf(query, 1024, "(id in (select id from meta_data where key = %d and value like '%%%s%%'))",
-                              DT_METADATA_XMP_DC_DESCRIPTION, escaped_text);
-        break;
-    case 8: // creator
-      snprintf(query, 1024, "(id in (select id from meta_data where key = %d and value like '%%%s%%'))",
-                            DT_METADATA_XMP_DC_CREATOR, escaped_text);
-      break;
-    case 9: // publisher
-      snprintf(query, 1024, "(id in (select id from meta_data where key = %d and value like '%%%s%%'))",
-                            DT_METADATA_XMP_DC_PUBLISHER, escaped_text);
-      break;
-    case 10: // rights
-      snprintf(query, 1024, "(id in (select id from meta_data where key = %d and value like '%%%s%%'))",
-                            DT_METADATA_XMP_DC_RIGHTS, escaped_text);
-      break;
-
-    default: // case 3: // day
-      snprintf(query, 1024, "(datetime_taken like '%%%s%%')", escaped_text);
-      break;
-  }
-}
-
-static void
-update_query()
-{
-  char query[1024], confname[200];
-  char complete_query[4096];
-  int pos = 0;
-
-  const int num_rules = CLAMP(dt_conf_get_int("plugins/lighttable/collect/num_rules"), 1, 10);
-  char *conj[] = {"and", "or", "and not"};
-  complete_query[pos++] = '(';
-  for(int i=0;i<num_rules;i++)
-  {
-    snprintf(confname, 200, "plugins/lighttable/collect/item%1d", i);
-    const int property = dt_conf_get_int(confname);
-    snprintf(confname, 200, "plugins/lighttable/collect/string%1d", i);
-    gchar *text = dt_conf_get_string(confname);
-    if(!text) break;
-    snprintf(confname, 200, "plugins/lighttable/collect/mode%1d", i);
-    const dt_lib_collect_mode_t mode = dt_conf_get_int(confname);
-    gchar *escaped_text = dt_util_str_replace(text, "'", "''");
-
-    get_query_string(property, escaped_text, query);
-
-    if(i > 0) pos += sprintf(complete_query + pos, " %s %s", conj[mode], query);
-    else pos += sprintf(complete_query + pos, "%s", query);
-    
-    g_free(escaped_text);
-    g_free(text);
-  }
-  complete_query[pos++] = ')';
-  complete_query[pos++] = '\0';
-
-  // printf("complete query: `%s'\n", complete_query);
-  
-  /* set the extended where and the use of it in the query */
-  dt_collection_set_extended_where (darktable.collection, complete_query);
-  dt_collection_set_query_flags (darktable.collection, (dt_collection_get_query_flags (darktable.collection) | COLLECTION_QUERY_USE_WHERE_EXT));
-  
-  /* remove film id from default filter */
-  dt_collection_set_filter_flags (darktable.collection, (dt_collection_get_filter_flags (darktable.collection) & ~COLLECTION_FILTER_FILM_ID));
-  
-  /* update query and at last the visual */
-  dt_collection_update (darktable.collection);
-  
-  dt_control_queue_draw_all();
-
-  // TODO: update list of recent queries
-  // TODO: remove from selected images where not in this query.
 }
 
 static gboolean
@@ -325,7 +206,6 @@ entry_key_press (GtkEntry *entry, GdkEventKey *event, dt_lib_collect_rule_t *dr)
 entry_key_press_exit:
   gtk_tree_view_set_model(GTK_TREE_VIEW(view), model);
   g_object_unref(model);
-  update_query();
   return FALSE;
 }
 
@@ -379,8 +259,19 @@ gui_update (dt_lib_collect_t *d)
     }
   }
   // update list of proposals
-  entry_key_press (NULL, NULL, d->rule + active);
+  entry_key_press (NULL, NULL, d->rule + d->active_rule);
   darktable.gui->reset = old;
+}
+
+void
+gui_reset (dt_lib_module_t *self)
+{
+  dt_conf_set_int("plugins/lighttable/collect/num_rules", 1);
+  dt_conf_set_int("plugins/lighttable/collect/item0", 0);
+  dt_conf_set_string("plugins/lighttable/collect/string0", "");
+  dt_lib_collect_t *d = (dt_lib_collect_t *)self->data;
+  gui_update(d);
+  // entry_key_press (NULL, NULL, d->rule + d->active_rule);
 }
 
 static void
@@ -388,7 +279,10 @@ combo_changed (GtkComboBox *combo, dt_lib_collect_rule_t *d)
 {
   if(darktable.gui->reset) return;
   gtk_entry_set_text(GTK_ENTRY(d->text), "");
+  dt_lib_collect_t *c = get_collect(d);
+  c->active_rule = d->num;
   entry_key_press (NULL, NULL, d);
+  dt_collection_update_query();
 }
 
 static void
@@ -402,22 +296,32 @@ row_activated (GtkTreeView *view, GtkTreePath *path, GtkTreeViewColumn *col, dt_
   gtk_tree_model_get (model, &iter, 
                       DT_LIB_COLLECT_COL_TEXT, &text,
                       -1);
-  const int active = CLAMP(dt_conf_get_int("plugins/lighttable/collect/num_rules") - 1, 0, 9);
+  const int active = d->active_rule;
   gtk_entry_set_text(GTK_ENTRY(d->rule[active].text), text);
-  entry_key_press (NULL, NULL, d->rule + active);
   g_free(text);
+  entry_key_press (NULL, NULL, d->rule + active);
+  dt_collection_update_query();
 }
 
 static void
 entry_activated (GtkWidget *entry, dt_lib_collect_rule_t *d)
 {
   entry_key_press (NULL, NULL, d);
+  dt_collection_update_query();
 }
 
 int
 position ()
 {
   return 400;
+}
+
+static void
+entry_focus_in_callback (GtkWidget *w, GdkEventFocus *event, dt_lib_collect_rule_t *d)
+{
+  dt_lib_collect_t *c = get_collect(d);
+  c->active_rule = d->num;
+  entry_key_press (NULL, NULL, c->rule + c->active_rule);
 }
 
 #if 0
@@ -458,6 +362,8 @@ menuitem_and (GtkMenuItem *menuitem, dt_lib_collect_rule_t *d)
     snprintf(confname, 200, "plugins/lighttable/collect/string%1d", active);
     dt_conf_set_string(confname, "");
     dt_conf_set_int("plugins/lighttable/collect/num_rules", active+1);
+    dt_lib_collect_t *c = get_collect(d);
+    c->active_rule = active;
   }
   gui_update(get_collect(d));
 }
@@ -497,6 +403,55 @@ menuitem_and_not (GtkMenuItem *menuitem, dt_lib_collect_rule_t *d)
 }
 
 static void
+menuitem_change_and (GtkMenuItem *menuitem, dt_lib_collect_rule_t *d)
+{
+  // add next row with and operator
+  const int num = d->num + 1;
+  if(num < 10 && num > 0)
+  {
+    char confname[200];
+    snprintf(confname, 200, "plugins/lighttable/collect/mode%1d", num);
+    dt_conf_set_int(confname, DT_LIB_COLLECT_MODE_AND);
+  }
+  gui_update(get_collect(d));
+}
+
+static void
+menuitem_change_or (GtkMenuItem *menuitem, dt_lib_collect_rule_t *d)
+{
+  // add next row with or operator
+  const int num = d->num + 1;
+  if(num < 10 && num > 0)
+  {
+    char confname[200];
+    snprintf(confname, 200, "plugins/lighttable/collect/mode%1d", num);
+    dt_conf_set_int(confname, DT_LIB_COLLECT_MODE_OR);
+  }
+  gui_update(get_collect(d));
+}
+
+static void
+menuitem_change_and_not (GtkMenuItem *menuitem, dt_lib_collect_rule_t *d)
+{
+  // add next row with and not operator
+  const int num = d->num + 1;
+  if(num < 10 && num > 0)
+  {
+    char confname[200];
+    snprintf(confname, 200, "plugins/lighttable/collect/mode%1d", num);
+    dt_conf_set_int(confname, DT_LIB_COLLECT_MODE_AND_NOT);
+  }
+  gui_update(get_collect(d));
+}
+
+static void
+collection_updated(void *d)
+{
+  gui_update((dt_lib_collect_t *)d);
+}
+
+
+static void
 menuitem_clear (GtkMenuItem *menuitem, dt_lib_collect_rule_t *d)
 {
   // remove this row, or if 1st, clear text entry box
@@ -511,12 +466,26 @@ menuitem_clear (GtkMenuItem *menuitem, dt_lib_collect_rule_t *d)
     dt_conf_set_int("plugins/lighttable/collect/item0", 0);
     dt_conf_set_string("plugins/lighttable/collect/string0", "");
   }
-  // TODO: move up all still active rules by one!
-  for(int i=d->num;i<MAX_RULES;i++)
+  // move up all still active rules by one.
+  for(int i=d->num;i<MAX_RULES-1;i++)
   {
-    // dt_conf_set_int("plugins/lighttable/collect/mode0", DT_LIB_COLLECT_MODE_AND);
-    // dt_conf_set_int("plugins/lighttable/collect/item0", 0);
-    // dt_conf_set_string("plugins/lighttable/collect/string0", "");
+    char confname[200];
+    snprintf(confname, 200, "plugins/lighttable/collect/mode%1d", i+1);
+    const int mode = dt_conf_get_int(confname);
+    snprintf(confname, 200, "plugins/lighttable/collect/item%1d", i+1);
+    const int item = dt_conf_get_int(confname);
+    snprintf(confname, 200, "plugins/lighttable/collect/string%1d", i+1);
+    gchar *string = dt_conf_get_string(confname);
+    if(string)
+    {
+      snprintf(confname, 200, "plugins/lighttable/collect/mode%1d", i);
+      dt_conf_set_int(confname, mode);
+      snprintf(confname, 200, "plugins/lighttable/collect/item%1d", i);
+      dt_conf_set_int(confname, item);
+      snprintf(confname, 200, "plugins/lighttable/collect/string%1d", i);
+      dt_conf_set_string(confname, string);
+      g_free(string);
+    }
   }
   gui_update(get_collect(d));
 }
@@ -528,22 +497,40 @@ popup_button_callback(GtkWidget *widget, GdkEventButton *event, dt_lib_collect_r
 
   GtkWidget *menu = gtk_menu_new();
   GtkWidget *mi;
+  const int active = CLAMP(dt_conf_get_int("plugins/lighttable/collect/num_rules"), 1, 10);
 
   mi = gtk_menu_item_new_with_label("clear this rule");
   gtk_menu_shell_append(GTK_MENU_SHELL(menu), mi);
   g_signal_connect(G_OBJECT(mi), "activate", G_CALLBACK(menuitem_clear), d);
   
-  mi = gtk_menu_item_new_with_label("and new rule");
-  gtk_menu_shell_append(GTK_MENU_SHELL(menu), mi);
-  g_signal_connect(G_OBJECT(mi), "activate", G_CALLBACK(menuitem_and), d);
+  if(d->num == active - 1)
+  {
+    mi = gtk_menu_item_new_with_label("and new rule");
+    gtk_menu_shell_append(GTK_MENU_SHELL(menu), mi);
+    g_signal_connect(G_OBJECT(mi), "activate", G_CALLBACK(menuitem_and), d);
 
-  mi = gtk_menu_item_new_with_label("or new rule");
-  gtk_menu_shell_append(GTK_MENU_SHELL(menu), mi);
-  g_signal_connect(G_OBJECT(mi), "activate", G_CALLBACK(menuitem_or), d);
+    mi = gtk_menu_item_new_with_label("or new rule");
+    gtk_menu_shell_append(GTK_MENU_SHELL(menu), mi);
+    g_signal_connect(G_OBJECT(mi), "activate", G_CALLBACK(menuitem_or), d);
 
-  mi = gtk_menu_item_new_with_label("and not new rule");
-  gtk_menu_shell_append(GTK_MENU_SHELL(menu), mi);
-  g_signal_connect(G_OBJECT(mi), "activate", G_CALLBACK(menuitem_and_not), d);
+    mi = gtk_menu_item_new_with_label("and not new rule");
+    gtk_menu_shell_append(GTK_MENU_SHELL(menu), mi);
+    g_signal_connect(G_OBJECT(mi), "activate", G_CALLBACK(menuitem_and_not), d);
+  }
+  else if(d->num < active - 1)
+  {
+    mi = gtk_menu_item_new_with_label("change to and");
+    gtk_menu_shell_append(GTK_MENU_SHELL(menu), mi);
+    g_signal_connect(G_OBJECT(mi), "activate", G_CALLBACK(menuitem_change_and), d);
+
+    mi = gtk_menu_item_new_with_label("change to or");
+    gtk_menu_shell_append(GTK_MENU_SHELL(menu), mi);
+    g_signal_connect(G_OBJECT(mi), "activate", G_CALLBACK(menuitem_change_or), d);
+
+    mi = gtk_menu_item_new_with_label("change to and not");
+    gtk_menu_shell_append(GTK_MENU_SHELL(menu), mi);
+    g_signal_connect(G_OBJECT(mi), "activate", G_CALLBACK(menuitem_change_and_not), d);
+  }
 
   gtk_menu_popup(GTK_MENU(menu), NULL, NULL, NULL, NULL, event->button, event->time);
   gtk_widget_show_all(menu);
@@ -555,9 +542,11 @@ void
 gui_init (dt_lib_module_t *self)
 {
   dt_lib_collect_t *d = (dt_lib_collect_t *)malloc(sizeof(dt_lib_collect_t));
+  dt_collection_listener_register(collection_updated, d);
   self->data = (void *)d;
   self->widget = gtk_vbox_new(FALSE, 5);
-  gtk_widget_set_size_request(self->widget ,100,-1);
+  gtk_widget_set_size_request(self->widget, 100, -1);
+  d->active_rule = 0;
 
   GtkBox *box;
   GtkWidget *w;
@@ -590,6 +579,8 @@ gui_init (dt_lib_module_t *self)
     w = gtk_entry_new();
     dt_gui_key_accel_block_on_focus(w);
     d->rule[i].text = w;
+    gtk_widget_add_events(w, GDK_FOCUS_CHANGE_MASK);
+    g_signal_connect(G_OBJECT(w), "focus-in-event", G_CALLBACK(entry_focus_in_callback), d->rule + i);
 
     /* xgettext:no-c-format */
     gtk_object_set(GTK_OBJECT(w), "tooltip-text", _("type your query, use `%' as wildcard"), (char *)NULL);
@@ -628,6 +619,7 @@ gui_init (dt_lib_module_t *self)
 void
 gui_cleanup (dt_lib_module_t *self)
 {
+  dt_collection_listener_unregister(collection_updated);
   free(self->data);
   self->data = NULL;
 }
