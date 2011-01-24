@@ -186,7 +186,7 @@ update_query()
   complete_query[pos++] = ')';
   complete_query[pos++] = '\0';
 
-  printf("complete query: `%s'\n", complete_query);
+  // printf("complete query: `%s'\n", complete_query);
   
   /* set the extended where and the use of it in the query */
   dt_collection_set_extended_where (darktable.collection, complete_query);
@@ -345,6 +345,7 @@ gui_update (dt_lib_collect_t *d)
   {
     gtk_widget_set_no_show_all(d->rule[i].hbox, FALSE);
     gtk_widget_set_visible(d->rule[i].hbox, TRUE);
+    gtk_widget_show_all(d->rule[i].hbox);
     snprintf(confname, 200, "plugins/lighttable/collect/item%1d", i);
     gtk_combo_box_set_active(GTK_COMBO_BOX(d->rule[i].combo), dt_conf_get_int(confname));
     snprintf(confname, 200, "plugins/lighttable/collect/string%1d", i);
@@ -354,9 +355,28 @@ gui_update (dt_lib_collect_t *d)
       gtk_entry_set_text(GTK_ENTRY(d->rule[i].text), text);
       g_free(text);
     }
-    snprintf(confname, 200, "plugins/lighttable/collect/mode%1d", i);
-    // TODO: set button state!
-    // gtk_combo_box_set_active(GTK_COMBO_BOX(w), dt_conf_get_int(confname));
+
+    GtkDarktableButton *button = DTGTK_BUTTON(d->rule[i].button);
+    if(i == MAX_RULES - 1)
+    {
+      // only clear
+      button->icon = dtgtk_cairo_paint_cancel;
+      gtk_object_set(GTK_OBJECT(button), "tooltip-text", _("clear this rule"), (char *)NULL);
+    }
+    else if(i == active)
+    {
+      button->icon = dtgtk_cairo_paint_dropdown; 
+      gtk_object_set(GTK_OBJECT(button), "tooltip-text", _("clear this rule or add new rules"), (char *)NULL);
+    }
+    else
+    {
+      snprintf(confname, 200, "plugins/lighttable/collect/mode%1d", i+1);
+      const int mode = dt_conf_get_int(confname);
+      if(mode == DT_LIB_COLLECT_MODE_AND)     button->icon = dtgtk_cairo_paint_and;
+      if(mode == DT_LIB_COLLECT_MODE_OR)      button->icon = dtgtk_cairo_paint_or;
+      if(mode == DT_LIB_COLLECT_MODE_AND_NOT) button->icon = dtgtk_cairo_paint_andnot;
+      gtk_object_set(GTK_OBJECT(button), "tooltip-text", _("clear this rule"), (char *)NULL);
+    }
   }
   // update list of proposals
   entry_key_press (NULL, NULL, d->rule + active);
@@ -582,6 +602,7 @@ gui_init (dt_lib_module_t *self)
     gtk_widget_set_events(w, GDK_BUTTON_PRESS_MASK);
     g_signal_connect(G_OBJECT(w), "button-press-event", G_CALLBACK(popup_button_callback), d->rule + i);
     gtk_box_pack_start(box, w, FALSE, FALSE, 0);
+    gtk_widget_set_size_request(w, 13, 13);
   }
 
   d->scrolledwindow = GTK_SCROLLED_WINDOW(sw);
