@@ -60,6 +60,7 @@ src/iop/colorout.c
 src/iop/colortransfer.c
 src/iop/colorzones.c
 src/iop/demosaic.c
+src/iop/densitycurve.c
 src/iop/equalizer.c
 src/iop/exposure.c
 src/iop/gamma.c
