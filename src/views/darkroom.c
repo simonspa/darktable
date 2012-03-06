@@ -44,24 +44,24 @@
 
 DT_MODULE(1)
 
-static void film_strip_key_accel(GtkAccelGroup *accel_group,
+static gboolean film_strip_key_accel(GtkAccelGroup *accel_group,
                                  GObject *acceleratable,
                                  guint keyval, GdkModifierType modifier,
                                  gpointer data);
 
-static void zoom_key_accel(GtkAccelGroup *accel_group, GObject *acceleratable,
+static gboolean zoom_key_accel(GtkAccelGroup *accel_group, GObject *acceleratable,
                            guint keyval, GdkModifierType modifier,
                            gpointer data);
 
-static void export_key_accel_callback(GtkAccelGroup *accel_group,
+static gboolean export_key_accel_callback(GtkAccelGroup *accel_group,
                                       GObject *acceleratable, guint keyval,
                                       GdkModifierType modifier,gpointer data);
 
-static void skip_f_key_accel_callback(GtkAccelGroup *accel_group,
+static gboolean skip_f_key_accel_callback(GtkAccelGroup *accel_group,
                                       GObject *acceleratable,
                                       guint keyval, GdkModifierType modifier,
                                       gpointer data);
-static void skip_b_key_accel_callback(GtkAccelGroup *accel_group,
+static gboolean skip_b_key_accel_callback(GtkAccelGroup *accel_group,
                                       GObject *acceleratable,
                                       guint keyval, GdkModifierType modifier,
                                       gpointer data);
@@ -420,6 +420,13 @@ int try_enter(dt_view_t *self)
     if(sqlite3_step(stmt) == SQLITE_ROW)
       selected = sqlite3_column_int(stmt, 0);
     sqlite3_finalize(stmt);
+    
+    // Leave as selected only the image being edited
+    DT_DEBUG_SQLITE3_EXEC(dt_database_get(darktable.db), "delete from selected_images", NULL, NULL, NULL);
+    DT_DEBUG_SQLITE3_PREPARE_V2(dt_database_get(darktable.db), "insert into selected_images values (?1)", -1, &stmt, NULL);
+    DT_DEBUG_SQLITE3_BIND_INT(stmt, 1, selected);
+    sqlite3_step(stmt);
+    sqlite3_finalize(stmt);
   }
 
   if(selected < 0)
@@ -620,7 +627,7 @@ dt_dev_jump_image(dt_develop_t *dev, int diff)
   }
 }
 
-static void
+static gboolean
 zoom_key_accel(GtkAccelGroup *accel_group,
                GObject *acceleratable, guint keyval,
                GdkModifierType modifier, gpointer data)
@@ -656,9 +663,10 @@ zoom_key_accel(GtkAccelGroup *accel_group,
     default:
       break;
   }
+  return TRUE;
 }
 
-static void
+static gboolean
 film_strip_key_accel(GtkAccelGroup *accel_group,
                      GObject *acceleratable, guint keyval,
                      GdkModifierType modifier, gpointer data)
@@ -666,10 +674,11 @@ film_strip_key_accel(GtkAccelGroup *accel_group,
   dt_lib_module_t *m = darktable.view_manager->proxy.filmstrip.module; 
   gboolean vs = dt_lib_is_visible(m);
   dt_lib_set_visible(m,!vs);
+  return TRUE;
 }
 
 
-static void
+static gboolean
 export_key_accel_callback(GtkAccelGroup *accel_group,
                           GObject *acceleratable, guint keyval,
                           GdkModifierType modifier, gpointer data)
@@ -679,21 +688,24 @@ export_key_accel_callback(GtkAccelGroup *accel_group,
 
   /* export current image */
   dt_control_export();
+  return TRUE;
 }
 
-static void skip_f_key_accel_callback(GtkAccelGroup *accel_group,
+static gboolean skip_f_key_accel_callback(GtkAccelGroup *accel_group,
                                       GObject *acceleratable, guint keyval,
                                       GdkModifierType modifier, gpointer data)
 {
   dt_dev_jump_image((dt_develop_t*)data, 1);
+  return TRUE;
 }
 
-static void skip_b_key_accel_callback(GtkAccelGroup *accel_group,
+static gboolean skip_b_key_accel_callback(GtkAccelGroup *accel_group,
                                       GObject *acceleratable,
                                       guint keyval, GdkModifierType modifier,
                                       gpointer data)
 {
   dt_dev_jump_image((dt_develop_t*)data, -1);
+  return TRUE;
 }
 
 static void _darkroom_ui_pipe_finish_signal_callback(gpointer instance, gpointer data)

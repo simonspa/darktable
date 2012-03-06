@@ -156,6 +156,11 @@ void gui_update(struct dt_iop_module_t *self)
   gtk_widget_queue_draw(self->widget);
 }
 
+void reload_defaults(dt_iop_module_t *self)
+{
+  memcpy(self->params, self->default_params, sizeof(dt_iop_levels_params_t));
+}
+
 void init(dt_iop_module_t *module)
 {
   module->params = malloc(sizeof(dt_iop_levels_params_t));
@@ -175,10 +180,10 @@ void init(dt_iop_module_t *module)
 
 void init_global(dt_iop_module_so_t *module)
 {
-  const int program = 2; // basic.cl, from programs.conf
+  //const int program = 2; // basic.cl, from programs.conf
   dt_iop_levels_global_data_t *gd = (dt_iop_levels_global_data_t *)malloc(sizeof(dt_iop_levels_global_data_t));
   module->data = gd;
-  gd->kernel_levels = dt_opencl_create_kernel(program, "levels");
+  //gd->kernel_levels = dt_opencl_create_kernel(program, "levels");      do not try to load kernel unless we have one
 }
 
 void cleanup_global(dt_iop_module_so_t *module)
@@ -321,17 +326,21 @@ static gboolean dt_iop_levels_expose(GtkWidget *widget, GdkEventExpose *event, g
   cairo_translate(cr, 0, height);
 
   // draw lum histogram in background
-  dt_develop_t *dev = darktable.develop;
-  float *hist, hist_max;
-  hist = dev->histogram_pre_levels;
-  hist_max = dev->histogram_pre_levels_max;
-  if(hist_max > 0)
+  // only if the module is enabled
+  if (self->enabled)
   {
-    cairo_save(cr);
-    cairo_scale(cr, width/63.0, -(height-5)/(float)hist_max);
-    cairo_set_source_rgba(cr, .2, .2, .2, 0.5);
-    dt_draw_histogram_8(cr, hist, 3);
-    cairo_restore(cr);
+    dt_develop_t *dev = darktable.develop;
+    float *hist, hist_max;
+    hist = dev->histogram_pre_levels;
+    hist_max = dev->histogram_pre_levels_max;
+    if(hist_max > 0)
+    {
+      cairo_save(cr);
+      cairo_scale(cr, width/63.0, -(height-5)/(float)hist_max);
+      cairo_set_source_rgba(cr, .2, .2, .2, 0.5);
+      dt_draw_histogram_8(cr, hist, 3);
+      cairo_restore(cr);
+    }
   }
 
   // Cleaning up

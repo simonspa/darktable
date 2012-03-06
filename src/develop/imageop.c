@@ -32,6 +32,7 @@
 #include "dtgtk/tristatebutton.h"
 #include "dtgtk/slider.h"
 #include "dtgtk/tristatebutton.h"
+#include "libs/modulegroups.h"
 
 #include <strings.h>
 #include <assert.h>
@@ -1028,7 +1029,7 @@ static gboolean _iop_plugin_header_button_press(GtkWidget *w, GdkEventButton *e,
         dt_iop_module_t *m = (dt_iop_module_t *)iop->data;
         uint32_t additional_flags=0;
 
-        /* add special group flag for moduel in active pipe */
+        /* add special group flag for module in active pipe */
         if(module->enabled)
           additional_flags |= IOP_SPECIAL_GROUP_ACTIVE_PIPE;
 
@@ -1039,7 +1040,7 @@ static gboolean _iop_plugin_header_button_press(GtkWidget *w, GdkEventButton *e,
         /* if module is the current, always expand it */
         if (m == module)
           dt_iop_gui_set_expanded(m, TRUE);
-        else if ((current_group == 7 || dt_dev_modulegroups_test(module->dev, current_group, m->groups()|additional_flags)))
+        else if ((current_group == DT_MODULEGROUP_NONE || dt_dev_modulegroups_test(module->dev, current_group, m->groups()|additional_flags)))
           dt_iop_gui_set_expanded(m, FALSE);
 
         iop = g_list_next(iop);
@@ -1905,7 +1906,7 @@ void dt_iop_estimate_cubic(const float *const x, const float *const y, float *a)
   mat4mulv(a, X_inv, y);
 }
 
-static void show_module_callback(GtkAccelGroup *accel_group,
+static gboolean show_module_callback(GtkAccelGroup *accel_group,
                                  GObject *acceleratable,
                                  guint keyval, GdkModifierType modifier,
                                  gpointer data)
@@ -1924,9 +1925,10 @@ static void show_module_callback(GtkAccelGroup *accel_group,
   //dt_gui_iop_modulegroups_switch(module->groups());
   dt_iop_gui_set_expanded(module, TRUE);
   dt_iop_request_focus(module);
+  return TRUE;
 }
 
-static void enable_module_callback(GtkAccelGroup *accel_group,
+static gboolean enable_module_callback(GtkAccelGroup *accel_group,
                                    GObject *acceleratable,
                                    guint keyval, GdkModifierType modifier,
                                    gpointer data)
@@ -1935,6 +1937,7 @@ static void enable_module_callback(GtkAccelGroup *accel_group,
   dt_iop_module_t *module = (dt_iop_module_t*)data;
   gboolean active= gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(module->off));
   gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(module->off), !active);
+  return TRUE;
 }
 
 
