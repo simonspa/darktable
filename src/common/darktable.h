@@ -39,7 +39,10 @@
 #include <math.h>
 #include <sys/types.h>
 #include <unistd.h>
-
+#ifdef __APPLE__
+#include <mach/mach.h>
+#include <sys/sysctl.h>
+#endif
 
 #ifdef _OPENMP
 #include <omp.h>
@@ -87,6 +90,16 @@ static inline int dt_version()
 
 #ifndef M_PI
 #define M_PI 3.14159265358979323846
+#endif
+
+// Golden number (1+sqrt(5))/2
+#ifndef PHI
+#define PHI 1.61803398874989479F
+#endif
+
+// 1/PHI
+#ifndef INVPHI
+#define INVPHI 0.61803398874989479F
 #endif
 
 // NaN-safe clamping (NaN compares false, and will thus result in H)
@@ -240,12 +253,7 @@ static inline float dt_fast_expf(const float x)
 
 static inline void dt_print_mem_usage()
 {
-#ifdef __APPLE__
-  fprintf(stderr, "[memory] max address space (vmpeak): (unknown)"
-                  "[memory] cur address space (vmsize): (unknown)"
-                  "[memory] max used memory   (vmhwm ): (unknown)"
-                  "[memory] cur used memory   (vmrss ): (unknown)");
-#else
+#if defined(__linux__)
   char *line = NULL;
   size_t len = 128;
   char vmsize[64];
@@ -280,16 +288,35 @@ static inline void dt_print_mem_usage()
                   "[memory] max used memory   (vmhwm ): %15s"
                   "[memory] cur used memory   (vmrss ): %15s",
                   vmpeak, vmsize, vmhwm, vmrss);
+
+#elif defined(__APPLE__)
+  struct task_basic_info t_info;
+  mach_msg_type_number_t t_info_count = TASK_BASIC_INFO_COUNT;
+
+  if (KERN_SUCCESS != task_info(mach_task_self(),
+                                TASK_BASIC_INFO, (task_info_t)&t_info,
+                                &t_info_count))
+  {
+    fprintf(stderr, "[memory] task memory info unknown.\n");
+    return;
+  }
+
+  // Report in kB, to match output of /proc on Linux.
+  fprintf(stderr, "[memory] max address space (vmpeak): %15s\n"
+                  "[memory] cur address space (vmsize): %12llu kB\n"
+                  "[memory] max used memory   (vmhwm ): %15s\n"
+                  "[memory] cur used memory   (vmrss ): %12llu kB\n",
+                  "unknown", (uint64_t)t_info.virtual_size / 1024,
+                  "unknown", (uint64_t)t_info.resident_size / 1024);
+#else
+  fprintf(stderr, "dt_print_mem_usage() currently unsupported on this platform\n");
 #endif
 }
 
 static inline size_t
 dt_get_total_memory()
 {
-#ifdef __APPLE__
-  // assume 2GB until we have a better solution.
-  return 2097152;
-#else
+#if defined(__linux__) 
   FILE *f = fopen("/proc/meminfo", "rb");
   if(!f) return 0;
   size_t mem = 0;
@@ -299,6 +326,16 @@ dt_get_total_memory()
     mem = atol(line + 10);
   fclose(f);
   return mem;
+#elif defined(__APPLE__)
+  int mib[2] = { CTL_HW, HW_MEMSIZE };
+  uint64_t physical_memory;
+  size_t length = sizeof(uint64_t);
+  sysctl(mib, 2, (void *)&physical_memory, &length, (void *)NULL, 0);
+  return physical_memory / 1024;
+#else 
+  // assume 2GB until we have a better solution.
+  fprintf(stderr, "Unknown memory size. Assuming 2GB\n");
+  return 2097152;
 #endif
 }
 

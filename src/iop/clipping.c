@@ -744,7 +744,7 @@ void init(dt_iop_module_t *module)
   module->default_enabled = 0;
   module->params_size = sizeof(dt_iop_clipping_params_t);
   module->gui_data = NULL;
-  module->priority = 400; // module order created by iop_dependencies.py, do not edit!
+  module->priority = 392; // module order created by iop_dependencies.py, do not edit!
 }
 
 void cleanup(dt_iop_module_t *module)
@@ -807,11 +807,6 @@ aspect_flip(GtkWidget *button, dt_iop_module_t *self)
 {
   key_swap_callback(NULL, NULL, 0, 0, self);
 }
-
-// Golden number (1+sqrt(5))/2
-#define PHI      1.61803398874989479F
-// 1/PHI
-#define INVPHI   0.61803398874989479F
 
 #define GUIDE_NONE 0
 #define GUIDE_GRID 1
@@ -1044,7 +1039,7 @@ void _iop_clipping_update_ratios(dt_iop_module_t *self)
 
   g->aspect_ratios[0] = -1;
   g->aspect_ratios[1] = self->dev->image_storage.width / (float)self->dev->image_storage.height;
-  g->aspect_ratios[2] = 1.6280;
+  g->aspect_ratios[2] = PHI;
   g->aspect_ratios[3] = 2.0/1.0;
   g->aspect_ratios[4] = 3.0/2.0;
   g->aspect_ratios[5] = 4.0/3.0;

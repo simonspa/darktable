@@ -220,7 +220,7 @@ process_cl (struct dt_iop_module_t *self, dt_dev_pixelpipe_iop_t *piece, cl_mem 
   err = dt_opencl_enqueue_kernel_2d(devid, gd->kernel_sharpen_mix, sizes);
   if(err != CL_SUCCESS) goto error;
 
-  if (dev_m != NULL) clReleaseMemObject(dev_m);
+  if (dev_m != NULL) dt_opencl_release_mem_object(dev_m);
   return TRUE;
 
 error:
@@ -499,7 +499,7 @@ void init(dt_iop_module_t *module)
   module->params = malloc(sizeof(dt_iop_sharpen_params_t));
   module->default_params = malloc(sizeof(dt_iop_sharpen_params_t));
   module->default_enabled = 1;
-  module->priority = 680; // module order created by iop_dependencies.py, do not edit!
+  module->priority = 686; // module order created by iop_dependencies.py, do not edit!
   module->params_size = sizeof(dt_iop_sharpen_params_t);
   module->gui_data = NULL;
   dt_iop_sharpen_params_t tmp = (dt_iop_sharpen_params_t)

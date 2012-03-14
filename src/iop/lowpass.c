@@ -334,8 +334,8 @@ process_cl (struct dt_iop_module_t *self, dt_dev_pixelpipe_iop_t *piece, cl_mem 
   err = dt_opencl_enqueue_copy_buffer_to_image(devid, dev_temp2, dev_out, 0, origin, region);
   if(err != CL_SUCCESS) goto error;
 
-  if (dev_temp1 != NULL) clReleaseMemObject(dev_temp1);
-  if (dev_temp2 != NULL) clReleaseMemObject(dev_temp2);
+  if (dev_temp1 != NULL) dt_opencl_release_mem_object(dev_temp1);
+  if (dev_temp2 != NULL) dt_opencl_release_mem_object(dev_temp2);
   return TRUE;
 
 error:
@@ -634,7 +634,7 @@ void init(dt_iop_module_t *module)
   module->params = malloc(sizeof(dt_iop_lowpass_params_t));
   module->default_params = malloc(sizeof(dt_iop_lowpass_params_t));
   module->default_enabled = 0;
-  module->priority = 720; // module order created by iop_dependencies.py, do not edit!
+  module->priority = 725; // module order created by iop_dependencies.py, do not edit!
   module->params_size = sizeof(dt_iop_lowpass_params_t);
   module->gui_data = NULL;
   dt_iop_lowpass_params_t tmp = (dt_iop_lowpass_params_t)

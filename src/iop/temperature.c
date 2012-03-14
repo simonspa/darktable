@@ -434,7 +434,7 @@ void init (dt_iop_module_t *module)
 {
   module->params = malloc(sizeof(dt_iop_temperature_params_t));
   module->default_params = malloc(sizeof(dt_iop_temperature_params_t));
-  module->priority = 40; // module order created by iop_dependencies.py, do not edit!
+  module->priority = 39; // module order created by iop_dependencies.py, do not edit!
   module->params_size = sizeof(dt_iop_temperature_params_t);
   module->gui_data = NULL;
 }
@@ -574,6 +574,7 @@ void gui_init (struct dt_iop_module_t *self)
   g->finetune = GTK_SPIN_BUTTON(gtk_spin_button_new_with_range(-9, 9, 1));
   gtk_spin_button_set_value (g->finetune, 0);
   gtk_spin_button_set_digits(g->finetune, 0);
+  gtk_widget_set_sensitive(GTK_WIDGET(g->finetune), FALSE);
   gtk_box_pack_start(hbox, GTK_WIDGET(g->finetune), FALSE, FALSE, 0);
   g_object_set(G_OBJECT(g->finetune), "tooltip-text", _("fine tune white balance preset"), (char *)NULL);
 
