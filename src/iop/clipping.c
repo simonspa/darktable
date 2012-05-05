@@ -48,7 +48,7 @@
 DT_MODULE(3)
 
 // number of gui ratios in combo box
-#define NUM_RATIOS 10
+#define NUM_RATIOS 11
 
 /** flip H/V, rotate an image, then clip the buffer. */
 typedef enum dt_iop_clipping_flags_t
@@ -1093,6 +1093,7 @@ void gui_init(struct dt_iop_module_t *self)
   gtk_combo_box_append_text(GTK_COMBO_BOX(g->aspect_presets), _("square"));
   gtk_combo_box_append_text(GTK_COMBO_BOX(g->aspect_presets), _("DIN"));
   gtk_combo_box_append_text(GTK_COMBO_BOX(g->aspect_presets), _("16:9"));
+  gtk_combo_box_append_text(GTK_COMBO_BOX(g->aspect_presets), _("10:8 in print"));
   
   dt_gui_key_accel_block_on_focus(gtk_bin_get_child(GTK_BIN(g->aspect_presets)));
 
@@ -1209,6 +1210,7 @@ void _iop_clipping_update_ratios(dt_iop_module_t *self)
   g->aspect_ratios[7] = 1.0;
   g->aspect_ratios[8] = sqrtf(2.0);
   g->aspect_ratios[9] = 16.0f/9.0f;
+  g->aspect_ratios[10] = 244.5f/203.2f;
 
   // if adding new presets, make sure to change this as well:
   assert(NUM_RATIOS == 10);
