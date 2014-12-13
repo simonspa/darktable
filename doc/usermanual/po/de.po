@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: darktable-usermanual\n"
 "POT-Creation-Date: 2014-12-12 22:00+0100\n"
-"PO-Revision-Date: 2014-12-13 19:45+0100\n"
+"PO-Revision-Date: 2014-12-13 21:57+0100\n"
 "Last-Translator: Simon Spannagel <simonspa@kth.se>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -958,14 +958,12 @@ msgid ""
 msgstr ""
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:874(title)
-#, fuzzy
 msgid "darktable basic workflow"
-msgstr "Dunkelkammer-Arbeitsablauf"
+msgstr "Grundlegender Workflow in darktable"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:877(primary)
-#, fuzzy
 msgid "basic workflow"
-msgstr "Dunkelkammer-Arbeitsablauf"
+msgstr "Grundlegender Workflow"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:880(para)
 msgid ""
@@ -1093,9 +1091,8 @@ msgstr ""
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:983(title)
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:8338(title)
-#, fuzzy
 msgid "White balance"
-msgstr "Ausgleich"
+msgstr "Weißabgleich"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:985(para)
 msgid ""
@@ -1373,9 +1370,8 @@ msgid "view"
 msgstr "Ansicht"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:1232(primary)
-#, fuzzy
 msgid "lighttable view"
-msgstr "Die Leuchttisch-Ansicht"
+msgstr "Leuchttisch-Ansicht"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:1235(para)
 msgid ""
@@ -1393,9 +1389,8 @@ msgstr "Die Leuchttisch-Ansicht"
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:1266(emphasis)
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2819(secondary)
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2823(primary)
-#, fuzzy
 msgid "image information"
-msgstr "Bildvorbereitung"
+msgstr "Bildinformation"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:1259(entry)
 msgid ""
@@ -1419,7 +1414,6 @@ msgstr ""
 "Metadaten) aufgelistet."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:1277(para)
-#, fuzzy
 msgid ""
 "While the mouse is over an image frame, there are a number of actions you "
 "can perform. Here is a table of keyboard shortcuts and assigned actions. "
@@ -1439,26 +1433,31 @@ msgid ""
 "emphasis></entry><entry> fully zoom into the image and show areas in focus </"
 "entry></row></tbody></tgroup></informaltable>"
 msgstr ""
-"Der Filmstreifen erlaubt Ihnen auch, bestimmt Aktionen am Bild unter dem "
-"Mauszeiger durchzuführen; nachfolgend eine Übersicht über Tastenkürzel und "
-"zugeordneter Aktion: <informaltable frame=\"none\"><tgroup cols=\"2\" colsep="
-"\"0\" rowsep=\"0\"><colspec colwidth=\"3cm\"/><tbody><row><entry><emphasis>1 "
-"– 4</emphasis></entry><entry>setzt die Bewertung des Bildes; wenn ein Bild "
-"einen Stern hat und Sie die <emphasis>1</emphasis> drücken wird das Bild "
-"unbewertet </entry></row><row><entry><emphasis>F1 – F3</emphasis></"
-"entry><entry>setzt eine Farbmarkierung für das Bild</entry></"
-"row><row><entry><emphasis>Strg-c</emphasis></entry><entry>kopiere den "
-"Verlaufsstapel des Bildes</entry></row><row><entry><emphasis>Strg-v</"
-"emphasis></entry><entry>wende den kopierten Verlaufsstapel auf das Bild an</"
-"entry></row><row><entry><emphasis>e</emphasis></entry><entry>öffne das Bild "
-"zum Entwickeln im Dunkelkammer-Modus</entry></row><row><entry><emphasis>z</"
-"emphasis></entry><entry>zeige eine Vollbildansicht des Bildes</entry></row></"
-"tbody></tgroup></informaltable>"
+"Während der Mauszeiger über einem Vorschaubild ruht, können Sie "
+"Tastenkombinationen nutzen um Bildinformationen zu verändern. Diese Tabelle "
+"listet alle Tastenkombinationen sowie ihre zugewiesene Funktion. "
+"<informaltable frame=\"none\" width=\"80%\"><tgroup cols=\"2\" colsep=\"0\" "
+"rowsep=\"0\"><colspec colwidth=\"1*\"/><colspec colwidth=\"3*\"/"
+"><tbody><row><entry><emphasis>0 – 5</emphasis></entry><entry> setzt die "
+"Bewertung des Bildes; Ein Bild mit einer Bewertung von einem Stern wird bei "
+"erneutem drücken der <emphasis>1</emphasis>-Taste unbewertet (null Sterne). "
+"Mithilfe der <emphasis>r</emphasis>-Taste können Sie das Bild ablehnen. </"
+"entry></row><row><entry><emphasis>F1 – F5</emphasis></entry><entry> setzt "
+"eine Farbmarkierung </entry></row><row><entry><emphasis>Strg-c</emphasis></"
+"entry><entry> kopiert den Verlaufsstapel </entry></"
+"row><row><entry><emphasis>Strg-v</emphasis></entry><entry> fügt den "
+"kopierten Verlausstapel ein </entry></row><row><entry><emphasis>d</"
+"emphasis></entry><entry> öffnet das Bild zur Entwicklung in der Dunkelkammer "
+"</entry></row><row><entry><emphasis>z</emphasis></entry><entry> zoomt "
+"komplett an das Bild heran, solange die Taste gedrückt ist </entry></"
+"row><row><entry><emphasis>Strg-z</emphasis></entry><entry> zoomt komplett an "
+"das Bild heran und zeigt fokussierte Bereiche </entry></row></tbody></"
+"tgroup></informaltable>"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:1349(primary)
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:13143(quote)
 msgid "overlay"
-msgstr ""
+msgstr "Overlay"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:1352(para)
 msgid ""
@@ -1472,6 +1471,16 @@ msgid ""
 "<xref linkend=\"filmstrip_overview\"/> and <xref linkend=\"darkroom_filmstrip"
 "\"/>)."
 msgstr ""
+"Der Overlay-Knopf <inlinegraphic fileref=\"images/general_icon_overlay.png\" "
+"scalefit=\"1\" width=\"2%\" align=\"center\"/> im oberen Panel erlaubt es "
+"Ihnen, Bildinformationen wie die Bewertungssterne oder den Verlaufsstapel-"
+"Indikator <inlinegraphic fileref=\"images/lighttable_thumb_icon_altered.png"
+"\" scalefit=\"1\" width=\"3mm\"/> permanent auf allen Vorschaubildern "
+"anzuzeigen. In der Standardeinstellung sind diese Informationen nur für das "
+"Vorschaubild sichtbar, das sich unter dem Mauszeiger befindet. Auch in "
+"anderen Ansichten in darktable werden Sie einen Overlay-Button finden - dort "
+"entfaltet er den gleichen Effekt auf den Filmstreifen (siehe <xref linkend="
+"\"filmstrip_overview\"/> und <xref linkend=\"darkroom_filmstrip\"/>)."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:1364(para)
 msgid ""
@@ -1484,22 +1493,32 @@ msgid ""
 "by using <emphasis>ctrl-(mouse wheel)</emphasis>. Use your mouse wheel to "
 "navigate through your collection."
 msgstr ""
+"Im unteren Panel haben Sie die Möglichkeit, die Darstellung der "
+"vorschaubilder zwischen zoombarem Leuchttisch und Dateimanager-Modus "
+"umzuschalten. Im zoombaren Leuchttisch-Modus können Sie mit dem Mausrad in "
+"Ihre Sammlung hinein- und herauszoomen. Um sich durch die Sammlung zu "
+"bewegen, klicken Sie mit der <emphasis>linken Maustaste</emphasis> und "
+"halten Sie diese gedrückt. Sie können nun die Ansicht verschieben. In der "
+"Dateimanager-Ansicht können Sie die Zahl der in einer Reihe anzuzeigenden "
+"Bilder verändern, indem Sie bei gedrückter <emphasis>Strg</emphasis>-Taste "
+"Ihr Mausrad benutzen oder indem Sie die gewünschte Zahl im unteren Panel "
+"eingeben. Mit dem Mausrad können Sie durch die Sammlung scrollen."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:1374(para)
-#, fuzzy
 msgid ""
 "While in filemanager mode, you can scroll (not select) up and down through "
 "your collection using ↑/↓. In zoomable lighttable ←/→/↑/↓ allow you to move "
 "left/right/up/down through your collection. Pressing <emphasis>g</emphasis> "
 "goes to the top, <emphasis>shift-g</emphasis> to the bottom."
 msgstr ""
-"In der Dateiverwaltung kann mit <emphasis>w/s</emphasis> nach oben und unten "
-"durch die Sammlung gescrollt werden (es wird keine Auswahl gemacht). Im "
-"zoombaren Leuchttisch erlauben <emphasis>a/d/w/s</emphasis> sich nach links/"
-"rechts/oben/unten durch die Sammlung zu bewegen."
+"Während Sie sich im Dateimanager-Modus befinden, können Sie die Tasten ↑/↓ "
+"verwenden, um nach oben/unten zu scrollen (nicht um auszuwählen). In der "
+"zoombaren Leuchttisch-Ansicht erlauben Ihnen die Tasten ←/→/↑/↓ sich nach "
+"links/recht/oben/unten durch Ihre Sammlung zu bewegen. Um an den Anfang zu "
+"gelangen, drücken Sie <emphasis>g</emphasis>, and Ende der Sammlung gelangen "
+"Sie mit der Tastenkombination <emphasis>Umsch-g</emphasis>."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:1381(para)
-#, fuzzy
 msgid ""
 "To locate where you are in a collection, there are indicators at the extreme "
 "borders of the window: left/right for your position when you are in "
@@ -1507,11 +1526,11 @@ msgid ""
 "horizontal position, respectively, when you are in the zoomable lighttable "
 "view."
 msgstr ""
-"Um festzustellen, wo Sie sich in Ihrer Sammlung befinden, gibt es an den "
-"Rändern des Fensters Scrollbalken – diese können jedoch nicht verändert "
-"werden: links/rechts für die vertikale Position in der Sammlung, oben/unten "
-"für die Zoomstufe (falls Sie sich im zoombaren Leuchttisch-Modus befinden, "
-"siehe unten)."
+"Um festzustellen, wo Sie sich in Ihrer Sammlung befinden, werden an den "
+"Rändern des Fensters Scrollbalken angezeigt – diese erlauben jedoch keine "
+"Interaktion sondern dienen ausschließlich der Orientierung: links/rechts für "
+"die vertikale Position in der Sammlung, oben/unten für die Zoomstufe (falls "
+"Sie sich im zoombaren Leuchttisch-Modus befinden, siehe unten)."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:1388(para)
 msgid ""
@@ -1519,10 +1538,15 @@ msgid ""
 "the image under the mouse cursor is displayed. You can use this feature for "
 "a quick inspection of image quality while rating and selecting images."
 msgstr ""
+"Bei Gedrückthalten der <emphasis>z</emphasis>-Taste wird das Bild, das sich "
+"momentan unter dem Mauszeiger befinden komplett herangezoomt und in voller "
+"Größe dargestellt. Sie können diese Funktion zur schnellen Überprüfung der "
+"Bildqualität nutzen, während Sie Bewertungen zuweisen und eine Bildauswahl "
+"treffen."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:1395(primary)
 msgid "focus detection"
-msgstr ""
+msgstr "Fokuserkennung"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:1398(para)
 msgid ""
@@ -1535,6 +1559,14 @@ msgid ""
 "image needs to hold an embedded JPEG thumbnail which is the case for most "
 "RAW files."
 msgstr ""
+"Das Gedrückthalten von <emphasis>Strg-z</emphasis> zoomt das Bild komplett "
+"heran und zeigt eine Analyse der Fokusregionen des Bildes. Bereiche mit "
+"großer Schärfe werden durch einen roten Rahmen gekennzeichnet - je "
+"intensiver die Farbe des rahmens ist, desto besser die Schärfe. Falls keine "
+"Bereiche mit <emphasis>hoher</emphasis> Schärfe detektiert wurden, zeigt "
+"darktable Bereiche mit <emphasis>mäßiger</emphasis> Schärfe mit einem blauen "
+"Rahmen. Damit dieses Tool funktioniert, muss das RAW-Bild über eine "
+"eingebettete JPEG-Vorschau verfügen."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:1408(para)
 msgid ""
@@ -1542,6 +1574,10 @@ msgid ""
 "not reveal an immediate effect – in that case please click into the center "
 "area and press the corresponding key again."
 msgstr ""
+"Manchmal kann es passieren, dass das Drücken der Tastenkombinationen "
+"<emphasis>z</emphasis> oder <emphasis>Strg-z</emphasis> keinen direkten "
+"Effekt haben. In diesem Fall klicken Sie bitte einmal in den zentralen "
+"Bereich des Leuchttisches und versuchen Sie es erneut."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:1421(emphasis)
 msgid "ctrl-z"
@@ -1554,6 +1590,10 @@ msgid ""
 "JPEG thumbnail of the original RAW file independent of any processing steps "
 "within darktable."
 msgstr ""
+"Komplett herangezoomte Bildansicht mit gedrückten <placeholder-1/> Tasten um "
+"Fokus-Bereiche zu markieren. Die Fokuserkennung arbeitet mit dem in die RAW-"
+"Datein eingebetteten JPEG-Vorschaubild und ist somit unabhängig vom "
+"eigentlichen Entwicklungsprozess in darktable."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:1440(title)
 msgid "Lighttable concepts"
@@ -2170,7 +2210,7 @@ msgstr "XMP-Dateien"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:1924(primary)
 msgid "save button"
-msgstr ""
+msgstr "speichern-Button"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:1927(para)
 msgid ""
@@ -2226,6 +2266,12 @@ msgid ""
 "also keep the XMP files, as these are needed to fully reconstruct your work "
 "in case of a disaster."
 msgstr ""
+"Sidecar-Dateien werden automatisch mit den letzten Änderungen der "
+"Verlaufsstapel synchronisiert, ohne dass ein spezieller <quote>speichern</"
+"quote>-Button gedrückt werden muss. Stellen Sie bei Datensicherungen sicher, "
+"dass sowohl die Bilddateien als auch deren XMP-Dateien gesichert werden, da "
+"letztere benötigt werden um Ihre Arbeit vollständig wiederherzustellen, "
+"sollte ein Desaster eintreten."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:1956(para)
 msgid ""
@@ -2237,6 +2283,13 @@ msgid ""
 "updated with data that darktable finds in the sidecar files belonging to "
 "that image."
 msgstr ""
+"Zusätzlich zu den Sidecar-Dateien speichert darktable sämtliche Daten eines "
+"Bildes in der internen Datenbank um einen schnellen Zugriff zu ermöglichen. "
+"Ein Bild kann nur angeschaut und entwickelt werden, wenn ein Eintrag in "
+"dieser Datenbank existiert. Ein Eintrag wird automatisch beim ersten Import "
+"des Bildes oder einem späteren Neu-Import erstellt (siehe <xref linkend="
+"\"import\"/>). Im Falle eines Re-Imports wird der Datenbankeintrag mit den "
+"Informationen aus der Sidecar-Datei aktualisiert."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:1965(para)
 msgid ""
@@ -2248,10 +2301,18 @@ msgid ""
 "darktable looks for updated XMP files at startup and offers a choice whether "
 "to update the database or overwrite the XMP file."
 msgstr ""
+"Sobald ein Bild nach darktable importiert wurde, hat der Datenbankeintrag "
+"Vorrang vor der Sidecar-Datei. Entsprechend sind nachträgliche Änderungen an "
+"der XMP-Datei durch andere Programme für darktable nicht sichtbar und die "
+"Änderungen werden überschrieben sobald darktable die Dateien wieder mit der "
+"Datenbank synchronisiert. Dieses Vorgehen kann in den Einstellungen "
+"angepasst werden (siehe <xref linkend=\"core_options\"/>). darktable kann "
+"angewiesen werden, beim Start nach veränderten XMP-Dateien zu suchen und "
+"entweder die Datenbank oder die XMP-Datei zu aktualisieren."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:1980(title)
 msgid "Importing sidecar files generated by other applications"
-msgstr ""
+msgstr "Importieren von fremden Sidecar-Dateien"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:1982(para)
 msgid ""
@@ -2263,15 +2324,23 @@ msgid ""
 "darktable's own sidecar files are always stored in the first format – the "
 "latter one would only be read – not overwritten."
 msgstr ""
+"Wenn ein Bild importiert wird, sucht darktable automatisch nach beiliegenden "
+"Sidecar-Dateien. Zusätzlich zu den üblichen Namenskonventionen <quote>&lt;"
+"dateiname&gt;.&lt;dateiendung&gt;.xmp</quote> und <quote>&lt;dateiname&gt;"
+"<emphasis>_nn</emphasis>.&lt;dateiendung&gt;.xmp</quote> such darktable "
+"zudem nach Sidecar-Dateien, die auf den Namen <quote>&lt;dateiname&gt;.xmp</"
+"quote> lauten. Von darktable generierte Sidecar-Dateien haben immer das "
+"erstgenannte Dateinamen-Format, letztere werden zwar gelesen, jedoch nicht "
+"überschrieben."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:1996(para)
 msgid "tags and hierarchical tags"
-msgstr ""
+msgstr "Tags und hierarchische Tags"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2004(para)
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:18983(secondary)
 msgid "ratings"
-msgstr ""
+msgstr "Bildbewertungen"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2008(para)
 msgid "GPS information"
@@ -2282,6 +2351,8 @@ msgid ""
 "At present, darktable is able to deal with the following metadata of "
 "Lightroom generated sidecar files during the import phase: <placeholder-1/>"
 msgstr ""
+"Momentan kann darktable mit den folgenden Metadaten aus Lightroom-Sidecar-"
+"Dateien umgehen und diese importieren: <placeholder-1/>"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2015(para)
 msgid ""
@@ -2296,52 +2367,66 @@ msgid ""
 "close, and in some cases, the development will need manual adjustment in "
 "darktable."
 msgstr ""
+"Weiterhin wurde darktable dahin entwickelt, die Migration einiger "
+"Bildoperationen und -Entwicklungen von bestimmten anderen Anwendungen zu "
+"ermöglichen. Das Ziel hierbei ist nicht, darktable zu einem Drop-in-Ersatz "
+"für andere Programme zu machen; darktable versucht lediglich, einen Teil der "
+"in Ihre Bilder investierten Arbeit zurückzugewinnen wenn Sie auf darktable "
+"migrieren möchten. Es ist an dieser Stelle wichtig festzustellen, dass "
+"dieser Import-Prozess niemals identische Resultate erzielt. Die zugrunde "
+"liegenden Entwicklungsalgorithmen sind von Anwendung zu Anwendung sehr "
+"verschieden und das Resultat hängt stark vom vorliegenden Bild ab. In "
+"einigen Fällen wird das Endergebnis die Originalentwicklung sehr gut "
+"treffen, einige Fälle werden jedoch manuelle Nachbearbeitung in darktable "
+"erfordern."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2026(para)
 msgid ""
 "The migration happens automatically when entering the darkroom view, "
 "provided that a corresponding XMP sidecar is found."
 msgstr ""
+"Diese Migration wird - sofern eine passende XMP-Sidecar-Datei gefunden wurde "
+"- automatisch vorgenommen, sobald Sie die Dunkelkammer betreten."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2036(para)
 msgid "crop and rotate <emphasis>(crop and rotate)</emphasis>"
-msgstr ""
+msgstr "Zuschneiden und drehen <emphasis>(Zuschneiden und drehen)</emphasis>"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2040(para)
 msgid "black level <emphasis>(exposure)</emphasis>"
-msgstr ""
+msgstr "Schwarzwert <emphasis>(Belichtung)</emphasis>"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2044(para)
 msgid "exposure <emphasis>(exposure)</emphasis>"
-msgstr ""
+msgstr "Belichtung <emphasis>(Belichtung)</emphasis>"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2048(para)
 msgid "vignette <emphasis>(vignette)</emphasis>"
-msgstr ""
+msgstr "Vignette <emphasis>(Vignette)</emphasis>"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2052(para)
 msgid "clarity <emphasis>(local contrast)</emphasis>"
-msgstr ""
+msgstr "Clarity <emphasis>(Lokaler Kontrast)</emphasis>"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2056(para)
 msgid "tone curve <emphasis>(tone curve)</emphasis>"
-msgstr ""
+msgstr "Tone Curve <emphasis>(Farbkurve)</emphasis>"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2060(para)
 msgid "HSL <emphasis>(color zones)</emphasis>"
-msgstr ""
+msgstr "HSL <emphasis>(Farbbereiche)</emphasis>"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2064(para)
 msgid "split toning <emphasis>(split toning)</emphasis>"
-msgstr ""
+msgstr "Split-Toning <emphasis>(Split-Toning)</emphasis>"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2068(para)
 msgid "grain <emphasis>(grain)</emphasis>"
-msgstr ""
+msgstr "Körnung <emphasis>(Körnung)</emphasis>"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2072(para)
 msgid "spot removal <emphasis>(spot removal)</emphasis>"
-msgstr ""
+msgstr "Fleckenentfernung <emphasis>(Fleckenentfernung)</emphasis>"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2031(para)
 msgid ""
@@ -2349,6 +2434,9 @@ msgid ""
 "from Lightroom-generated XMP files (with the corresponding darktable module "
 "in parentheses): <placeholder-1/>"
 msgstr ""
+"Momentan kann darktable die folgenden Entwicklungsschritte aus Lightroom-"
+"generierten XMP-Dateien migrieren (mit den entsprechenden darktable-Modulen "
+"in Klammern): <placeholder-1/>"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2085(title)
 msgid "Local copies"
@@ -2368,6 +2456,14 @@ msgid ""
 "medium. But copying images manually from the main storage to the notebook "
 "and back is cumbersome and prone to errors."
 msgstr ""
+"Viele Nutzer besitzen enorme Bildsammlungen, welche sie auf zusätzliche "
+"Festplatten im Desktop-PC oder auf externen Speichermedien wie RAIDs, NAS "
+"oder ähnlichem speichern. Da diese Speichermedien (zum Beispiel auf Reisen) "
+"nicht immer verfügbar sind, wäre es praktisch einige Bilddateien lokal auf "
+"dem Notebook zu speichern um auch unterwegs daran arbeiten zu können und "
+"diese später wieder mit dem zentralen Speicher zu synchronisieren. Diese "
+"Bilder von Hand vom externen Speicher auf das Notebook und zurück zu "
+"kopieren ist nicht nur mühsam sondern auch fehleranfällig."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2099(para)
 msgid ""
@@ -2380,15 +2476,26 @@ msgid ""
 "found in the <emphasis>selected images</emphasis> panel (see <xref linkend="
 "\"selected_images\"/>)."
 msgstr ""
+"darktables <quote>Lokale Kopien</quote>-Funktion wurde designt um genau "
+"diese Anwendungsfälle direkt zu unterstützen umd umzusetzen. Sie können in "
+"darktable Kopien Ihrer Bilder auf einer lokalen Festplatte des Notebooks "
+"anlegen. Diese Kopien werden genutzt, wenn die Originaldateien nicht "
+"erreichbar sind. Zu einem späteren Zeitpunkt - wenn Sie Ihr externes "
+"Speichermedium wieder verbunden haben - können Sie die XMP-Sidecar-Dateien "
+"synchronisieren und die lokalen Kopien der Bilddatei löschen. Diese "
+"Funktionen können im <emphasis>ausgewählte Bilder</emphasis>-Modul aktiviert "
+"werden (siehe <xref linkend=\"selected_images\"/>)."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2108(para)
 msgid ""
 "For safety reasons, if local copies exist and the external storage is "
 "available, the local XMP sidecars are automatically synchronized at start up."
 msgstr ""
+"Aus Datensicherheitsgründen werden beim Start von darktable, wenn lokale "
+"Kopien bestehen und das externe Speichermedium verbunden ist, die lokalen "
+"XMP-Dateien automatisch synchronisiert."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2113(para)
-#, fuzzy
 msgid ""
 "The local copies are stored into the $HOME/.cache/darktable directory and "
 "named <quote>img-&lt;N&gt;-&lt;SIGNATURE&gt;.&lt;EXT&gt;</quote>, where: "
@@ -2400,17 +2507,15 @@ msgid ""
 "entry></row><row><entry><emphasis>EXT</emphasis></entry><entry> is the "
 "original filename extension </entry></row></tbody></tgroup></informaltable>"
 msgstr ""
-"Darktable besteht aus mehreren Ansichten, auch „Modus“ genannt. Zur Zeit "
-"stehen drei verschiedene Ansichten, die im Folgenden beschrieben werden, zur "
-"Verfügung. Die aktuelle Ansicht sich lässt jeweils im Kopf der rechten Seite "
-"erkennen. Zum Umschalten zwischen den Ansichten dienen die Tasten aus "
-"folgender Tabelle: <informaltable frame=\"none\"><tgroup cols=\"2\" colsep="
-"\"0\" rowsep=\"0\"><colspec colwidth=\"3cm\"/"
-"><tbody><row><entry><emphasis>l</emphasis></entry><entry>wechselt in den "
-"Leuchttisch-Modus</entry></row><row><entry><emphasis>d</emphasis></"
-"entry><entry>wechselt in den Dunkelkammer-Modus</entry></"
-"row><row><entry><emphasis>t</emphasis></entry><entry>wechselt in den "
-"Kamerasteuerungs- (Tethering)-Modus</entry></row></tbody></tgroup></"
+"Lokale Kopien werden im Ordner $HOME/.cache/darktable gespeichert und nach "
+"dem Schema <quote>img-&lt;N&gt;-&lt;SIGNATURE&gt;.&lt;EXT&gt;</quote> "
+"benannt, wobei: <informaltable frame=\"none\" width=\"80%\"><tgroup cols="
+"\"2\" colsep=\"0\" rowsep=\"0\"><colspec colwidth=\"1*\"/><colspec colwidth="
+"\"3*\"/><tbody><row><entry><emphasis>N</emphasis></entry><entry> die interne "
+"Bild-ID in darktable angibt, </entry></row><row><entry><emphasis>SIGNATURE</"
+"emphasis></entry><entry> eine Hash-Signatur (SHA-1) des vollen Pfadnamens "
+"ist und </entry></row><row><entry><emphasis>EXT</emphasis></entry><entry> "
+"die originale Dateiendung repräsentiert. </entry></row></tbody></tgroup></"
 "informaltable>"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2158(para)
@@ -2419,11 +2524,14 @@ msgid ""
 "right of the thumbnail. In addition all local copies carry the "
 "<emphasis>darktable|local-copy</emphasis> tag for selecting them easily."
 msgstr ""
+"Eine lokale Kopie kann in der Leuchttisch-Ansicht durch einen weißen Marker "
+"im Vorschaubild identifiziert werden. Zusätzlich tragen alle lokalen Kopien "
+"den Tag <emphasis>darktable|local-copy</emphasis>, damit sie mithilfe einer "
+"Sammlung leicht auswählbar sind."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2181(title)
-#, fuzzy
 msgid "Lighttable panels"
-msgstr "Leuchttisch"
+msgstr "Leuchttisch-Module"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2187(title)
 msgid "Import"
@@ -2441,9 +2549,8 @@ msgstr "Import"
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:3580(primary)
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:3641(primary)
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:3750(primary)
-#, fuzzy
 msgid "lighttable panels"
-msgstr "Leuchttisch"
+msgstr "Leuchttisch-Module"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2191(secondary)
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2195(primary)
@@ -2515,6 +2622,13 @@ msgid ""
 "can import directly from that camera or control the camera from within "
 "darktable in tethering mode."
 msgstr ""
+"Dieses Modul ermöglicht den Import von Bildern in Filmrollen. Sie können "
+"entweder ganze Ordner importieren, indem Sie auf <placeholder-1/> klicken "
+"oder nur ein einzelnes Bild, indem Sie <placeholder-2/> auswählen. Um "
+"darktable nach angeschlossenen Kameras suchen zu lassen, klicken Sie "
+"<placeholder-3/>. Sollte eine unterstützte Kamera gefunden werden, können "
+"Sie Bilder direkt von der Kamera importieren oder die Kamera im Tethering-"
+"Modus von darktable aus steuern und Aufnahmen machen."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2228(para)
 msgid ""
@@ -2528,6 +2642,17 @@ msgid ""
 "collections</emphasis> (see <xref linkend=\"recently_used_collections\"/>) "
 "to open the latest ones you have worked with."
 msgstr ""
+"Importierte Bilder sind in Filmrollen organisiert (siehe <xref linkend="
+"\"film_rolls\"/>). Der Zugriff auf verschiedene Filmrollen erfolgt über das "
+"<emphasis>Bilder sammeln</emphasis>-Modul (siehe <xref linkend="
+"\"collect_images\"/>). Wenn Sie dort das Auswahlkriterium <quote>Filmrolle</"
+"quote> auswählen, wird Ihnen eine Liste von verfügbaren Filmrollen "
+"präsentiert, die Sie mithilfe des Eingabefeldes filtern können um schnell "
+"die Richtige zu finden. Ein Doppelklick auf eine der Filmrollen in der Liste "
+"öffnet diese auf dem Leuchttisch. Sie können auch die <emphasis>kürzlich "
+"benutze Sammlungen</emphasis> (siehe <xref linkend="
+"\"recently_used_collections\"/>) verwenden, um zuletzt aufgerufene "
+"Filmrollen zu öffnen."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2241(title)
 msgid "Import from filesystem"
@@ -2538,6 +2663,10 @@ msgid ""
 "You can import either a single image, or a folder. The imported image(s) "
 "will show up in a film roll with the name of the filesystem folder."
 msgstr ""
+"Sie haben die Möglichkeit, entweder ein einzelnes Bild oder einen gesamten "
+"Ordner zu importieren. Die importierten Bilder werden automatisch einer "
+"neuen Filmrolle hinzugefügt, die nach dem Dateisystem-Ordner benannt ist, "
+"aus dem die Bilder stammen."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2252(para)
 msgid ""
@@ -2545,6 +2674,10 @@ msgid ""
 "selector dialog. Navigate through the filesystem, and select the item to "
 "import. On the lower part of the dialog, are some further import options."
 msgstr ""
+"Ein Klick auf <quote>Bild</quote> oder <quote>Verzeichnis</quote> öffnet "
+"einen Auswahldialog. Navigieren Sie durch das Dateisystem und markieren Sie "
+"die zu importierenden Bilder oder Verzeichnisse. Im unteren Bereich des "
+"Dialogs finden sich erweiterte Import-Optionen."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2258(para)
 msgid ""
