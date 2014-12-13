@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: darktable-usermanual\n"
 "POT-Creation-Date: 2014-12-12 22:00+0100\n"
-"PO-Revision-Date: 2014-12-13 18:49+0100\n"
+"PO-Revision-Date: 2014-12-13 19:45+0100\n"
 "Last-Translator: Simon Spannagel <simonspa@kth.se>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -12,9 +12,8 @@ msgstr ""
 "Language: DE_de\n"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4(title)
-#, fuzzy
 msgid "darktable 1.6"
-msgstr "Darktable"
+msgstr "darktable 1.6"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:10(para)
 msgid ""
@@ -64,59 +63,56 @@ msgstr ""
 
 # Soll das übersetzt werden?
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:32(para)
-#, fuzzy
 msgid ""
 "darktable is free software: you can redistribute it and/or modify it under "
 "the terms of the GNU General Public License as published by the Free "
 "Software Foundation, either version 3 of the License, or (at your option) "
 "any later version."
 msgstr ""
-"Der Eigentümer des Darktable-Projekts ist Johannes Hanika. Die "
-"Hauptentwickler sind Johannes Hanika und Henrik Andersson. Darktable ist "
-"freie Software: Sie können es  weitergeben und/oder verändern, so lange dies "
-"unter den Bedingungen der GNU General Public License, herausgegeben von der "
-"Free Software Foundation geschieht. Es gilt entweder Version 3 der Lizenz "
-"oder (falls Sie es wünschen) eine beliebige spätere Version."
+"darktable ist freie Software: Sie können es  weitergeben und/oder verändern, "
+"so lange dies unter den Bedingungen der GNU General Public License, "
+"herausgegeben von der Free Software Foundation geschieht. Es gilt entweder "
+"Version 3 der Lizenz oder (falls Sie es wünschen) eine beliebige spätere "
+"Version."
 
 # Soll das übersetzt werden?
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:38(para)
-#, fuzzy
 msgid ""
 "darktable is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
 "FOR A PARTICULAR PURPOSE. See the GNU General Public License for more "
 "details."
 msgstr ""
-"Darktable wird in der Hoffnung vertrieben, dass es nützlich ist, aber OHNE "
+"darktable wird in der Hoffnung vertrieben, dass es nützlich ist, jedoch OHNE "
 "JEDE GARANTIE; sogar ohne die implizierte Garantie von GEBRAUCHSFÄHIGKEIT "
 "oder TAUGLICHKEIT FÜR EINEN BESTIMMTEN ZWECK. Lesen Sie die GNU General "
-"Public License, um die Details zu erfahren."
+"Public License, um mehr Informationen zu erhalten."
 
 # Soll das übersetzt werden?
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:44(para)
-#, fuzzy
 msgid ""
 "You should have received a copy of the GNU General Public License along with "
 "darktable. If not, see <ulink url=\"http://www.gnu.org/licenses/"
 "\"><emphasis>the GNU homepage</emphasis></ulink>."
 msgstr ""
-"Sie sollten eine Kopie der GNU General Puplic License zusammen mit Darktable "
-"erhalten haben. Falls dem nicht so ist, schauen Sie unter <emphasis>http://"
-"www.gnu.org/licenses/</emphasis> nach."
+"Sie sollten eine Kopie der GNU General Puplic License zusammen mit darktable "
+"erhalten haben. Falls dies nicht der Fall ist, können Sie unter "
+"<emphasis>http://www.gnu.org/licenses/</emphasis> eine Kopie der Lizenz "
+"beziehen."
 
 # Soll das übersetzt werden?
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:52(para)
-#, fuzzy
 msgid ""
 "The present user manual is under license <emphasis>cc by-sa </emphasis>, "
 "meaning <emphasis>Attribution Share Alike </emphasis>. You can visit <ulink "
 "url=\"http://creativecommons.org/about/licenses/\"><emphasis>the creative "
 "commons page</emphasis></ulink> to get more information."
 msgstr ""
-"Das vorliegende Benutzerhandbuch steht unter der <emphasis>cc by-nc-sa</"
-"emphasis> Lizenz. Dies bedeutet <emphasis>Attribution Non-Commercial Share "
-"Alike</emphasis>. Sie können <emphasis>http://creativecommons.org/about/"
-"licenses/</emphasis> besuchen um mehr Informationen zu erhalten."
+"Das vorliegende Benutzerhandbuch steht unter der <emphasis>cc by-sa</"
+"emphasis> Lizenz. Dies bedeutet <emphasis>Attribution Share Alike</"
+"emphasis>. Auf der Website des<ulink url=\"http://creativecommons.org/about/"
+"licenses/\"><emphasis>Creative Commons Projekts</emphasis></ulink> erhalten "
+"Sie weitere Informationen."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:62(year)
 msgid "2010-2012"
@@ -291,7 +287,7 @@ msgstr "Übersicht"
 msgid ""
 "darktable is an open source photography workflow application and RAW "
 "developer, a virtual lighttable and darkroom for photographers."
-msgstr "darktable ist ein Open Source "
+msgstr ""
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:170(para)
 msgid ""
@@ -365,9 +361,8 @@ msgid ""
 msgstr ""
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:229(para)
-#, fuzzy
 msgid "Tethered shooting."
-msgstr "Tethering"
+msgstr "Tethering-Aufnahmen."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:233(para)
 msgid ""
@@ -1383,13 +1378,12 @@ msgid "lighttable view"
 msgstr "Die Leuchttisch-Ansicht"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:1235(para)
-#, fuzzy
 msgid ""
 "The lighttable is where you manage all your images, ratings, export and much "
 "more."
 msgstr ""
-"Der Leuchttisch ist der Platz, an dem Sie all ihre Bilder und Bewertungen "
-"verwalten, exportieren und vieles mehr …"
+"Der Leuchttisch ist der Ort, an dem Sie all ihre Bilder und Bewertungen "
+"verwalten, exportieren und vieles mehr…"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:1242(screeninfo)
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:18453(para)
@@ -1404,7 +1398,6 @@ msgid "image information"
 msgstr "Bildvorbereitung"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:1259(entry)
-#, fuzzy
 msgid ""
 "In the central view, your images are shown as thumbnails, surrounded by a "
 "frame. When the mouse is over an image, its rating and color labels are "
@@ -1415,13 +1408,15 @@ msgid ""
 "in the <link linkend=\"image_information\"><placeholder-1/></link> panel at "
 "the bottom left."
 msgstr ""
-"In dieser Ansicht werden Ihre Bilder als Vorschaugrafiken angezeigt; jede "
-"Vorschau hat einen Rahmen und so lange die Maus über dem Bild ist werden als "
-"Information die Bewertung, Farbmarkierungen und, falls das Bild in der "
-"Dunkelkammer bearbeitet wurde, <inlinegraphic fileref=\"images/"
-"lighttable_thumb_icon_altered.png\" scalefit=\"1\" width=\"3mm\"/> "
-"angezeigt. Wenn die Maus über einem Bilderrahmen schwebt werden außerdem die "
-"Metadaten des Bilder im Metadaten-Panel angezeigt."
+"Im zentralen Bereich des Leuchttisches werden Ihre Bilder als "
+"Vorschaugrafiken dargestellt. Jede Vorschau wird von einem Rahmen eingefasst "
+"und so lange Sie die Maus über diesem Bereich halten, werden Bildbewertung, "
+"Farbmarkierungen sowie - falls das Bild bereits in der Dunkelkammer "
+"bearbeitet wurde - das Symbol des Verlaufsstapels <inlinegraphic fileref="
+"\"images/lighttable_thumb_icon_altered.png\" scalefit=\"1\" width=\"3mm\"/> "
+"angezeigt. Zudem werden im linken Panel im <link linkend=\"image_information"
+"\"><placeholder-1/></link>-Modul weitere Informationen zum Bild (EXIF-Daten, "
+"Metadaten) aufgelistet."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:1277(para)
 #, fuzzy
@@ -1561,15 +1556,16 @@ msgid ""
 msgstr ""
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:1440(title)
-#, fuzzy
 msgid "Lighttable concepts"
-msgstr "Leuchttisch"
+msgstr "Konzepte des Leuchttischs"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:1442(para)
 msgid ""
 "This section explains some of the underlying concepts on how darktable "
 "organizes images in the lighttable."
 msgstr ""
+"Dieser Abschnitt wird Ihnen die verschiedenen Konzepte näher bringen, nach "
+"denen darktable Ihre Bilder auf dem Leuchttisch verwaltet und organisiert."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:1451(title)
 msgid "Film rolls"
@@ -1907,7 +1903,7 @@ msgstr ""
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:1691(emphasis)
 msgid "the bottom panel"
-msgstr ""
+msgstr "unteren Panel"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:1688(entry)
 msgid ""
@@ -1917,8 +1913,8 @@ msgid ""
 msgstr ""
 "Um ein oder mehrere Bilder zu bewerten, wählen Sie diese aus (siehe <xref "
 "linkend=\"select\"/>) und drücken Sie dann die entsprechende Taste oder "
-"klicken Sie auf den gewünschten Eintrag in <placeholder-1/> in der "
-"Leuchttisch-Ansicht, um Ihre Bewertung zuzuweisen."
+"klicken Sie auf den gewünschten Eintrag im <placeholder-1/> der Leuchttisch-"
+"Ansicht, um Ihre Bewertung zuzuweisen."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:1703(para)
 msgid ""
@@ -2025,9 +2021,8 @@ msgstr ""
 "indem Sie das kleine Dreieckssymbol rechts des Auswahlfeldes anklicken."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:1803(title)
-#, fuzzy
 msgid "Image grouping"
-msgstr "Bildvorbereitung"
+msgstr "Gruppieren von Bildern"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:1806(primary)
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:3138(primary)
@@ -2105,6 +2100,9 @@ msgid ""
 "an orange frame which appears as soon as your mouse pointer hovers over one "
 "of the images."
 msgstr ""
+"Eine geöffnete Gruppe wird im Dateimanager-Modus des Leuchttischs mit einem "
+"orangefarbenen Rahmen umschlossen, welcher erscheint, wenn Sie mit der Maus "
+"über eines der Gruppenbilder fahren."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:1882(para)
 msgid ""
@@ -2112,6 +2110,8 @@ msgid ""
 "view of a group, clicking on the <quote>G</quote> symbol of the desired "
 "image."
 msgstr ""
+"Sie können das Hauptbild einer Gruppe festlegen, indem Sie bei geöffneter "
+"Gruppe auf das <quote>G</quote>-Symbol des gewünschten Bildes klicken."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:1887(para)
 msgid ""
@@ -2119,6 +2119,9 @@ msgid ""
 "clicking on the thumbnail), the <emphasis>group head</emphasis> will be "
 "opened for developing."
 msgstr ""
+"Wenn Sie eine Gruppe schließen und anschließend in die Dunkelkammer-Ansicht "
+"wechseln (z.B. durch einen Doppelklick auf das Vorschaubild) wird das "
+"<emphasis>Hauptbild</emphasis> der Gruppe zur Entwicklung geöffnet."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:1892(para)
 msgid ""
@@ -2130,6 +2133,15 @@ msgid ""
 "collapsed. Now, whenever you open the image group again in darkroom, only "
 "the group head will be altered. The underlying duplicate remains unchanged."
 msgstr ""
+"Bildgruppen sind eine praktische Möglichkeit, bestehende Verlaufsstapel "
+"gegen unbeabsichtigte Veränderungen zu schützen. Angenommen, Sie haben "
+"soeben ein Bild fertigentwickelt und möchten den aktuellen Stand schützen. "
+"Wählen Sie das Bild aus und klicken Sie auf <quote>duplizieren</quote> im "
+"<emphasis>ausgewählte Bilder</emphasis>-Modul, schalten Sie das Gruppieren "
+"von Bilder ein und stellen Sie sicher, dass die neu erstellte Gruppe "
+"geschlossen ist. Jedesmal, wenn Sie nun diese Bildgruppe erneut in der "
+"Dunkelkammer öffnen, werden Sie nur das neu erstellte Hauptbild ändern, "
+"nicht jedoch das duplizierte Bild mit dem zu schützenden Verlaufsstapel."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:1901(para)
 msgid ""
@@ -2137,6 +2149,10 @@ msgid ""
 "copy of your history stack, stored in another small XMP file. There is still "
 "only one RAW file, so you don't waste a lot of disk space."
 msgstr ""
+"Bitte beachten Sie, dass das Duplizieren des Bildes lediglich eine Kopie des "
+"Verlaufsstapels anlegt und in einer neuen XMP-Datei speicher, nicht jedoch "
+"die eigentliche Bilddatei kopiert. Dies ist effizient und spart "
+"Speicherplatz."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:1913(title)
 msgid "Sidecar files"
@@ -2166,6 +2182,15 @@ msgid ""
 "touching the original RAW files. When you import an image into darktable for "
 "the first time, an XMP file with default settings is generated automatically."
 msgstr ""
+"darktable ist ein nicht-destruktives Bildbearbeitungsprogramm. Das bedeutet, "
+"dass Bilddateien ausschließlich im Lesezugriff geöffnet und niemals "
+"verändert werden. Jegliche neu hinzugefügte Information, Metadaten, Tags und "
+"Parameter der Bildentwicklung (der <quote>Verlaufsstapel</quote>) werden in "
+"separaten <emphasis>.xmp</emphasis>-Dateien, den sogenannten Sidecars "
+"gespeichert. Dies erlaubt Ihnen, sowohl Informationen über das Bild als auch "
+"die komplette Historie Ihrer Bildbearbeitung zu speichern ohne die originale "
+"RAW-Datei zu verändern. Beim Import eines Bildes nach darktable wird "
+"automatisch eine XMP-Datei mit Standardwerten generiert und gespeichert."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:1936(para)
 msgid ""
@@ -2181,6 +2206,18 @@ msgid ""
 "duplicate is displayed in the image information panel in each of darktable's "
 "views (see an example in <xref linkend=\"image_information\"/>)."
 msgstr ""
+"Für ein einzelnes Ursprungsbild können mehrere Entwicklungsversionen, "
+"sogenannte Duplikate, gleichzeitig existieren. Diese teilen sich dieselbe "
+"(RAW-)Bilddatei, besitzen jedoch getrennte Metadaten, Tags und "
+"Verlaufsstapel. Jedes Duplikat wird in einer eigenen XMP-Sidecar-Datei "
+"gespeichert, deren Dateiname sich aus <quote>&lt;dateiname&gt;<emphasis>_nn</"
+"emphasis>.&lt;dateiendung&gt;.xmp</quote> zusammensetzt, wobei <emphasis>nn</"
+"emphasis> die (mindestens zweistellige) Versionsnummer dieses Duplikats "
+"darstellt. Die Informationen der ersten Entwicklung (also dem Duplikat mit "
+"der Versionsnummer Null) wird in der Sidecar-Datei <quote>&lt;dateiname&gt;."
+"&lt;dateiendung&gt;.xmp</quote> gespeichert. Sie können die Versionsnummer "
+"des Duplikats im Modul <emphasis>Bildinformation</emphasis> einsehen (siehe "
+"<xref linkend=\"image_information\"/>)."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:1950(para)
 msgid ""
@@ -17210,18 +17247,16 @@ msgid "The window displaying the currently running jobs"
 msgstr ""
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:19446(title)
-#, fuzzy
 msgid "darktable.tags"
-msgstr "Darktable"
+msgstr "darktable.tags"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:19451(para)
 msgid "Allows access to all existing tags."
 msgstr ""
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:19454(title)
-#, fuzzy
 msgid "darktable.tags.#"
-msgstr "Darktable"
+msgstr "darktable.tags.#"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:19459(link)
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:19493(link)
@@ -17245,9 +17280,8 @@ msgid ""
 msgstr ""
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:19465(title)
-#, fuzzy
 msgid "darktable.tags.create"
-msgstr "Darktable"
+msgstr "darktable.tags.create"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:19473(para)
 msgid ""
@@ -17259,9 +17293,8 @@ msgid "The name of the new tag."
 msgstr ""
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:19486(title)
-#, fuzzy
 msgid "darktable.tags.find"
-msgstr "Darktable"
+msgstr "darktable.tags.find"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:19489(secondary)
 msgid "find"
@@ -17280,9 +17313,8 @@ msgid "The tag object or nil."
 msgstr ""
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:19514(title)
-#, fuzzy
 msgid "darktable.tags.delete"
-msgstr "Darktable"
+msgstr "darktable.tags.delete"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:19520(link)
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:19525(term)
@@ -17302,9 +17334,8 @@ msgid "The tag to be deleted."
 msgstr ""
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:19535(title)
-#, fuzzy
 msgid "darktable.tags.attach"
-msgstr "Darktable"
+msgstr "darktable.tags.attach"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:19540(synopsis)
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:19568(synopsis)
@@ -17329,9 +17360,8 @@ msgid "The image to attach the tag to."
 msgstr ""
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:19563(title)
-#, fuzzy
 msgid "darktable.tags.detach"
-msgstr "Darktable"
+msgstr "darktable.tags.detach"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:19572(para)
 msgid ""
@@ -17584,9 +17614,8 @@ msgid "Tables of API versions that are known to work with the scrip"
 msgstr ""
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:19788(title)
-#, fuzzy
 msgid "darktable.preferences"
-msgstr "Voreinstellungen"
+msgstr "darktable.preferences"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:19794(para)
 msgid ""
@@ -17822,18 +17851,16 @@ msgid "The value to set the preference to."
 msgstr ""
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:19971(title)
-#, fuzzy
 msgid "darktable.styles"
-msgstr "Darktable"
+msgstr "darktable.styles"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:19976(para)
 msgid "This pseudo table allows you to access and manipulate styles."
 msgstr ""
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:19979(title)
-#, fuzzy
 msgid "darktable.styles.#"
-msgstr "Darktable"
+msgstr "darktable.styles.#"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:19984(link)
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:19999(link)
@@ -17978,9 +18005,8 @@ msgid "Is overwriting an existing file allowed"
 msgstr ""
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:20181(title)
-#, fuzzy
 msgid "darktable.database"
-msgstr "Darktable"
+msgstr "darktable.database"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:20184(secondary)
 msgid "database"
@@ -17995,9 +18021,8 @@ msgid ""
 msgstr ""
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:20189(title)
-#, fuzzy
 msgid "darktable.database.#"
-msgstr "Darktable"
+msgstr "darktable.database.#"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:20195(para)
 msgid ""
@@ -18143,9 +18168,8 @@ msgid ""
 msgstr ""
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:20335(title)
-#, fuzzy
 msgid "darktable.debug"
-msgstr "Darktable"
+msgstr "darktable.debug"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:20338(secondary)
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:20395(secondary)
@@ -18159,9 +18183,8 @@ msgid ""
 msgstr ""
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:20347(title)
-#, fuzzy
 msgid "darktable.debug.dump"
-msgstr "Darktable"
+msgstr "darktable.debug.dump"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:20350(secondary)
 msgid "dump"
@@ -18225,9 +18248,8 @@ msgid ""
 msgstr ""
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:20392(title)
-#, fuzzy
 msgid "darktable.debug.debug"
-msgstr "Darktable"
+msgstr "darktable.debug.debug"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:20398(para)
 msgid ""
@@ -18248,9 +18270,8 @@ msgid "Initialized to 10; The maximum depth to recursively dump content."
 msgstr ""
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:20414(title)
-#, fuzzy
 msgid "darktable.debug.known"
-msgstr "Darktable"
+msgstr "darktable.debug.known"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:20420(para)
 msgid ""
@@ -18259,9 +18280,8 @@ msgid ""
 msgstr ""
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:20425(title)
-#, fuzzy
 msgid "darktable.debug.type"
-msgstr "Darktable"
+msgstr "darktable.debug.type"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:20430(synopsis)
 msgid "function( <emphasis><placeholder-1/></emphasis> : anything ) : string"
