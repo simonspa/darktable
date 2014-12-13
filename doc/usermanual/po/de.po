@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: darktable-usermanual\n"
 "POT-Creation-Date: 2014-12-12 22:00+0100\n"
-"PO-Revision-Date: 2014-12-13 00:47+0100\n"
+"PO-Revision-Date: 2014-12-13 18:49+0100\n"
 "Last-Translator: Simon Spannagel <simonspa@kth.se>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -1550,7 +1550,7 @@ msgstr ""
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:1421(emphasis)
 msgid "ctrl-z"
-msgstr ""
+msgstr "Strg-z"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:1420(entry)
 msgid ""
@@ -2140,17 +2140,17 @@ msgstr ""
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:1913(title)
 msgid "Sidecar files"
-msgstr ""
+msgstr "Sidecar-Dateien"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:1916(primary)
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:3278(primary)
 msgid "sidecar files"
-msgstr ""
+msgstr "Sidecar-Dateien"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:1920(primary)
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:3282(primary)
 msgid "XMP files"
-msgstr ""
+msgstr "XMP-Dateien"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:1924(primary)
 msgid "save button"
@@ -2238,7 +2238,7 @@ msgstr ""
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2008(para)
 msgid "GPS information"
-msgstr ""
+msgstr "GPS-Information"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:1991(para)
 msgid ""
@@ -2315,12 +2315,12 @@ msgstr ""
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2085(title)
 msgid "Local copies"
-msgstr ""
+msgstr "Lokale Kopien"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2088(primary)
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:3109(primary)
 msgid "local copies"
-msgstr ""
+msgstr "lokale Kopien"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2091(para)
 msgid ""
@@ -2390,7 +2390,7 @@ msgstr "Leuchttisch"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2187(title)
 msgid "Import"
-msgstr ""
+msgstr "Import"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2190(primary)
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2453(primary)
@@ -2418,19 +2418,19 @@ msgstr "Leuchttisch"
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:20126(secondary)
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:20231(secondary)
 msgid "import"
-msgstr ""
+msgstr "Import"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2199(primary)
 msgid "file import"
-msgstr ""
+msgstr "Datei-Import"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2203(primary)
 msgid "camera import"
-msgstr ""
+msgstr "Kamera-Import"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2214(quote)
 msgid "folder"
-msgstr ""
+msgstr "Ordner"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2215(quote)
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:7454(emphasis)
@@ -2462,12 +2462,12 @@ msgstr ""
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:23189(link)
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:23200(term)
 msgid "image"
-msgstr ""
+msgstr "Bild"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2216(quote)
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2301(quote)
 msgid "scan for devices"
-msgstr ""
+msgstr "Nach Geräten suchen"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2212(entry)
 msgid ""
@@ -2494,7 +2494,7 @@ msgstr ""
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2241(title)
 msgid "Import from filesystem"
-msgstr ""
+msgstr "Vom Dateisystem importieren"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2243(para)
 msgid ""
@@ -2547,15 +2547,15 @@ msgstr ""
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2291(title)
 msgid "Importing from a connected camera"
-msgstr ""
+msgstr "Von einer angeschlossenen Kamera importieren"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2304(quote)
 msgid "import from camera"
-msgstr ""
+msgstr "von der Kamera importieren"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2305(quote)
 msgid "tethered shoot"
-msgstr ""
+msgstr "Tethering-Aufnahme"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2299(entry)
 msgid ""
@@ -2569,7 +2569,7 @@ msgstr ""
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2317(title)
 msgid "Import from camera"
-msgstr ""
+msgstr "Import von der Kamera"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2319(para)
 msgid ""
@@ -2586,7 +2586,7 @@ msgstr ""
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2334(title)
 msgid "Tethered shoot"
-msgstr ""
+msgstr "Tethering-Augnahme"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2336(para)
 msgid ""
@@ -2606,7 +2606,7 @@ msgstr ""
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2355(title)
 msgid "Supported file formats"
-msgstr ""
+msgstr "Unterstützte Dateiformate"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2357(para)
 msgid ""
@@ -2641,11 +2641,11 @@ msgstr ""
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2385(title)
 msgid "Camera RAW files"
-msgstr ""
+msgstr "Kamera-RAW-Dateien"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2389(secondary)
 msgid "RAW files"
-msgstr ""
+msgstr "RAW-Dateien"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2392(para)
 msgid ""
@@ -2660,11 +2660,11 @@ msgstr ""
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2406(title)
 msgid "LDR image files"
-msgstr ""
+msgstr "LDR-Bilddateien"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2410(secondary)
 msgid "LDR files"
-msgstr ""
+msgstr "LDR-Dateien"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2413(para)
 msgid ""
@@ -2678,16 +2678,16 @@ msgstr ""
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2425(title)
 msgid "HDR image files"
-msgstr ""
+msgstr "HDR-Bilddateien"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2429(secondary)
 msgid "HDR files"
-msgstr ""
+msgstr "HDR-Dateien"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2433(primary)
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:3060(primary)
 msgid "HDR images"
-msgstr ""
+msgstr "HDR-Bilder"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2436(para)
 msgid ""
@@ -2946,7 +2946,7 @@ msgstr ""
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2728(title)
 msgid "narrow down search"
-msgstr ""
+msgstr "Suche einschränken"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2729(para)
 msgid ""
@@ -2957,7 +2957,7 @@ msgstr ""
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2737(title)
 msgid "add more images"
-msgstr ""
+msgstr "Weitere Bilder hinzufügen"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2738(para)
 msgid ""
@@ -2968,7 +2968,7 @@ msgstr ""
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2746(title)
 msgid "exclude images"
-msgstr ""
+msgstr "Bilder ausschließen"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2747(para)
 msgid ""
@@ -2979,7 +2979,7 @@ msgstr ""
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2758(title)
 msgid "combining rules"
-msgstr ""
+msgstr "Regeln zusammenführen"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2760(para)
 msgid ""
@@ -2996,12 +2996,12 @@ msgstr ""
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2779(title)
 msgid "Recently used collections"
-msgstr ""
+msgstr "Zuletzt benutze Sammlungen"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2783(secondary)
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2787(primary)
 msgid "recently used collections"
-msgstr ""
+msgstr "Zuletzt benutze Sammlungen"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2796(entry)
 msgid ""
@@ -3017,7 +3017,7 @@ msgstr "Bildvorbereitung"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2827(primary)
 msgid "EXIF data"
-msgstr ""
+msgstr "EXIF-Daten"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2836(entry)
 msgid ""
@@ -3029,83 +3029,89 @@ msgstr ""
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2856(title)
 msgid "Select"
-msgstr ""
+msgstr "Auswahl"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2860(secondary)
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2864(primary)
 msgid "selecting images"
-msgstr ""
+msgstr "Bilder auswählen"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2873(entry)
 msgid ""
 "This panel allows for a quick selection of images, according to some common "
 "criteria."
 msgstr ""
+"Dieses Modul erlaubt Ihnen die schnelle Auswahl von Bildern entsprechend "
+"einiger gebräuchlichen Kriterien."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2891(title)
 msgid "select all"
-msgstr ""
+msgstr "alles auswählen"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2893(para)
 msgid ""
 "Select all images in the current view (collection), with respect to the "
 "filters."
 msgstr ""
+"Wählt alle Bilder der momentanen Ansicht (Sammlung) aus unter "
+"Berücksichtigung der Filter."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2901(title)
 msgid "select none"
-msgstr ""
+msgstr "nichts auswählen"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2903(para)
 msgid "De-select all images."
-msgstr ""
+msgstr "Wählt alle Bilder ab."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2911(title)
 msgid "invert selection"
-msgstr ""
+msgstr "Auswahl invertieren"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2913(para)
 msgid "Select all images that are not currently selected."
-msgstr ""
+msgstr "Wählt alle Bilder aus, die momentan nicht ausgewählt sind."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2921(title)
 msgid "select film roll"
-msgstr ""
+msgstr "Filmrolle auswählen"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2923(para)
 msgid ""
 "Select all images that are in the same film roll as the currently selected "
 "images."
 msgstr ""
+"Wählt alle Bilder aus, die in der selben Filmrolle sind wie das momentan "
+"ausgewählte Bild."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2931(title)
 msgid "select untouched"
-msgstr ""
+msgstr "unbearbeitete"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2933(para)
 msgid "Select all images that have not yet been developed."
-msgstr ""
+msgstr "Wählt alle noch unbearbeiteten Bilder der aktuellen Sammlung aus."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2945(title)
 msgid "Selected image(s)"
-msgstr ""
+msgstr "ausgewählte Bilder"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2949(secondary)
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2953(primary)
 msgid "selected images"
-msgstr ""
+msgstr "ausgewählte Bilder"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2962(entry)
 msgid "This panel provides some actions that operate on selected images."
-msgstr ""
+msgstr "Dieses Modul stellt einige Aktionen für ausgewählte Bilder bereit."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2979(title)
 msgid "remove"
-msgstr ""
+msgstr "entfernen"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2982(primary)
 msgid "remove images"
-msgstr ""
+msgstr "Bilder entfernen"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2985(para)
 msgid ""
@@ -3114,10 +3120,17 @@ msgid ""
 "darktable stores XMP files with your development parameters on disk, you can "
 "later fully reconstruct your work by just re-importing the images."
 msgstr ""
+"Entfernt die ausgewählten Bilder aus der darktable Datenbank. Diese Bilder "
+"werden nicht mehr auf dem Leuchttisch angezeigt, verbleiben jedoch auf der "
+"Festplatte. Da darktable XMP-Dateien mit allen Entwicklungs-Einstellungen "
+"auf die Festplatte schreibt, können entfernte Bilder wieder komplett "
+"hergestellt werden, indem sie neu importiert werden."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:2992(para)
 msgid "When backing up your RAWs make sure to also save the XMP files!"
 msgstr ""
+"Stellen Sie sicher, dass bei einem Backup Ihrer RAW-Dateien auch die "
+"zugehörigen XMP-Dateien gesichert werden!"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:3000(title)
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:3411(title)
@@ -3131,11 +3144,11 @@ msgstr ""
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:22403(secondary)
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:22536(secondary)
 msgid "delete"
-msgstr ""
+msgstr "löschen"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:3003(primary)
 msgid "delete images"
-msgstr ""
+msgstr "Bilder löschen"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:3006(para)
 msgid ""
@@ -3145,21 +3158,30 @@ msgid ""
 "will delete the file(s) without further question! This is irreversible, and "
 "will also erase your development work of these images."
 msgstr ""
+"Löscht Bilder endgültig vom Dateisystem. Beachten Sie hierzug die "
+"Voreinstellung <quote>Fragen, bevor Bilder von der Festplatte gelöscht "
+"werden</quote> (<xref linkend=\"gui_options\"/>). Ist diese Einstellung "
+"nicht aktiv werden die ausgewählten Bilddateien ohne weitere Nachfrage von "
+"der Festplatte gelöscht! Dies wird auch Ihre Entwicklungen der Bilder "
+"löschen und ist irreversibel."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:3014(para)
 msgid ""
 "When deleting an image with duplicates, darktable keeps the original input "
 "file on disk until the last of the duplicates gets deleted."
 msgstr ""
+"Wenn ein dupliziertes Bild gelöscht wird, behält darktable die originale "
+"Bilddatei und entfernt lediglich die zugehörige XMP-Datei bis das letzte "
+"Duplikat des Originalbilds entfernt wird."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:3023(title)
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:20543(secondary)
 msgid "move"
-msgstr ""
+msgstr "verschieben"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:3026(primary)
 msgid "move images"
-msgstr ""
+msgstr "Bilder verschieben"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:3029(para)
 msgid ""
@@ -3169,17 +3191,22 @@ msgid ""
 "already exists in the target folder the source image is not moved but kept "
 "where it is."
 msgstr ""
+"Verschiebt die ausgewählten Bilder (sowohl deren Bilddatei als auch die "
+"zugehörigen XMP-Dateien) in einen anderen Ordner auf dem Dateisystem. "
+"darktable überschreibt keine Bilder im Zielordner. Sollte eine Datei "
+"gleichen Namens im Zielordner bereits existieren, wird diese nicht "
+"verschoben sondern verbleibt im Quellordner."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:3040(title)
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:3199(title)
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:18122(para)
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:20552(secondary)
 msgid "copy"
-msgstr ""
+msgstr "kopieren"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:3043(primary)
 msgid "copy images"
-msgstr ""
+msgstr "Bilder kopieren"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:3046(para)
 msgid ""
@@ -3188,10 +3215,15 @@ msgid ""
 "exists in the target folder it does not get overwritten – instead a new "
 "duplicate with the given history stack is generated."
 msgstr ""
+"Kopiert die ausgewählten Bilder (sowohl deren Bilddatei als auch die "
+"zugehörigen XMP-Dateien) in einen anderen Ordner auf dem Dateisystem. "
+"darktable überschreibt keine Bilder im Zielordner. Sollte eine Datei "
+"gleichen Namens im Zielordner bereits existieren, wird stattdessen ein neues "
+"Duplikat mit entsprechendem Verlaufsstapel angelegt."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:3057(title)
 msgid "create hdr"
-msgstr ""
+msgstr "HDR erzeugen"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:3063(para)
 msgid ""
@@ -3204,6 +3236,16 @@ msgid ""
 "\"/>). Note that darktable cannot currently create HDR files from images "
 "made with non-Bayer (e.g. Fujifilm X-Trans) sensors."
 msgstr ""
+"Erzeugt ein High-Dynamic-Range-Bild aus der ausgewählten Bilderserie und "
+"speichert es als neue Bilddatei im DNG-Format. Die Ursprungsbilder müssen "
+"korrekt ausgerichtet sein, was in den meisten Fällen die Benutzung eines "
+"stabilen Stativs bei der Aufnahme voraussetzt. Sie können HDR-Bilder auch "
+"mit externen Programmen wie <ulink url=\"http://qtpfsgui.sourceforge.net/"
+"\"><emphasis>Luminance HDR</emphasis></ulink> erzeugen und später nach "
+"darktable importieren um sie weiter zu bearbeiten (siehe <xref linkend="
+"\"supported_file_formats\"/>). Bitte beachten Sie, dass darktable momentan "
+"keine HDR-Bilder aus Bildern von non-Bayer-Sensoren (z.B. Fujifilm X-Trans) "
+"erzeugen kann."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:3077(title)
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:20056(secondary)
@@ -3216,7 +3258,7 @@ msgstr "Anwendung"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:3080(primary)
 msgid "create images"
-msgstr ""
+msgstr "Bilder duplizieren"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:3083(para)
 msgid ""
@@ -3224,6 +3266,10 @@ msgid ""
 "different developments for the same image, for example. Duplicate images "
 "share the same parent input file, but each have their own XMP sidecar file."
 msgstr ""
+"Erzeugt eine virtuelle Kopie der ausgewählten Bilder innerhalb von "
+"darktable. Dies erlaubt Ihnen, verschiedene Entwicklungen des gleichen "
+"Bildes auszuprobieren und zu vergleichen. Duplizierte Bilder verwenden "
+"dieselbe Bilddatei, besitzen jedoch getrennte XMP-Sidecar-Dateien."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:3093(title)
 #, fuzzy
@@ -3238,10 +3284,15 @@ msgid ""
 "\"orientation\"/>) – adjustments are converted into history stack items of "
 "that module."
 msgstr ""
+"Ausgewählte Bilder im oder gegen den Uhrzeigersinn drehen. <quote>Drehung "
+"entfernen</quote> setzt die Bilddrehung auf den ursprünglichen Wert aus den "
+"EXIF-Daten zurück. Diese Funktionen sind direkt mit dem Drehungs-Modul in "
+"der Dunkelkammer (siehe <xref linkend=\"orientation\"/>) verbunden, "
+"Änderungen werden dem Verlaufsstapel des Bildes als neues Element angefügt."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:3106(title)
 msgid "copy locally"
-msgstr ""
+msgstr "lokal kopieren"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:3112(para)
 msgid ""
@@ -3249,10 +3300,13 @@ msgid ""
 "drive. These copies will then be used when the original images are not "
 "accessible (see <xref linkend=\"local_copies\"/>)."
 msgstr ""
+"Diese Funktion erstellt eine lokale Kopie der ausgewählten Bilder auf der "
+"Festplatte. Diese Kopien werden genutzt, wenn das Originalbild nicht "
+"verfügbar ist (siehe <xref linkend=\"local_copies\"/>)."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:3122(title)
 msgid "resync local copy"
-msgstr ""
+msgstr "Kopie zurückspielen"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:3124(para)
 msgid ""
@@ -3262,31 +3316,40 @@ msgid ""
 "is not accessible the local copy won't be deleted (see <xref linkend="
 "\"local_copies\"/>)."
 msgstr ""
+"Diese Funktion synchronisiert die XMP-Sidecar-Dateien der temporären lokalen "
+"Kopien und der Originaldateien auf dem externen Speichermedium. Sollte eine "
+"lokale Kopie verändert worden, die Originaldatei jedoch nicht verfügbar "
+"sein, wird die lokale Kopie nicht gelöscht (siehe <xref linkend="
+"\"local_copies\"/>)."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:3135(title)
 msgid "group"
-msgstr ""
+msgstr "gruppieren"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:3141(para)
 msgid ""
 "Create a new group from selected images (see <xref linkend=\"image_grouping"
 "\"/>)."
 msgstr ""
+"Erstellt eine neue Gruppe mit den ausgewählten Bildern (siehe <xref linkend="
+"\"image_grouping\"/>)."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:3149(title)
 msgid "ungroup"
-msgstr ""
+msgstr "Gruppe auflösen"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:3151(para)
 msgid ""
 "Remove selected images from the group (see <xref linkend=\"image_grouping\"/"
 ">)."
 msgstr ""
+"Entfernt die ausgewählten Bilder aus der Gruppe (siehe <xref linkend="
+"\"image_grouping\"/>)."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:3163(title)
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:6387(title)
 msgid "History stack"
-msgstr ""
+msgstr "Verlaufsstapel"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:3167(secondary)
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:3171(primary)
@@ -3294,7 +3357,7 @@ msgstr ""
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:6391(secondary)
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:6395(primary)
 msgid "history stack"
-msgstr ""
+msgstr "Verlaufsstapel"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:3180(entry)
 msgid ""
@@ -3302,6 +3365,10 @@ msgid ""
 "For each image, development is written in a sidecar file (.xmp), and is "
 "fully non-destructive."
 msgstr ""
+"Dieses Modul ermöglicht Ihnen, Einfluss auf den Verlausstapel (die "
+"Entwicklung) der ausgewählten Bilder zu nehmen. Jedem Bild wird eine Sidecar-"
+"Datei (.xmp) zur Seite gestellt, die die komplette non-destruktive "
+"Entwicklung enthält."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:3201(para)
 msgid ""
@@ -3309,10 +3376,14 @@ msgid ""
 "items are to be include. If more than one image is selected, the history "
 "stack is taken from the image that has been selected first."
 msgstr ""
+"Kopiert den Verlaufsstapel des ausgewählten Bildes in die Zwischenablage. "
+"Ein Dialog gibt Ihnen die Möglichkeit auszuwählen, welche Teile des "
+"Verlaufsstapels kopiert werden sollen. Sollte mehr als ein Bild angewählt "
+"sein, wird der Verlaufsstapel des zuerst ausgewählten Bildes kopiert."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:3211(title)
 msgid "copy all"
-msgstr ""
+msgstr "alles kopieren"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:3213(para)
 msgid ""
@@ -3320,20 +3391,25 @@ msgid ""
 "be included. If more than one image is selected, the history stack is taken "
 "from the image that has been selected first."
 msgstr ""
+"Kopiert den gesamten Verlaufsstapel des ausgewählten Bildes in die "
+"Zwischenablage. Sollte mehr als ein Bild angewählt sein, wird der "
+"Verlaufsstapel des zuerst ausgewählten Bildes kopiert."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:3223(title)
 msgid "discard"
-msgstr ""
+msgstr "verwerfen"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:3225(para)
 msgid ""
 "Physically delete the history stack of the selected images. Beware, this "
 "action can not be undone!"
 msgstr ""
+"Löscht den Verlaufsstapel der ausgewählten Bilder. Vorsicht, dies kann nicht "
+"rückgängig gemacht werden!"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:3234(title)
 msgid "overwrite/append"
-msgstr ""
+msgstr "hinzufügen/überschreiben"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:3236(para)
 msgid ""
@@ -3342,10 +3418,16 @@ msgid ""
 "previous history stack, whereas <quote>append</quote> will concatenate the "
 "two history stacks."
 msgstr ""
+"Diese Einstellung legt fest, wie vorgegangen wird, wenn ein neuer "
+"Verlaufsstapel auf ein Bild angewendet wird, das bereits einen eigenen "
+"Verlaufsstapel besitzt. <quote>Überschreiben</quote> löscht den "
+"ursprünglichen Verlaufsstapel des Bildes und ersetzt ihn mit dem "
+"eingefügten, währen <quote>hinzufügen</quote> die beiden Verlaufsstapel "
+"aneinander fügt."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:3243(quote)
 msgid "append"
-msgstr ""
+msgstr "hinzufügen"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:3244(quote)
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4020(title)
@@ -3362,10 +3444,15 @@ msgid ""
 "your previous edit gets irrevocably lost. Beware, the setting of this "
 "parameter remains effective when you quit darktable."
 msgstr ""
+"Vorsicht! Nur im <placeholder-1/>-Modus erhalten Sie sich die Möglichkeit, "
+"Ihren ursprünglichen Verlaufsstapel zu rekonstruieren, während im "
+"<placeholder-2/>-Modus die vorhergehende Entwicklung des Bildes "
+"unwiederbringlich verloren geht. Bitte beachten Sie, dass diese Einstellung "
+"persistent ist und auch nach einem Neustart von darktable weiterbesteht."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:3252(title)
 msgid "paste"
-msgstr ""
+msgstr "einfügen"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:3254(para)
 msgid ""
@@ -3373,10 +3460,15 @@ msgid ""
 "be prompted for which items to include. This button is greyed out, until a "
 "history stack is copied from another image."
 msgstr ""
+"Fügt einen vorher kopierten Verlaufsstapel in alle ausgewählten Bilder ein. "
+"Diese Funktion gibt Ihnen die Möglichkeit, über einen Dialog einzustellen, "
+"welche Elemente des Verlaufsstapels eingefügt werden sollen. Der Knopf wird "
+"ausgegraut dargestellt bis ein Verlaufsstapel von einem anderen Bild in die "
+"Zwischenablage kopiert wurde."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:3264(title)
 msgid "paste all"
-msgstr ""
+msgstr "alles einfügen"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:3266(para)
 msgid ""
@@ -3384,16 +3476,23 @@ msgid ""
 "selected images. This button is greyed out, until a history stack is copied "
 "from another image."
 msgstr ""
+"Fügt einen vorher kopierten Verlaufsstapel in alle ausgewählten Bilder ein. "
+"Der gesamte kopierte Verlaufsstapel wird eingefügt. Der Knopf wird "
+"ausgegraut dargestellt bis ein Verlaufsstapel von einem anderen Bild in die "
+"Zwischenablage kopiert wurde."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:3275(title)
 msgid "load sidecar file"
-msgstr ""
+msgstr "XMP laden"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:3285(para)
 msgid ""
 "Opens a dialog box to select an XMP file, thus loading a history stack that "
 "you can paste on images."
 msgstr ""
+"Öffnet einen Dialog zur Auswahl einer XMP-Datei. Der Verlaufsstapel wird aus "
+"der XMP-Datei gelesen und steht bereit, um mithilfe der <quote>einfügen</"
+"quote>-Funktion auf andere Bilder angewendet zu werden."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:3290(para)
 msgid ""
@@ -3405,16 +3504,27 @@ msgid ""
 "have accidentally lost or overwritten the XMP file. All you need is the "
 "source image, typically a RAW, and the exported file."
 msgstr ""
+"Dateien, die von darktable exportiert wurden, enthalten normalerweise "
+"(soweit das Dateiformat eingebettete Metadaten zulässt) den kompletten "
+"Verlausstapel der Entwicklung (siehe <xref linkend=\"export_selected\"/> um "
+"mehr über diese Funktion und ihre Limitierungen zu erfahren). Entsprechen "
+"können Sie exportierte Bilder wie eine XMP-Datei laden. Dies ermöglicht "
+"Ihnen, Entwicklungen wieder komplett herzustellen wenn versehentlich die XMP-"
+"Dateien gelöscht oder überschrieben wurden, Sie benötigen lediglich die "
+"originale RAW-Datei sowie das exportierte Bild."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:3303(title)
 msgid "write sidecar files"
-msgstr ""
+msgstr "XMP schreiben"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:3305(para)
 msgid ""
 "Write XMP sidecar files for all selected images. The filename is generated "
 "by appending <quote>.xmp</quote> to the name of the underlying input file."
 msgstr ""
+"XMP-Sidecar-Dateien für alle ausgewählten Bilder schreiben. Der Dateiname "
+"der XMP-Dateien setzt sich aus dem Namen der Bilddatei sowie der Endung .xmp "
+"zusammen."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:3310(para)
 msgid ""
@@ -3423,6 +3533,11 @@ msgid ""
 "automatic sidecar file generation in the preferences dialog (see <xref "
 "linkend=\"core_options\"/>). However, this is not recommended."
 msgstr ""
+"Mit den Standardeinstellungen generiert und aktualisiert darktable Sidecar-"
+"Dateien automatisch, sobald an einem Bild gearbeitet wird und sich der "
+"Verlaufsstapel ändert. Sie können dies in den Voreinstellungen unterbinden "
+"(siehe <xref linkend=\"core_options\"/>), es wird jedoch stark davon "
+"abgeraten dies zu tun."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:3325(title)
 msgid "Styles"
