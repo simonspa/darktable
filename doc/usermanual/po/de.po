@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: darktable-usermanual\n"
 "POT-Creation-Date: 2014-12-12 22:00+0100\n"
-"PO-Revision-Date: 2014-12-13 21:57+0100\n"
+"PO-Revision-Date: 2014-12-21 23:02+0100\n"
 "Last-Translator: Simon Spannagel <simonspa@kth.se>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -288,34 +288,43 @@ msgid ""
 "darktable is an open source photography workflow application and RAW "
 "developer, a virtual lighttable and darkroom for photographers."
 msgstr ""
+"darktable ist eine Open Source Anwendung für den typischen Workflow des "
+"digitalen Fotografen. Es stellt einen virtuellen Leuchttisch sowie eine "
+"Dunkelkammer für die digitale RAW-Bildentwicklung bereit."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:170(para)
 msgid ""
 "It manages your digital negatives in a database, lets you view them through "
 "a zoomable lighttable and enables you to develop raw images and enhance them."
 msgstr ""
+"Es erlaubt Ihnen, Ihre digitalen Negative zu organisieren und archivieren, "
+"stellt Ihnen einen zoombaren Leuchttisch bereit und ermöglicht Ihnen die "
+"Entwicklung von RAW-Bildern."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:177(title)
 msgid "General Features"
-msgstr ""
+msgstr "Funktions-Übersicht"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:179(para)
 msgid ""
 "darktable runs on GNU/Linux / GNOME, Mac OS X / macports and Solaris 11 / "
 "GNOME."
 msgstr ""
-"darktable läuft unter GNU/Linux / GNOME, Mac OS X / macports und Solaris "
-"11 / GNOME"
+"darktable kann unter GNU/Linux / GNOME, Mac OS X / macports sowie Solaris "
+"11 / GNOME ausgeführt werden."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:183(para)
 msgid "Fully non-destructive editing."
-msgstr "Vollständig nicht-destruktive Bearbeitung"
+msgstr "Vollständig nicht-destruktive Bildbearbeitung"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:187(para)
 msgid ""
 "All darktable core functions operate on 4x32-bit floating point pixel "
 "buffers for high accuracy processing, preventing banding and color breaks."
 msgstr ""
+"Alle Kernfunktionen von darktable arbeiten mit einem 4x32bit Fließkomma-"
+"Pixelbuffer um höchste Präzision zu gewährleisten und Banding sowie "
+"Farbabbrüche zu vermeiden."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:192(para)
 msgid ""
@@ -323,16 +332,26 @@ msgid ""
 "emphasis> (SSE2) instructions of the CPU to speed up processing. In fact, "
 "darktable will only run on a CPU that supports SSE2."
 msgstr ""
+"Um die Bildverarbeitung zu beschleunigen setzt darktable stark auf "
+"<emphasis>Streaming SIMD Extensions 2</emphasis> (SSE2) CPU-Instruktionen. "
+"Aus diesem Grund ist darktable nur auf CPUs lauffähig, die SSE2-"
+"Instruktionen unterstützen."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:198(para)
 msgid "GPU acceleration via OpenCL (runtime detection and enabling)."
 msgstr ""
+"GPU-Beschleunigung via OpenCL. Bei Programmstart wird die OpenCL-"
+"Unterstützung des Systems überprüft und die Funktion gegebenenfalls "
+"freigeschaltet."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:202(para)
 msgid ""
 "Most image processing is done in CIELab color space, which is much larger "
 "than the gamut of modern displays, printers or even human vision."
 msgstr ""
+"Die meisten Bildverarbeitungsmodule arbeiten im CIELab-Farbraum, der "
+"deutlich größer ist als der Gamut moderner Bildschirme, Drucker und sogar "
+"der menschlichen Wahrnehmung."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:207(para)
 msgid ""
