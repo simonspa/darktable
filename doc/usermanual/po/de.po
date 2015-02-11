@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: darktable-usermanual\n"
 "POT-Creation-Date: 2014-12-12 22:00+0100\n"
-"PO-Revision-Date: 2015-02-09 19:38+0100\n"
+"PO-Revision-Date: 2015-02-11 06:59+0100\n"
 "Last-Translator: Matthias Bodenbinder <matthias@bodenbinder.de>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.6.10\n"
 "Language: de_DE\n"
-"X-Poedit-Bookmarks: 578,-1,-1,-1,-1,-1,-1,-1,-1,-1\n"
+"X-Poedit-Bookmarks: 595,-1,-1,-1,-1,-1,-1,-1,-1,-1\n"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4(title)
 msgid "darktable 1.6"
@@ -4490,12 +4490,12 @@ msgstr "Dunkelkammer"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4178(para)
 msgid "The darkroom view is where you develop your image."
-msgstr "In der Dunkelkammer Ansicht entwickeln Sie Ihre Bilder."
+msgstr "In der Dunkelkammer-Ansicht entwickeln Sie Ihre Bilder."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4185(screeninfo)
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:18432(para)
 msgid "The darkroom view"
-msgstr "Die Dunkelkammer Ansicht"
+msgstr "Die Dunkelkammer-Ansicht"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4196(para)
 msgid ""
@@ -4559,15 +4559,16 @@ msgstr ""
 "eingestellten Werte übernommen."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4233(title)
-#, fuzzy
 msgid "Darkroom concepts"
-msgstr "Dunkelkammer"
+msgstr "Dunkelkammer Konzepte"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4235(para)
 msgid ""
 "This section tries to explain some of the basic concepts on how darktable "
 "develops images in the darkroom."
 msgstr ""
+"Dieser Abschnitt versucht einige der grundsätzlichen Konzepte zu erklären, "
+"wie darktable in der Dunkelkammer Bilder entwickelt."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4240(para)
 msgid ""
@@ -4576,18 +4577,22 @@ msgid ""
 "manipulations. In <xref linkend=\"modules\"/> you will find a description "
 "for each of the available modules."
 msgstr ""
+"Das grundsätzliche Element einer Bild Operation in darktable nennt sich "
+"Modul. Darktable kommt mit einem reichhaltigen Angebot von über 50 Modulen "
+"für alle möglichen Arten der Bildmanipulation. Im <xref linkend=\"modules\"/"
+"> finden Sie eine Beschreibung aller verfügbaren Module."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4250(title)
 msgid "Pixelpipe, module order, and history stack"
-msgstr ""
+msgstr "Pixelpipe, Modul Reihenfolge, Verlaufsstapel"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4253(primary)
 msgid "pixelpipe"
-msgstr ""
+msgstr "pixelpipe"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4257(primary)
 msgid "module processing order"
-msgstr ""
+msgstr "Modul Anwendungsreihenfolge"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4264(para)
 msgid ""
@@ -4595,6 +4600,10 @@ msgid ""
 "<quote>pixelpipe</quote>. Within the pixelpipe image processing consists of "
 "consecutive operations which are implemented as <quote>modules</quote>."
 msgstr ""
+"darktable verarbeitet Bilder von Anfang bis Ende in einer sogenannten "
+"<quote>pixelpipe</quote>. Innerhalb einer pixelpipe besteht die Bearbeitung "
+"des Bildes aus einer Aneinanderreihung von Operationen die als Module "
+"realisiert sind."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4270(para)
 msgid ""
@@ -4605,6 +4614,12 @@ msgid ""
 "the order of activation in your workflow does not have any impact on the "
 "outcome."
 msgstr ""
+"Alle Module werden in einer festgelegten Reihenfolge ausgeführt. Darktable "
+"ist ein nicht-destruktiver Bildeditor und unterscheidet sich damit von einem "
+"klassischen Bildbearbeitungsprogramm wie The Gimp. Da die Reihenfolge der "
+"Module festgelegt ist, können Sie zu jedem beliebigen Zeitpunkt ein Modul "
+"deaktivieren oder dessen Parameter verändern; Die Reihenfolge in der Sie "
+"dies tun hat keinen Einfluss auf das Endergebnis.  "
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4283(para)
 msgid ""
@@ -4612,6 +4627,10 @@ msgid ""
 "highest output quality. Changes to the sequence would generally worsen the "
 "result rather than improving it."
 msgstr ""
+"Die Reihenfolge der Module ist mit großer Sorgfalt bestimmt worden, damit "
+"die höchst mögliche Ausgabequalität erzielt wird. Eine Änderung der "
+"Reihenfolge verschlechtert in der Regel die Resultate anstatt sie zu "
+"verbesssern."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4289(para)
 msgid ""
@@ -4620,6 +4639,11 @@ msgid ""
 "done on raw data before demosaicing and the demosaic step needs to be "
 "performed before any input color profile can be applied."
 msgstr ""
+"Für einige Bildbearbeitungsschritte macht es einfach keinen Sinn in der "
+"pixelpipe verschoben zu werden. Um nur ein paar Beispiele zu nennen: Die "
+"Spitzlicht-Rekonstruktion muss durchgeführt werden, bevor das RAW Bild "
+"entrastert wird. Und das entrastern muss durchgeführt werden, bevor ein "
+"Eingabe-Farbprofil angewendet wird."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4296(para)
 msgid ""
@@ -4629,6 +4653,11 @@ msgid ""
 "depending on the color space they are working in – this would drastically "
 "increase complexity."
 msgstr ""
+"Die meisten Module in darktable sind dafür ausgelegt mit einem bestimmten "
+"Farbmodel zu arbeiten (siehe <xref linkend=\"color_management\"/> für mehr "
+"Details). Volle Flexibilität würde bedeuten, dass  die Module mehrere "
+"parallele Algorithmen unterstützen müssten je nachdem in welchem Farbraum "
+"sie arbeiten sollen - das würde die Komplexität drastisch erhöhen."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4278(para)
 msgid ""
@@ -4637,6 +4666,11 @@ msgid ""
 "the way described: <placeholder-1/> That said, the fixed sequence of modules "
 "is not likely to change in the near future."
 msgstr ""
+"Anwender fragen regelmässig warum die Reihenfolge der Module festgelegt ist "
+"und ob es Pläne gibt diese Restriktion aufzuheben. Es gibt mehrere Gründe "
+"warum darktable in der beschriebenen Weise arbeitet:  <placeholder-1/> Aus "
+"diesen Gründen ist es unwahrscheinlich, das sich die Reihenfolge der Module "
+"in naher Zukunft ändert. "
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4307(para)
 msgid ""
@@ -4644,6 +4678,9 @@ msgid ""
 "change the parameters, this adds an item on top of the <quote>history stack</"
 "quote>."
 msgstr ""
+"Jedesmal wenn Sie ein Modul an- oder ausschalten oder im Nachhinein die "
+"Parameter eines Modules ändern, wird ein Eintrag im <quote>Verlaufsstapel</"
+"quote> erzeugt. "
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4312(para)
 msgid ""
@@ -4659,6 +4696,22 @@ msgid ""
 "then <link linkend=\"denoise_bilateral\"><emphasis>bilateral filtering</"
 "emphasis></link> (if enabled), as shown bottom to top on the right panel."
 msgstr ""
+"Wenn Sie beispielsweise an einer RAW Datei arbeiten, könnte der "
+"Verlaufsstapel im linken Bedienfeld anzeigen, dass sie zuerst <link linkend="
+"\"denoise_bilateral\"><emphasis>entrauschen (bilateraler Filter)</emphasis></"
+"link> aktivierten, dann die <link linkend=\"base_curve"
+"\"><emphasis>Basiskurve</emphasis></link> deaktivierten und anschließend den "
+"<link linkend=\"whitebalance\"><emphasis>Weißabgleich</emphasis></link> "
+"anpassten. Aber tatsächlich wurde während der Verarbeitung die RAW Datei "
+"genommen, der <link linkend=\"whitebalance\"><emphasis>Weißabgleich</"
+"emphasis></link> angepasst, dann <link linkend=\"demosaic"
+"\"><emphasis>entrastert</emphasis></link>, dann die <link linkend="
+"\"base_curve\"><emphasis>Basiskurve</emphasis></link> angewendet (sofern "
+"aktiviert), dann <link linkend=\"denoise_bilateral\"><emphasis>entrauschen "
+"(bilateraler Filter)</emphasis></link> angewendet (sofern aktiviert). In der "
+"Reihenfolge wie die Module im rechten Bedienfeld von unten nach oben "
+"angezeigt werden, werden sie auch angewendet, unabhängig davon wie Sie die "
+"Aktionen im Verlaufsstapel angelegt haben."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4325(para)
 msgid ""
@@ -4669,6 +4722,13 @@ msgid ""
 "the pixelpipe (see above). For more details on the history stack see <xref "
 "linkend=\"history\"/>."
 msgstr ""
+"Der Verlaufsstapel merkt sich alle Arbeitsschritte in der Reihenfolge in der "
+"Sie sie durchgeführt haben. Er erlaubt Ihnen, zu einem früheren "
+"Arbeitsschritt zurückzukehren wenn es nötig ist. Der Verlaufsstapel "
+"repräsentiert Ihren persönlichen Arbeitsablauf und sollte nicht verwechselt "
+"werden mit der Reihenfolge in der die Module in der pixelpipe angewendet "
+"werden (siehe oben). Mehr Details über den Verlaufsstapel finde Sie in <xref "
+"linkend=\"history\"/>."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4339(title)
 msgid "Interacting with modules"
@@ -6237,7 +6297,7 @@ msgstr ""
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:6067(title)
 msgid "Color management"
-msgstr ""
+msgstr "Farbmanagement"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:6070(primary)
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:9746(primary)
@@ -6247,7 +6307,7 @@ msgstr ""
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:10410(primary)
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:10559(primary)
 msgid "color management"
-msgstr ""
+msgstr "Farbmanagement"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:6077(para)
 msgid ""
@@ -6327,7 +6387,7 @@ msgstr ""
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:8113(secondary)
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:8117(primary)
 msgid "demosaic"
-msgstr ""
+msgstr "entrastern"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:6145(entry)
 msgid "up to <placeholder-1/>"
@@ -7627,12 +7687,12 @@ msgstr ""
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:7737(title)
 msgid "Base curve"
-msgstr ""
+msgstr "Basiskurve"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:7741(secondary)
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:7745(primary)
 msgid "base curve"
-msgstr ""
+msgstr "Basiskurve"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:7758(entry)
 msgid ""
@@ -7885,7 +7945,7 @@ msgstr "Dieser Regler kontrolliert die Stärke des Effekts."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:8109(title)
 msgid "Demosaic"
-msgstr ""
+msgstr "Entrastern"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:8130(entry)
 msgid "This module allows you to control how the demosaic is processed."
@@ -9935,11 +9995,11 @@ msgstr ""
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:11091(title)
 msgid "Denoise – bilateral"
-msgstr ""
+msgstr "Entrauschen - bilateraler Filter"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:11095(secondary)
 msgid "denoise – bilateral"
-msgstr ""
+msgstr "Entrauschen - bilateraler Filter"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:11100(secondary)
 msgid "bilateral"
