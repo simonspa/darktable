@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: darktable-usermanual\n"
 "POT-Creation-Date: 2014-12-12 22:00+0100\n"
-"PO-Revision-Date: 2015-02-11 06:59+0100\n"
+"PO-Revision-Date: 2015-02-19 07:31+0100\n"
 "Last-Translator: Matthias Bodenbinder <matthias@bodenbinder.de>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.6.10\n"
 "Language: de_DE\n"
-"X-Poedit-Bookmarks: 595,-1,-1,-1,-1,-1,-1,-1,-1,-1\n"
+"X-Poedit-Bookmarks: 657,625,-1,-1,-1,-1,-1,-1,-1,-1\n"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4(title)
 msgid "darktable 1.6"
@@ -4588,7 +4588,7 @@ msgstr "Pixelpipe, Modul Reihenfolge, Verlaufsstapel"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4253(primary)
 msgid "pixelpipe"
-msgstr "pixelpipe"
+msgstr "Pixelpipe"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4257(primary)
 msgid "module processing order"
@@ -4601,7 +4601,7 @@ msgid ""
 "consecutive operations which are implemented as <quote>modules</quote>."
 msgstr ""
 "darktable verarbeitet Bilder von Anfang bis Ende in einer sogenannten "
-"<quote>pixelpipe</quote>. Innerhalb einer pixelpipe besteht die Bearbeitung "
+"<quote>Pixelpipe</quote>. Innerhalb einer pixelpipe besteht die Bearbeitung "
 "des Bildes aus einer Aneinanderreihung von Operationen die als Module "
 "realisiert sind."
 
@@ -4640,7 +4640,7 @@ msgid ""
 "performed before any input color profile can be applied."
 msgstr ""
 "Für einige Bildbearbeitungsschritte macht es einfach keinen Sinn in der "
-"pixelpipe verschoben zu werden. Um nur ein paar Beispiele zu nennen: Die "
+"Pixelpipe verschoben zu werden. Um nur ein paar Beispiele zu nennen: Die "
 "Spitzlicht-Rekonstruktion muss durchgeführt werden, bevor das RAW Bild "
 "entrastert wird. Und das entrastern muss durchgeführt werden, bevor ein "
 "Eingabe-Farbprofil angewendet wird."
@@ -4726,18 +4726,17 @@ msgstr ""
 "Sie sie durchgeführt haben. Er erlaubt Ihnen, zu einem früheren "
 "Arbeitsschritt zurückzukehren wenn es nötig ist. Der Verlaufsstapel "
 "repräsentiert Ihren persönlichen Arbeitsablauf und sollte nicht verwechselt "
-"werden mit der Reihenfolge in der die Module in der pixelpipe angewendet "
+"werden mit der Reihenfolge in der die Module in der Pixelpipe angewendet "
 "werden (siehe oben). Mehr Details über den Verlaufsstapel finde Sie in <xref "
 "linkend=\"history\"/>."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4339(title)
 msgid "Interacting with modules"
-msgstr ""
+msgstr "Umgang mit Modulen"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4342(primary)
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4396(primary)
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4486(primary)
-#, fuzzy
 msgid "module usage"
 msgstr "Module"
 
@@ -4748,6 +4747,11 @@ msgid ""
 "> . Clicking on the name of the module expands the module's GUI with all "
 "parameters."
 msgstr ""
+"Jedes Modul hat einen Expansionsbalken mit dem sich das Parameterfeld des "
+"Moduls aufklappen/expandieren läßt <inlinegraphic fileref=\"images/"
+"darkroom_module_expander.png\" scalefit=\"1\" width=\"30%\" align=\"center\"/"
+"> . Ein Klick auf den Namen des Moduls expandiert das Modul und zeigt die "
+"erweiterte GUI mit allen Modulparametern an. "
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4351(para)
 msgid ""
@@ -4759,6 +4763,14 @@ msgid ""
 "and <emphasis>shift-click</emphasis>, respectively, is controlled by a "
 "preference setting in gui options (see <xref linkend=\"gui_options\"/>)."
 msgstr ""
+"Im voreingestellten Zustand zeigt darktable immer nur die GUI eins Modul im "
+"expandierten Zustand an. Klicken Sie auf den Namen eines weiteren  Moduls, "
+"wird die GUI des vorhergehenden Moduls wieder geschlossen. Wenn Sie mehr als "
+"ein Modul expandiert halten wollen, können Sie dies tun, indem Sie weitere "
+"Module mit <emphasis>shift-click</emphasis> öffnen. Die Funktionsweise von "
+"<emphasis>click</emphasis> und <emphasis>shift-click</emphasis> beim "
+"expandieren von Modulen wird über die GUI Optionen geregelt (see <xref "
+"linkend=\"gui_options\"/>)."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4360(para)
 msgid ""
@@ -4767,6 +4779,10 @@ msgid ""
 "scalefit=\"1\" width=\"2%\" align=\"center\"/> icon to turn a module on or "
 "off."
 msgstr ""
+"Ein expandiertes Modul ist <emphasis>nicht</emphasis> automatisch aktiviert. "
+"Erst wenn sie das <inlinegraphic fileref=\"images/"
+"darkroom_module_icon_enable.png\" scalefit=\"1\" width=\"2%\" align=\"center"
+"\"/> Symbol anklicken, wird ein Modul an- oder abgeschaltet."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4366(para)
 msgid ""
@@ -4775,6 +4791,11 @@ msgid ""
 "available presets or creates a new preset from your current settings (see "
 "<xref linkend=\"module_presets\"/>)."
 msgstr ""
+"Über das <inlinegraphic fileref=\"images/darkroom_module_icon_presets.png\" "
+"scalefit=\"1\" width=\"2%\" align=\"center\"/> Symbol erhalten sie Zugriff "
+"auf alle verfügbaren Voreinstellungen eines Moduls. Sie können darüber auch "
+"Ihre aktuellen Einstellungen als eine neue Voreinstellung abspeichern (siehe "
+"<xref linkend=\"module_presets\"/>)."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4373(para)
 msgid ""
@@ -4782,6 +4803,9 @@ msgid ""
 "scalefit=\"1\" width=\"2%\" align=\"center\"/> icon is used to reset the "
 "module parameters to their default values."
 msgstr ""
+"Das <inlinegraphic fileref=\"images/darkroom_module_icon_reset.png\" "
+"scalefit=\"1\" width=\"2%\" align=\"center\"/> Symbol dient dazu, alle "
+"Modulparameter wieder  auf die Standardwerte zurückzusetzen."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4379(para)
 msgid ""
@@ -4791,50 +4815,63 @@ msgid ""
 "\"center\"/> icon to generate new instances and control existing ones (see "
 "<xref linkend=\"multiple_instances\"/>)."
 msgstr ""
+"Viele der Module in darktable können mehrere Instanzen mit jeweils "
+"unterschiedlichen Parametern haben. Klicken Sie auf das <inlinegraphic "
+"fileref=\"images/darkroom_module_icon_instances.png\" scalefit=\"1\" width="
+"\"2%\" align=\"center\"/> Symbol um eine neue Instanz anzulegen oder eine "
+"existierende Instanz zu kontrollieren."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4387(para)
 msgid ""
 "The most frequently used control elements of modules are sliders, comboboxes "
 "and curves."
 msgstr ""
+"Die am häufigsten benutzten Bedienelemente für Module sind die "
+"Schieberegler, Kombinationsfelder und Kurven."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4393(title)
 msgid "Sliders"
-msgstr ""
+msgstr "Schieberegler"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4397(secondary)
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4401(primary)
 msgid "sliders"
-msgstr ""
+msgstr "Schieberegler"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4404(para)
 msgid ""
 "Sliders offer four different ways of interaction, depending on the level of "
 "control you need."
 msgstr ""
+"Schieberegler bieten vier verschiedene Arten der Interaktion, je nachdem "
+"welchen Grad an Kontrolle Sie gerade brauchen."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4411(para)
 msgid "Triangular marker"
-msgstr ""
+msgstr "Dreieckige Markierungen"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4415(para)
 msgid ""
 "Left-click the slider's triangular marker and drag it to the left or right."
 msgstr ""
+"Links-Klick auf die dreieckige Makierung eines Schiebereglers und nach links "
+"oder rechts ziehen."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4419(para)
 msgid "Mouse wheel"
-msgstr ""
+msgstr "Mausrad"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4423(para)
 msgid ""
 "Hover over any place on the slider with your mouse, then use your mouse "
 "wheel to adjust the value step by step."
 msgstr ""
+"Mit der Maus irgendwo über dem Schieberegler schweben und mit dem Mausrad "
+"den Wert Schritt für Schritt anpassen."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4428(para)
 msgid "Right-click"
-msgstr ""
+msgstr "Rechts-Klick"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4432(para)
 msgid ""
@@ -4842,12 +4879,18 @@ msgid ""
 "pop-up below the slider for fine control with your mouse or numerical entry "
 "using the keyboard."
 msgstr ""
+"Wenn Sie sich mit der Maus über dem Schieberegler befinden öffnet ein Rechts-"
+"Klick ein Multifunktions-Kontrollelement unterhalb des Schiebereglers über "
+"das sie mit der Maus die Werte ganz fein kontrollieren können oder auch "
+"numerische Werte über die Tastatur eingeben können."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4443(entry)
 msgid ""
 "darktable's innovative input method: for both coarse and fine value "
 "adjustments in a single control element combined with keyboard input."
 msgstr ""
+"darktable's innovative Eingabemethode: Grobe und feine Anpassungen in einem "
+"einzigen Kontrollelement kombiniert mit einer Tastatureingabe."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4455(para)
 msgid ""
@@ -4857,6 +4900,12 @@ msgid ""
 "control. Left-click with your mouse to accept the new value and go back to "
 "normal control."
 msgstr ""
+"Ausgehend von der dreieckigen Markierung erstreckt sich eine gebogene Linie "
+"wenn Sie ihre Maus bewegen. Je näher sich Ihre Maus an der  dreieckigen "
+"Markierung befindet desto gröber ist die Kontrolle; je weiter weg von der "
+"dreieckigen Markierung desto feiner ist die Kontrolle. Mit einem Links-Klick "
+"übernehmen Sie die aktuellen Einstellungen und kommen zurück zur normalen "
+"Modulansicht. "
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4462(para)
 msgid ""
@@ -4865,24 +4914,29 @@ msgid ""
 "arithmetic expressions which darktable will calculate for you – the old "
 "value is referenced as <quote>x</quote>."
 msgstr ""
+"Alternativ können Sie auch mit der Tastatur einen neuen Wert eintippen und "
+"ihn mit der Return Taste bestätigen. Sie können sogar einen mathematischen "
+"Ausdruck eingeben. darktable berechnet dann den neuen Wert für Sie. Der alte "
+"Werte kann dabei über die Variable <quote>x</quote> referenziert werden."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4469(para)
 msgid "Double-click"
-msgstr ""
+msgstr "Doppel-Klick"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4473(para)
 msgid ""
 "You can double-click on a parameter label to reset its value to default."
 msgstr ""
+"Mit einem Doppel-Klick wird der Werte auf den Standardwert zurückgesetzt. "
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4483(title)
 msgid "Comboboxes"
-msgstr ""
+msgstr "Kombinationsfelder"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4487(secondary)
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4491(primary)
 msgid "comboboxes"
-msgstr ""
+msgstr "Kombinationsfelder"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4494(para)
 msgid ""
@@ -4891,21 +4945,28 @@ msgid ""
 "bottom or top of the screen and only part of the items are visible; scroll "
 "with your mouse wheel to bring up the full list."
 msgstr ""
+"Der Klick auf ein Kombinationsfeld öffnet eine Liste mit allen verfügbaren "
+"Optionen. Klicken Sie auf ein Element das Sie selektieren wollen. Manchmal "
+"öffnet sich die Auswahlliste nahe am unteren oder oberen Rand des "
+"Bildschirms und nur Teile der Liste sind sichtbar: Rollen Sie dann mit dem "
+"Mausrad um die volle Liste hervozuholen."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4505(title)
 msgid "Curves"
-msgstr ""
+msgstr "Kurven"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4507(para)
 msgid ""
 "Some modules are controlled by adjusting curves. More detail is given later "
 "in this chapter when the respective modules are explained."
 msgstr ""
+"Einige Module werden über anpassbare Kurven kontrolliert. Mehr Details dazu "
+"kommen später in diesem Kapitel wenn die entsprechenden Module erklärt "
+"werden."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4520(title)
-#, fuzzy
 msgid "Module presets"
-msgstr "Module"
+msgstr "Voreinstellungen der Module"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4523(primary)
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:16884(secondary)
@@ -4917,7 +4978,7 @@ msgstr "Voreinstellungen"
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4524(secondary)
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4528(primary)
 msgid "module presets"
-msgstr ""
+msgstr "Voreinstellungen"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4531(para)
 #, fuzzy
@@ -5011,9 +5072,8 @@ msgid ""
 msgstr ""
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4589(title)
-#, fuzzy
 msgid "Managing Presets"
-msgstr "Voreinstellungen"
+msgstr "Voreinstellungen verwalten"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4591(para)
 msgid ""
@@ -5021,14 +5081,18 @@ msgid ""
 "within the presets menu (<xref linkend=\"presets\"/>) in the preferences "
 "dialog (see <xref linkend=\"preferences_chapter\"/>)."
 msgstr ""
+"Sowohl vordefinierte Voreinstellungen als auch solche, die der Anwender "
+"selbst erzeugt hat, kann man im Menue Voreinstellungen (<xref linkend="
+"\"presets\"/>) im Voreinstellungen Dialog (see <xref linkend="
+"\"preferences_chapter\"/>) ansehen und verwalten. "
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4605(title)
 msgid "Multiple instances"
-msgstr ""
+msgstr "Mehrere Instanzen"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4608(primary)
 msgid "multiple instances"
-msgstr ""
+msgstr "mehrere Instanzen"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4611(para)
 msgid ""
@@ -5036,16 +5100,22 @@ msgid ""
 "that module behaves like any other module, taking its input from the module "
 "below in the pixelpipe delivering its output to the module above."
 msgstr ""
+"Viele Module in darktable können mehrmals angewendet werden. Jede Instanz "
+"eines Moduls verhält sich dabei wie jedes andere Modul, nimmt die Eingabe "
+"vom darunter liegenden Modul aus der Pixelpipe und liefert seine Ausgabe zum "
+"Modul darüber. "
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4619(title)
 msgid "Typical use cases"
-msgstr ""
+msgstr "Typische Anwendungsfälle"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4621(para)
 msgid ""
 "There are many occasions where it makes sense to have an operation act more "
 "than once in the pixelpipe. Here are a few use cases."
 msgstr ""
+"Es gibt viele Gelegenheiten bei denen es sind macht, eine Operation mehr als "
+"einmal in der Pixelpipe auszuführen. Hier sind ein paar Anwendungsfälle."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4628(para)
 msgid ""
@@ -5056,6 +5126,12 @@ msgid ""
 "corrections in your image at the same time – one for dark tones and another "
 "one for lighter tones."
 msgstr ""
+"Die meisten Module sind sehr vielseitig und liefern abhängig von den "
+"Parametern sehr unterschiedliche Ergebnisse. Zum Beispiel erlaubt das "
+"<emphasis>Fülllicht</emphasis>  Modul (<xref linkend=\"fill_light\"/>)  eine "
+"lokale Modifikation der Helligkeit basierend auf Pixelwerten. Sie möchten "
+"vielleicht zwei Helligkeitskorrekturen zur gleichen Zeit anwenden - eine für "
+"die dunklen Töne und eine anderen für die helleren Töne."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4636(para)
 msgid ""
@@ -5067,6 +5143,14 @@ msgid ""
 "use the second one just for chroma by selecting blend mode <quote>color</"
 "quote> (see <xref linkend=\"blending_operators\"/>)."
 msgstr ""
+"Sie möchten vielleicht ein Entrauschen-Modul wie <emphasis>Entrauschen "
+"(Profil)</emphasis> (<xref linkend=\"denoise_profiled\"/>) mit zwei "
+"unterschiedlichen Parametersätzen benutzen. Eines um Farbrauschen und ein "
+"anderes um Helligkeitsrauschen zu bearbeiten. Das können Sie erreichen, "
+"indem Sie zwei Instanzen erzeugen und die Erste nur für Helligkeit benutzen "
+"indem Sie als Überblendmodus <quote>Helligkeit</quote> einstellen und die "
+"Zweite nur für die Farbe benutzen indem Sie als Überblendmodus <quote>Farbe</"
+"quote> einstellen (see <xref linkend=\"blending_operators\"/>)."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4645(para)
 msgid ""
@@ -5080,6 +5164,15 @@ msgid ""
 "may be used to select those parts of an image where each of the module "
 "instances are applied."
 msgstr ""
+"In einem noch ausgefeilteren Anwendungsfall können sie ein Modul auf "
+"verschiedene Bereiche eines Bildes anwenden. Als Beispiel könnten Sie eine "
+"bestimmte Gradationskurve mit dem <emphasis>Farbkurve</emphasis> Modul "
+"(<xref linkend=\"tone_curve\"/>)  auf das gesamte Bild anwenden und eine "
+"zweite Kurve nur speziell auf die Hauttöne. Alle Kontrollen die von "
+"<emphasis>gezeichnete Masken</emphasis> (<xref linkend=\"drawn_mask\"/>) und "
+"<emphasis>parametrischen Masken</emphasis> (<xref linkend=\"parametric_mask"
+"\"/>) angeboten werden, können benutzt werden um die Bildteile zu "
+"selektieren auf die die jeweilige Modulinstanz wirken soll."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4657(para)
 msgid ""
@@ -5087,10 +5180,13 @@ msgid ""
 "your pixelpipe. Generating too many instances – especially of the more "
 "demanding modules – will certainly cause some noticeable slow-down."
 msgstr ""
+"Bitte seien Sie sich darüber bewußt, das jede neue Modulinstanz den "
+"Arbeitsaufwand der Pixelpipe erhöht. Mit zu vielen Instanzen - speziell von "
+"anspruchsvollen Modulen - wird es zu einer merklichen Verlangsamung kommen. "
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4667(title)
 msgid "Managing instances"
-msgstr ""
+msgstr "Instanzen verwalten"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4675(entry)
 msgid ""
@@ -5098,6 +5194,9 @@ msgid ""
 "darkroom_module_icon_instances.png\" scalefit=\"1\" width=\"4%\" align="
 "\"center\"/> icon a drop-down menu will appear."
 msgstr ""
+"Wenn Sie auf das <inlinegraphic fileref=\"images/"
+"darkroom_module_icon_instances.png\" scalefit=\"1\" width=\"4%\" align="
+"\"center\"/> Symbol klicken erscheint ein Aufklappmenue."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4688(para)
 msgid ""
@@ -5106,6 +5205,11 @@ msgid ""
 "instance gets its own complete set of GUI controls and a number appended to "
 "the base module name for distinction."
 msgstr ""
+"Selektieren von <quote>Neue Instanz</quote> erzeugt eine neue Modulinstanz "
+"oberhalb der existierenden. Alle Parameter sind auf die Standardwerte "
+"gesetzt. Die neue Instanz hat eine vollständig eigene GUI mit "
+"Kontrollelementen. Zu Unterscheidungszwecken wird dem Modulnamen eine Nummer "
+"angehängt. "
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4694(para)
 msgid ""
@@ -5113,6 +5217,9 @@ msgid ""
 "only difference: the new instance will inherit all parameter settings from "
 "its parent."
 msgstr ""
+"Selektieren von <quote>Instanz duplizieren</quote> hat einen ähnlichen "
+"Effekt. Der einzige Unterschied ist, das die neue Instanz die Parameterwerte "
+"der Eltern-Instanz erbt"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4699(para)
 msgid ""
@@ -5123,20 +5230,28 @@ msgid ""
 "quote> or <quote>move down</quote> to shift the position of the instance "
 "among its peers."
 msgstr ""
+"Der Typ der darktable Module bestimmt in welcher Reihenfolge sie angewendet "
+"werden. Das ist vorbestimmt.  Deshalb erscheinen alle Instanzen eines Moduls "
+"zur selben Zeit in der Pixelpipe. Sie können jedoch die relative Reihenfolge "
+"der einzelnen Modulinstanzen beeinflussen indem Sie mit "
+"<quote>aufwärtsschieben</quote> oder <quote>abwärtsschieben</quote> die "
+"Positionen der Instanzen untereinander verändern. "
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4707(para)
 msgid ""
 "To delete an instance just press <quote>delete</quote> from the drop-down "
 "menu."
 msgstr ""
+"Um eine Instanz zu löschen müssen sie einfach <quote>löschen</quote> aus dem "
+"Aufklappmenue selektieren."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4719(title)
 msgid "Blending"
-msgstr ""
+msgstr "Überblenden"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4722(primary)
 msgid "blending"
-msgstr ""
+msgstr "überblenden"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4729(para)
 msgid ""
@@ -5148,6 +5263,13 @@ msgid ""
 "can be processed with different algorithms, called blending operators or "
 "blend modes."
 msgstr ""
+"Standardmässig nimmt ein Modul seine Eingabe vom vorhergehenden Modul, macht "
+"seine Berechnungen und übergibt seine Ausgabe an das nächste Modul in der "
+"Pixelpipe. Sie können jedoch einen zusätzlichen Schritt aktivieren bei dem "
+"die Ausgabe  eines Moduls mit seiner Eingabe verrechnet wird bevor das "
+"Ergebnis an das nächste Modul weitergeleitet wird. Dieser zusätzliche "
+"Schritt nennt sich Überblenden. Eingabe und Ausgabe können mit verschiedenen "
+"Algorithmen verrechnet werden, die man Überblendmodus nennt."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4738(para)
 msgid ""
@@ -5158,6 +5280,13 @@ msgid ""
 "without effect. An opacity value of 100% delivers the maximum effect of the "
 "module with the blend mode chosen."
 msgstr ""
+"Jeder Überblendmodus wird kontrolliert durch einen Parameter namens "
+"Deckkraft, der Werte zwischen 0% und 100% haben kann und bestimmt, wieviel "
+"jeweils die Eingabe und die Ausgabe zum Endergebnis beitragen. "
+"Typischerweise führt eine Deckkraft von 0% dazu, das das Endergebnis "
+"identisch ist mit dem Eingabe-Bild. Das Modul hat so keinen Effekt. Eine "
+"Deckkraft von 100% liefert den maximalen Effekt des eingestellten "
+"Überblendmodus des Moduls. "
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4746(para)
 msgid ""
@@ -5168,40 +5297,54 @@ msgid ""
 "affected by a module and to what extent. At your choice you may activate a "
 "drawn mask or a parametric mask or a combination of both."
 msgstr ""
+"Die Deckkraft kann dieselbe sein für alle Pixel im Bild. In diesem Fall "
+"wirkt das Überblenden gleichmäßig auf das gesamte Bild. Alternativ können "
+"Sie die Deckkraft variieren zwischen verschiedenen Bereichen eines Bildes "
+"oder zwischen verschiedenen Pixelwerten. Das nennt man eine Maske und das "
+"gibt Ihnen eine feine Kontrolle darüber, welche Teile eines Bildes von einem "
+"Modul beeinflusst werden und in welchem Ausmaß. Sie haben die Wahl zwischen "
+"gezeichneten Masken, parametrischen Masken oder einer Kombination aus beidem."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4767(quote)
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4780(title)
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:5666(quote)
 msgid "blend"
-msgstr ""
+msgstr "Überblenden"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4766(entry)
 msgid ""
 "Modules with blending support exhibit an additional combobox <placeholder-1/"
 "> at the bottom of their GUI."
 msgstr ""
+"Module die überblenden unterstützen zeigen ein zusätzliches Kombinationsfeld "
+"<placeholder-1/> am unteren Ende ihrer GUI."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4782(para)
 msgid ""
 "Blending is activated with this combobox. Depending on the value selected "
 "additional control elements will show up."
 msgstr ""
+"Überblenden wird mit diesem Kombinationsfeld aktiviert. Je nachdem welche "
+"Werte eingestellt sind, können zusätzliche Kontrollelemente erscheinen."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4788(title)
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:22962(para)
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:23074(para)
 msgid "off"
-msgstr ""
+msgstr "aus"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4789(para)
 msgid ""
 "module's output is passed to the next module in pixelpipe without additional "
 "reprocessing. No further controls are displayed."
 msgstr ""
+"Die Ausgabe des Moduls wird ohne Weiteres an das nächste Modul in der "
+"Pixelpipe weitergereicht. Es werden keine weiteren Kontrollelemente "
+"angezeigt. "
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4796(title)
 msgid "uniformily"
-msgstr ""
+msgstr "einheitlich"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4797(para)
 msgid ""
@@ -5210,13 +5353,18 @@ msgid ""
 "value are displayed. The default blend mode is <quote>normal</quote> with an "
 "opacity of 100%."
 msgstr ""
+"Eingabe und Ausgabe des Moduls werden mittels des eingestellten "
+"Überblendmodus und Deckkraftwert miteinander verrechnet - für alle Pixel "
+"gleich. Es werden zusätzliche Kontrollelemente angezeigt mit denen der "
+"Überblendmodus und die Deckkraft eingestellt werden können. Der standard "
+"Überblendmodus ist <quote>normal</quote> mit einer Deckkraft von 100%."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4805(title)
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:5559(title)
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:6583(emphasis)
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:13079(emphasis)
 msgid "drawn mask"
-msgstr ""
+msgstr "gezeichnete Maske"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4806(para)
 msgid ""
@@ -5229,12 +5377,21 @@ msgid ""
 "Different graphical shapes can be used. See <xref linkend=\"drawn_mask\"/> "
 "for further details."
 msgstr ""
+"Eingabe und Ausgabe des Moduls werden mittels des eingestellten "
+"Überblendmodus und Deckkraftwert miteinander verrechnet. Zusätzliche "
+"Kontrollelemente werden angezeigt um Ihnen das Zeichnen einer Maske zu "
+"erlauben. Wenn keine Maske gezeichnet wird haben alle Pixel die gleiche "
+"Deckkraft. Wenn Sie ein Maskenelement zeichnen, z.B. einen Kreis, dann hat "
+"das Innere des Kreises die maximale Deckkraft, dann kommt eine Übergangszone "
+"oder Grenze in der die Deckkraft stetig abnimmt und das restliche Bild hat "
+"die Deckkraft 0%. Sie können verschiedene geometrische Formen kombinieren. "
+"Siehe <xref linkend=\"drawn_mask\"/> für weitere Details."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4818(title)
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:5665(emphasis)
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:13080(emphasis)
 msgid "parametric mask"
-msgstr ""
+msgstr "parametrische Maske"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4819(para)
 msgid ""
@@ -5244,10 +5401,16 @@ msgid ""
 "called <quote>conditional blending</quote>. See <xref linkend="
 "\"parametric_mask\"/> for further details."
 msgstr ""
+"Eingabe und Ausgabe des Moduls werden mittels des eingestellten "
+"Überblendmodus und Deckkraftwert miteinander verrechnet. Zusätzliche "
+"Kontrollelemente werden angezeigt die Ihnen erlauben, die Deckkraft anhand "
+"von Pixelwerten pro Pixel einzustellen. In früheren darktable Versionen "
+"wurde das <quote>conditional blending</quote> genannt. Siehe <xref linkend="
+"\"parametric_mask\"/> für weitere Details. "
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4828(title)
 msgid "drawn and parametric mask"
-msgstr ""
+msgstr "gezeichnete & parametrische Maske"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4829(para)
 msgid ""
@@ -5255,14 +5418,17 @@ msgid ""
 "both controls. See <xref linkend=\"combined_masks\"/> to learn how to best "
 "use this combination."
 msgstr ""
+"Diese Option kombiniert gezeichnete und parametrischen Masken und zeigt die "
+"Kontrollelemente beider Funktionen an. Siehe <xref linkend=\"combined_masks"
+"\"/> um den besten Nutzen aus dieser Kombination zu ziehen."
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4840(title)
 msgid "Mask combination and inversion"
-msgstr ""
+msgstr "Masken kombinieren und invertieren"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4843(title)
 msgid "invert mask"
-msgstr ""
+msgstr "Masken invertieren"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4844(para)
 msgid ""
@@ -5270,6 +5436,9 @@ msgid ""
 "to invert the mask by switching mask inversion <quote>on</quote> or "
 "<quote>off</quote>."
 msgstr ""
+"Wenn <quote>gezeichnete Maske</quote> selektiert ist zeigt sich ein "
+"zusätzliches Kombinationsfeld mit dem man eine Maske invertieren kann indem "
+"man zwischen <quote>an</quote> und <quote>aus</quote> umschaltet"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:4851(title)
 msgid "combine masks"
@@ -5573,7 +5742,7 @@ msgstr ""
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:5169(title)
 msgid "Drawn mask"
-msgstr ""
+msgstr "Gezeichnete Maske"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:5172(primary)
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:5176(primary)
@@ -5585,7 +5754,7 @@ msgstr ""
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:5177(secondary)
 msgid "drawn masks"
-msgstr ""
+msgstr "gezeichnete Masken"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:5181(primary)
 msgid "local adjustments"
@@ -5930,11 +6099,11 @@ msgstr ""
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:5605(title)
 msgid "Parametric mask"
-msgstr ""
+msgstr "Parametrische Maske"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:5609(secondary)
 msgid "parametric masks"
-msgstr ""
+msgstr "parametrische Masken"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:5613(primary)
 msgid "conditional blending"
@@ -6154,11 +6323,11 @@ msgstr ""
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:5912(title)
 msgid "Combining drawn and parametric masks"
-msgstr ""
+msgstr "Kombinieren von gezeichneten und parametrischen Masken"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:5916(secondary)
 msgid "combined masks"
-msgstr ""
+msgstr "kombinieren von Masken"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:5919(para)
 msgid ""
@@ -7864,7 +8033,7 @@ msgstr ""
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:8754(secondary)
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:8758(primary)
 msgid "tone curve"
-msgstr ""
+msgstr "Farbkurve"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:8020(seealso)
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:8026(seealso)
@@ -8270,12 +8439,12 @@ msgstr ""
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:8535(title)
 msgid "Fill light"
-msgstr ""
+msgstr "Fülllicht"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:8539(secondary)
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:8543(primary)
 msgid "fill light"
-msgstr ""
+msgstr "Fülllicht"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:8556(entry)
 msgid ""
@@ -8424,7 +8593,7 @@ msgstr ""
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:8750(title)
 msgid "Tone curve"
-msgstr ""
+msgstr "Farbkurve"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:8771(entry)
 msgid ""
@@ -9774,7 +9943,7 @@ msgstr ""
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:11099(primary)
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:11574(primary)
 msgid "denoise"
-msgstr ""
+msgstr "Entrauschen"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:10730(primary)
 msgid "clarity"
@@ -9861,11 +10030,11 @@ msgstr ""
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:10899(title)
 msgid "Denoise – profiled"
-msgstr ""
+msgstr "Entrauschen - Profil"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:10903(secondary)
 msgid "denoise – profiled"
-msgstr ""
+msgstr "Entrauschen - Profil"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:10908(secondary)
 msgid "profiled"
@@ -12825,7 +12994,6 @@ msgid "accelerators"
 msgstr ""
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:15509(title)
-#, fuzzy
 msgid "Preferences and settings"
 msgstr "Voreinstellungen"
 
@@ -12836,7 +13004,7 @@ msgstr "Voreinstellungen"
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:16134(primary)
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:16883(primary)
 msgid "preferences and settings"
-msgstr ""
+msgstr "Voreinstellungen"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:15515(para)
 msgid ""
@@ -12854,7 +13022,7 @@ msgstr "Voreinstellungen"
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:15536(title)
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:15540(secondary)
 msgid "GUI options"
-msgstr ""
+msgstr "GUI Optionen"
 
 #: /home/spanns/Downloads/darktable/build/doc/usermanual/po/darktable-usermanual_profiled.xml:15543(para)
 msgid "These options control the look and feel of darktable."
